@@ -44,5 +44,17 @@ db_schema:
     - name: confirmed_email
       admin_ui: {order: 5, width: 200}
       type: bool
+    - name: first_name
+      admin_ui: {order: -1, width: 200}
+      type: string
+    - name: last_name
+      admin_ui: {order: -0.5, width: 200}
+      type: string
+    - name: user_id
+      admin_ui: {order: -2, width: 200}
+      type: number
+    - name: is_filled
+      admin_ui: {width: 200, order: 6}
+      type: bool
     title: Users
 renamed: true
