@@ -1,0 +1,11 @@
+container: {type: ColumnPanel}
+components:
+- name: spacer_1
+  properties: {height: 48.55815124511719}
+  type: Spacer
+  layout_properties: {grid_position: 'YDZKGJ,FOBUEF'}
+- name: label_1
+  properties: {text: STARFIELD INVENTORY SYSTEMS, align: center}
+  type: Label
+  layout_properties: {grid_position: 'WKXYEJ,SKNVWR'}
+is_package: true
