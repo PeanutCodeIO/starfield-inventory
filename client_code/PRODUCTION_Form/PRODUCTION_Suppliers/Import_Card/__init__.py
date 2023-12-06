@@ -25,10 +25,10 @@ class Import_Card(Import_CardTemplate):
     """This method is called when a new file is loaded into this FileLoader"""
     file = self.file_loader_upload_template.file
     if file:
+        anvil.alert(content="Allow a moment while your data is being updated", title="File Uploaded")
         response = anvil.server.call('upload_csv_and_create_suppliers', file)
-
         self.file_loader_upload_template.clear()
-        anvil.alert(content="Allow some time while the data is updated", title="File Uploaded")
+        
 
     supplier_cache.refresh_all_suppliers()
 
