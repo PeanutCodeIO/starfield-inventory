@@ -28,6 +28,7 @@ class Import_Card(Import_CardTemplate):
         anvil.alert(content="Allow a moment while your data is being updated", title="File Uploaded")
         response = anvil.server.call('upload_csv_and_create_suppliers', file)
         self.file_loader_upload_template.clear()
+        anvil.alert(content="Your supplier list has been updated", title="Data Updated")
         
 
     supplier_cache.refresh_all_suppliers()

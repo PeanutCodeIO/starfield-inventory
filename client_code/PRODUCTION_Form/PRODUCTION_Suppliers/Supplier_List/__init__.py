@@ -38,4 +38,7 @@ class Supplier_List(Supplier_ListTemplate):
 
   def reset_button_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.search_text_box.text = ""
+    suppliers = supplier_cache.get_all_suppliers()
+    self.repeating_panel_suppliers.items = suppliers
     pass
