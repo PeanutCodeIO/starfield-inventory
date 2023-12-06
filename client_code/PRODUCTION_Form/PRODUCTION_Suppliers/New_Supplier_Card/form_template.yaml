@@ -1,0 +1,227 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"WNIHUH":45,"JALWNI":15,"ZRUEDM":15,"KNSIZA":45,"WQOKDJ":15,"IMAYGO":45,"QJRTMI":15,"SVZLHV":45,"KJBCNH":15,"XVSVKX":45,"QUXJKM":15,"QZXQLE":45,"TUNWEX":15,"ASXLXT":45}',
+    spacing_below: small, background: ''}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'OJVSCM,IVPFKE'}
+  components:
+  - name: label_1
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: 'theme:Primary',
+      visible: true, text: NEW SUPPLIER, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'UCHBPP,WNIHUH'}
+  - name: button_close
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: CLOSE, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:times'}
+    type: Button
+    layout_properties: {grid_position: 'UCHBPP,JALWNI'}
+    event_bindings: {click: button_close_click}
+  - name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'SBKINL,VYISPW'}
+  - name: label_2
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Business Name:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'VICREQ,KJBCNH'}
+  - name: text_box_business_name
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'VICREQ,XVSVKX'}
+  - name: label_3
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'ABN:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'JRTZQE,QUXJKM'}
+  - name: text_box_abn
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'JRTZQE,QZXQLE'}
+  - name: label_4
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Business Address:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'CXAIGS,ZRUEDM'}
+  - name: text_area_address
+    properties: {role: null, align: left, height: '', tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    type: TextArea
+    layout_properties: {grid_position: 'CXAIGS,KNSIZA'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'OFMKRM,GMMIAO'}
+  - name: label_5
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Contact:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'JSJKMP,DRNLWC'}
+  - name: text_box_contact
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'JSJKMP,GNMUHN'}
+  - name: label_6
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Phone / Mobile:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'JSJKMP,ZJELLM'}
+  - name: text_box_phone
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'JSJKMP,CYOYAP'}
+  - name: label_7
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'IJNVLC,ISVXUI'}
+  - name: text_box_email
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'IJNVLC,BDPMBO'}
+  - name: label_8
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Website:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'IJNVLC,PYTLHM'}
+  - name: text_box_website
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'IJNVLC,CZNIJM'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'MZZJZP,DBOLXN'}
+  - name: label_15
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Customer Reference ID:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'XOXEYM,TUNWEX'}
+  - name: text_box_customer_ref
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'XOXEYM,ASXLXT'}
+  - name: spacer_7
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'QOSVPQ,VOECZN'}
+  - name: label_9
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Payment Terms:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'BAKLYC,XRHKAW'}
+  - name: text_box_payment_terms
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'BAKLYC,YAEUEN'}
+  - name: label_13
+    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Fullfillment Time:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'BAKLYC,ETWBHY'}
+  - name: text_box_fullfillment
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'BAKLYC,JWAHOR'}
+  - name: spacer_6
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WVPQCM,ZFVBJA'}
+  - name: label_10
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Bank Account Name:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'OSJETK,WQOKDJ'}
+  - name: text_box_bank_name
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'OSJETK,IMAYGO'}
+  - name: label_11
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'BSB:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'VWUHSX,VBWTYN'}
+  - name: text_box_bsb
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'VWUHSX,LDLYDH'}
+  - name: label_12
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'ACCOUNT:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'VWUHSX,PAGMRU'}
+  - name: text_box_account
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'VWUHSX,MDFTCG'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZEWEHA,AJXQVY'}
+  - name: label_14
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Notes:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'HQDEFR,QJRTMI'}
+  - name: text_area_notes
+    properties: {role: null, align: left, height: '', tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    type: TextArea
+    layout_properties: {grid_position: 'HQDEFR,SVZLHV'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'FTIVEU,THUIIA'}
+  - name: button_save
+    properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'KTVDDO,HDEEBD'}
+    event_bindings: {click: button_save_click}
+is_package: true

@@ -1,17 +1,31 @@
 container: {type: ColumnPanel}
 components:
 - name: spacer_1
-  properties: {height: 48.55815124511719}
+  properties: {height: 130.08071899414062}
   type: Spacer
   layout_properties: {grid_position: 'YDZKGJ,FOBUEF'}
 - name: label_1
-  properties: {text: STARFIELD INVENTORY SYSTEMS, align: center, role: headline}
+  properties: {text: STARFIELD, align: center, role: display, spacing_below: none}
   type: Label
   layout_properties: {grid_position: 'WKXYEJ,SKNVWR'}
+- name: label_3
+  properties: {text: INVENTORY LIGHT SYSTEMS, align: center, role: title, spacing_above: none,
+    spacing_below: none}
+  type: Label
+  layout_properties: {grid_position: 'FMRQDP,VDQQGI'}
+- name: label_4
+  properties: {align: center, text: 'Earth Version 1.0 ', italic: true, spacing_above: none}
+  type: Label
+  layout_properties: {grid_position: 'OYHFPY,WVHVOP'}
+- name: spacer_2
+  properties: {height: 34.268218994140625}
+  type: Spacer
+  layout_properties: {grid_position: 'VIUHWT,CKBBSK'}
 - name: login_button
   properties: {text: SIGN IN, role: filled-button}
   type: Button
   layout_properties: {grid_position: 'IZNCMN,XJQKPT'}
+  event_bindings: {click: login_button_click}
 - name: sign_up_link
   properties: {align: center}
   type: Link
@@ -21,4 +35,5 @@ components:
     properties: {align: center, text: 'Not registered? Click here to sign up'}
     type: Label
     layout_properties: {grid_position: 'WTNIGV,HAYQSX'}
+  event_bindings: {click: sign_up_link_click}
 is_package: true

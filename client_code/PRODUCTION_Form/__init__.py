@@ -1,21 +1,32 @@
-from ._anvil_designer import LANDING_FormTemplate
+from ._anvil_designer import PRODUCTION_FormTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-import anvil.users
+from .PRODUCTION_Suppliers.Import_Card import Import_Card
 
-class LANDING_Form(LANDING_FormTemplate):
+class PRODUCTION_Form(PRODUCTION_FormTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
 
-  def production_link_click(self, **event_args):
+
+  #___ Perform Side Bar Link Functions
+  def suppliers_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('PRODUCTION_Form')
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers')
     pass
+
+  def exit_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('LANDING_Form')
+    pass
+
+
+    

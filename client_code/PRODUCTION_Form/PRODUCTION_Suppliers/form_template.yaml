@@ -1,0 +1,47 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: import_button
+    properties: {text: Import, role: filled-button, icon: 'fa:file'}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: import_button_click}
+- name: label_1
+  properties: {text: SUPPLIERS, foreground: 'theme:Primary'}
+  type: Label
+  layout_properties: {slot: title}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: new_supplier_button
+    properties: {text: NEW SUPPLIER, role: filled-button, icon: 'fa:plus', align: left}
+    type: Button
+    layout_properties: {grid_position: 'PSYACZ,TVPKCV'}
+    event_bindings: {click: new_supplier_button_click}
+  - name: suppliers_list_link
+    properties: {text: SUPPLIER LIST}
+    type: Link
+    layout_properties: {grid_position: 'HRZSPY,GKNRTD'}
+    event_bindings: {click: suppliers_list_link_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'JYHKQS,MBJTGM'}
+  - name: exit_link
+    properties: {text: EXIT}
+    type: Link
+    layout_properties: {grid_position: 'GPCYSN,DDFGXZ'}
+    event_bindings: {click: exit_link_click}

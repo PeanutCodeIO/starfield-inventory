@@ -1,0 +1,25 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: supplier_link
+  properties: {}
+  type: Link
+  layout_properties: {grid_position: 'PVCXEY,TZDKLN'}
+  event_bindings: {click: supplier_link_click}
+  components:
+  - name: business_name_label
+    properties: {text: Business Name}
+    type: Label
+    layout_properties: {grid_position: 'ASHJRK,IRGPOK'}
+  - name: contact_label
+    properties: {text: Contact}
+    type: Label
+    layout_properties: {grid_position: 'ASHJRK,XHGUUI'}
+  - name: phone_label
+    properties: {text: Phone}
+    type: Label
+    layout_properties: {grid_position: 'ASHJRK,VGVEVT'}
+  - name: email_label
+    properties: {text: Email}
+    type: Label
+    layout_properties: {grid_position: 'ASHJRK,UMDKYV'}

@@ -1,21 +1,25 @@
-from ._anvil_designer import LANDING_FormTemplate
+from ._anvil_designer import Suppliers_PanelTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
+import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-import anvil.users
 
-class LANDING_Form(LANDING_FormTemplate):
+class Suppliers_Panel(Suppliers_PanelTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    self.business_name_label.text = self.item['business_name']
+    self.contact_label.text = self.item['contact']
+    self.phone_label.text = self.item['phone']
+    self.email_label.text = self.item['email']
+    
 
-  def production_link_click(self, **event_args):
+  def supplier_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('PRODUCTION_Form')
     pass

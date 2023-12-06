@@ -4,8 +4,8 @@ services:
   client_config: {}
   server_config: {}
 - source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
-    confirm_email: true, use_google: true}
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
+    confirm_email: true, use_google: true, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
@@ -18,7 +18,7 @@ package_name: Starfield_Inventory
 allow_embedding: false
 name: Starfield Inventory
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Star Field Inventory Systems, description: 'An app to manage inventory,
+metadata: {title: Starfield Inventory Systems, description: 'An app to manage inventory,
     manufacturing and sales'}
 startup_form: null
 db_schema:
@@ -53,8 +53,64 @@ db_schema:
     - name: user_id
       admin_ui: {order: -2, width: 200}
       type: number
-    - name: is_filled
-      admin_ui: {width: 200, order: 6}
+    - name: name_filled
+      admin_ui: {order: -1.5, width: 200}
       type: bool
+    - name: signed_up
+      admin_ui: {order: 10, width: 200}
+      type: datetime
+    - name: remembered_logins
+      admin_ui: {order: 11, width: 200}
+      type: simpleObject
     title: Users
+  suppliers:
+    client: none
+    server: full
+    columns:
+    - name: supplier_id
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: business_name
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: abn
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: address
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: contact
+      admin_ui: {width: 200, order: 4}
+      type: string
+    - name: phone
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: email
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: website
+      admin_ui: {width: 200, order: 7}
+      type: string
+    - name: payment_terms
+      admin_ui: {width: 200, order: 8}
+      type: string
+    - name: bank_name
+      admin_ui: {width: 200, order: 9}
+      type: string
+    - name: bsb
+      admin_ui: {width: 200, order: 10}
+      type: string
+    - name: account
+      admin_ui: {width: 200, order: 11}
+      type: string
+    - name: fullfillment
+      admin_ui: {width: 200, order: 12}
+      type: string
+    - name: notes
+      admin_ui: {width: 200, order: 13}
+      type: string
+    - name: customer_ref
+      admin_ui: {width: 200, order: 14}
+      type: string
+    title: Suppliers
 renamed: true
