@@ -22,4 +22,6 @@ class Suppliers_Panel(Suppliers_PanelTemplate):
 
   def supplier_link_click(self, **event_args):
     """This method is called when the link is clicked"""
+    supplier_id = self.item['supplier_id']
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module', supplier_id)
     pass

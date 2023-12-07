@@ -200,7 +200,7 @@ components:
     layout_properties: {grid_position: 'ZEWEHA,AJXQVY'}
   - name: label_14
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Notes:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Keywords / Tags:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     type: Label
