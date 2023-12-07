@@ -11,3 +11,33 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: supplier_details_link
+    properties: {text: SUPPLIER DETAILS}
+    type: Link
+    layout_properties: {grid_position: 'ARDXVN,AGZINX'}
+  - name: purchase_orders_link
+    properties: {text: PURCHASE ORDERS}
+    type: Link
+    layout_properties: {grid_position: 'BFTNZZ,LXTTYU'}
+  - name: components_link
+    properties: {text: COMPONENTS}
+    type: Link
+    layout_properties: {grid_position: 'VNSUXU,WDSGXX'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'JHKVBG,YGIURI'}
+  - name: exit_link
+    properties: {text: EXIT}
+    type: Link
+    layout_properties: {grid_position: 'USADDT,HLONGH'}
+    event_bindings: {click: exit_link_click}
+- name: supplier_label
+  properties: {text: Enter Supplier, foreground: 'theme:Primary'}
+  type: Label
+  layout_properties: {slot: title}
