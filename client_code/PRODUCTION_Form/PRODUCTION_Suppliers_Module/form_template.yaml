@@ -28,6 +28,7 @@ components:
     properties: {text: COMPONENTS}
     type: Link
     layout_properties: {grid_position: 'VNSUXU,WDSGXX'}
+    event_bindings: {click: components_link_click}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer

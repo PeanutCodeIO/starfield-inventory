@@ -1,0 +1,159 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"SOUEMJ":50,"XMWFLE":20,"ZOAEIC":40,"HYPVYK":20,"ZRBXWU":40,"EFQZHQ":12,"FJDOBO":25,"UEWUUF":20,"OUVEJY":40,"SKYZCQ":32,"GZBHGB":23,"PLJJCV":30,"HMLHWT":22,"QKETPJ":20,"SOWFMK":20,"OYITJI":19,"KKJAWG":19}',
+    spacing_below: small, background: ''}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'BUKTNK,GZOGPR'}
+  components:
+  - name: label_1
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: 'theme:Primary',
+      visible: true, text: NEW COMPONENT, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'IQHRIB,SOUEMJ'}
+  - name: close_button
+    properties: {text: CLOSE, icon: 'fa:times', align: right}
+    type: Button
+    layout_properties: {grid_position: 'IQHRIB,SWCMVG'}
+    event_bindings: {click: close_button_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZFPEIS,PYAQGC'}
+  - name: label_3
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Supplier Item:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'KXPMHU,XMWFLE'}
+  - name: text_box_component
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'KXPMHU,ZOAEIC'}
+  - name: label_4
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Supplier Part Number:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'XIERIL,HYPVYK'}
+  - name: text_box_sku
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'XIERIL,ZRBXWU'}
+  - name: label_7
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Tags / Keywords, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'YNXWPV,UEWUUF'}
+  - name: text_area_description
+    properties: {role: null, align: left, height: '', tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    type: TextArea
+    layout_properties: {grid_position: 'YNXWPV,OUVEJY'}
+  - name: spacer_7
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'AHJLHE,QOSJGV'}
+  - name: label_6
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Item Ordered By:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'OLHHHS,SKYZCQ'}
+  - name: drop_down_primary_unit
+    properties:
+      role: null
+      align: full
+      tooltip: ''
+      placeholder: Measurement
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: true
+    type: DropDown
+    layout_properties: {grid_position: 'OLHHHS,GZBHGB'}
+  - name: label_2
+    properties: {text: 'Item Cost:'}
+    type: Label
+    layout_properties: {grid_position: 'OLHHHS,QKETPJ'}
+  - name: text_box_1
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'OLHHHS,SOWFMK'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'DQLPFE,GVBASV'}
+  - name: label_15
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Order Minimum:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'HPDDQH,PLJJCV'}
+  - name: text_box_order_minimum
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'HPDDQH,HMLHWT'}
+  - name: label_5
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Minimum Order Cost:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'HPDDQH,OYITJI'}
+  - name: outlined_1
+    properties: {role: outlined, enabled: false, foreground: 'theme:Primary'}
+    type: TextBox
+    layout_properties: {grid_position: 'HPDDQH,KKJAWG'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'LCJLWT,XRHZXM'}
+  - name: label_12
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Low Stock Alert:', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'FYHUYJ,EFQZHQ'}
+  - name: text_box_stock_alert
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'FYHUYJ,FJDOBO'}
+  - name: spacer_6
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'TPUGCQ,UYROKL'}
+  - name: button_save
+    properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'CZFHVU,ROLFIQ'}
+    event_bindings: {click: button_save_click}
+is_package: true

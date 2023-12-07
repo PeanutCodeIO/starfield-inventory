@@ -27,4 +27,9 @@ class PRODUCTION_Suppliers_Module(PRODUCTION_Suppliers_ModuleTemplate):
     """This method is called when the link is clicked"""
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers')
     pass
+
+  def components_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
+    pass
     

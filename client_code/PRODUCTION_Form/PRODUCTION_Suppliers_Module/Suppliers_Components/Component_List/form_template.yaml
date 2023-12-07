@@ -1,0 +1,16 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: null}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'HXUGYH,FLOQEO'}
+  components:
+  - name: label_1
+    properties: {text: COMPONENT LIST, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'JQGDPW,SZULUO'}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'VAQKRI,JWALME'}
+is_package: true
