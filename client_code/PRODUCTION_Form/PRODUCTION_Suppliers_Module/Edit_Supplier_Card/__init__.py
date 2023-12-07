@@ -78,12 +78,11 @@ class Edit_Supplier_Card(Edit_Supplier_CardTemplate):
       anvil.alert(f"Please enter all required fields: {', '.join(empty_fields)}")
     else:
       all_data = {k: v.text for k, v in {**text_boxes, **optional_text_boxes}.items()}
-      anvil.server.call('save_new_supplier', all_data)
-      anvil.alert("Supplier saved")
+      anvil.server.call('update_supplier_details', self.supplier_id, **all_data)
+      anvil.alert("Supplier updated")
       # Clear all text boxes
-      for text_box in {**text_boxes, **optional_text_boxes}.values():
-        text_box.text = ""
+     # for text_box in {**text_boxes, **optional_text_boxes}.values():
+        #text_box.text = ""
       supplier_cache.refresh_all_suppliers()
-      open_form("PRODUCTION_Form.PRODUCTION_Suppliers")
-
+      
     pass

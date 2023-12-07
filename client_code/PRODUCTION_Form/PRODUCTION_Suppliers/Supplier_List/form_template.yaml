@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: null, col_widths: '{"INIYAR":50,"ZTRMAC":10}'}
+  properties: {role: null, col_widths: '{"INIYAR":50,"ZTRMAC":10,"HQOAXP":20,"ULIOAV":10,"LYMXOF":10,"QVOSML":20}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'FJHXOU,RFIREM'}
   components:

@@ -23,7 +23,11 @@ def save_new_supplier(all_data):
     id = auto_increment_supplier_id()
     app_tables.suppliers.add_row(supplier_id=id, **all_data)
 
-
+#____ Edit a supplier
+@anvil.server.callable
+def update_supplier_details(supplier_id, **data):
+  supplier = app_tables.suppliers.get(supplier_id=supplier_id).update(**data)
+  return None
 
 
 
