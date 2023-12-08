@@ -2,7 +2,7 @@ container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
   properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"SOUEMJ":50,"XMWFLE":20,"ZOAEIC":40,"HYPVYK":20,"ZRBXWU":40,"EFQZHQ":12,"FJDOBO":25,"UEWUUF":20,"OUVEJY":40,"SKYZCQ":32,"GZBHGB":23,"PLJJCV":30,"HMLHWT":22,"QKETPJ":20,"SOWFMK":20,"OYITJI":19,"KKJAWG":19}',
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"SOUEMJ":50,"XMWFLE":20,"ZOAEIC":40,"HYPVYK":20,"ZRBXWU":40,"EFQZHQ":12,"FJDOBO":25,"UEWUUF":20,"OUVEJY":40,"SKYZCQ":12,"GZBHGB":23,"PLJJCV":30,"HMLHWT":22,"OYITJI":13,"KKJAWG":25,"ZLGPTV":28,"EQJBPP":22}',
     spacing_below: small, background: ''}
   type: ColumnPanel
   layout_properties: {grid_position: 'BUKTNK,GZOGPR'}
@@ -63,9 +63,18 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'AHJLHE,QOSJGV'}
+  - name: label_2
+    properties: {text: 'Item Cost:'}
+    type: Label
+    layout_properties: {grid_position: 'OLHHHS,ZLGPTV'}
+  - name: text_box_item_cost
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'OLHHHS,EQJBPP'}
+    event_bindings: {change: text_box_item_cost_change}
   - name: label_6
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Item Ordered By:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Ordered By:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     type: Label
@@ -92,21 +101,13 @@ components:
       include_placeholder: true
     type: DropDown
     layout_properties: {grid_position: 'OLHHHS,GZBHGB'}
-  - name: label_2
-    properties: {text: 'Item Cost:'}
-    type: Label
-    layout_properties: {grid_position: 'OLHHHS,QKETPJ'}
-  - name: text_box_1
-    properties: {}
-    type: TextBox
-    layout_properties: {grid_position: 'OLHHHS,SOWFMK'}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'DQLPFE,GVBASV'}
   - name: label_15
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Order Minimum:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Minimum Order:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     type: Label
@@ -118,14 +119,15 @@ components:
       background: '', bold: false, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'HPDDQH,HMLHWT'}
+    event_bindings: {change: text_box_order_minimum_change}
   - name: label_5
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Minimum Order Cost:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'Minimum Order Cost:', font_size: null, font: '', spacing_above: none,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'HPDDQH,OYITJI'}
-  - name: outlined_1
+  - name: minimum_order_cost
     properties: {role: outlined, enabled: false, foreground: 'theme:Primary'}
     type: TextBox
     layout_properties: {grid_position: 'HPDDQH,KKJAWG'}

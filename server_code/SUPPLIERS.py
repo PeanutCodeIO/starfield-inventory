@@ -29,11 +29,6 @@ def update_supplier_details(supplier_id, **data):
   supplier = app_tables.suppliers.get(supplier_id=supplier_id).update(**data)
   return None
 
-
-
-
-
-
 #____ Export CSV File
 @anvil.server.callable
 def create_suppliers_import_template():

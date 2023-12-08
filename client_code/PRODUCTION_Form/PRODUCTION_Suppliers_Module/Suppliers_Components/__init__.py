@@ -24,9 +24,7 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
 
   def add_cmpt_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    cmpt = New_Component(self.supplier_id)
-    self.content_panel.clear()
-    self.content_panel.add_component(cmpt)
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.New_Component', self.supplier_id)
     pass
 
   def import_button_click(self, **event_args):

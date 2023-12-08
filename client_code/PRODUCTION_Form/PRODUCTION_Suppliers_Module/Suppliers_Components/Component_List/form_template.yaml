@@ -1,4 +1,6 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"GBNBRG":50,"WGCFAL":10}'}
 components:
 - name: outlined_card_1
   properties: {role: null}
@@ -13,4 +15,16 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'VAQKRI,JWALME'}
+- name: search_text_box
+  properties: {role: outlined, placeholder: 'Search component, keywords or tags'}
+  type: TextBox
+  layout_properties: {grid_position: 'MRGQXT,GBNBRG'}
+- name: reset_button
+  properties: {text: RESET, role: outlined-button}
+  type: Button
+  layout_properties: {grid_position: 'MRGQXT,WGCFAL'}
+- name: component_repeating_panel
+  properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Component_List.ItemTemplate1}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'ZSBLDH,OWNGMN'}
 is_package: true
