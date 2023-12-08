@@ -34,7 +34,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'VICREQ,KJBCNH'}
   - name: text_box_business_name
-    properties: {role: null, align: right, hide_text: false, tooltip: '', placeholder: '',
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
       background: '', bold: false, underline: false}
@@ -217,7 +217,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FTIVEU,THUIIA'}
   - name: button_save
-    properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+    properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}

@@ -13,7 +13,7 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: import_button
-    properties: {text: Import, role: filled-button, icon: 'fa:file'}
+    properties: {text: Import, role: outlined-button, icon: 'fa:file'}
     type: Button
     layout_properties: {}
     event_bindings: {click: import_button_click}
