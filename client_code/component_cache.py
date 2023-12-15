@@ -29,7 +29,7 @@ def get_component_data(supplier_id, cmpt_id):
     __supplier_components = anvil.server.call('get_supplier_components', supplier_id)
 
   for component in __supplier_components:
-    if component['sku'] == cmpt_id:
+    if component['component_id'] == cmpt_id:
       return component
       
   return None

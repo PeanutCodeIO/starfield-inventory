@@ -152,7 +152,7 @@ components:
     layout_properties: {grid_position: 'TPUGCQ,UYROKL'}
   - name: button_save
     properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
+      foreground: '', visible: true, text: UPDATE, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     type: Button
