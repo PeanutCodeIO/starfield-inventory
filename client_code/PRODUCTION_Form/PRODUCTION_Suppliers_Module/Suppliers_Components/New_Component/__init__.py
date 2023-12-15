@@ -52,16 +52,16 @@ class New_Component(New_ComponentTemplate):
   def text_box_item_cost_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     try:
-        cost = float(self.text_box_item_cost.text)
-        minimum_order = float(self.text_box_order_minimum.text)
-        self.minimum_order_cost.text = str(cost * minimum_order)
+      cost = float(self.text_box_item_cost.text)
+      minimum_order = float(self.text_box_order_minimum.text)
+      self.minimum_order_cost.text = str(cost * minimum_order)
     except ValueError:
-        # Handle cases where the input cannot be converted to a float
-        self.minimum_order_cost.text = ""
-        pass
+      # Handle cases where the input cannot be converted to a float
+      self.minimum_order_cost.text = ""
+      pass
     except ZeroDivisionError:
-        # Handle division by zero error
-        pass
+      # Handle division by zero error
+      pass
 
   def text_box_order_minimum_change(self, **event_args):
       """This method is called when the text in this text box is edited"""
@@ -110,12 +110,6 @@ class New_Component(New_ComponentTemplate):
     component_cache.refresh_supplier_components()
 
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
-    pass
-
-  def text_box_item_cost_change(self, **event_args):
-    """This method is called when the text in this text box is edited"""
-
-    
     pass
 
   

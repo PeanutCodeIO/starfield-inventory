@@ -10,6 +10,7 @@ from anvil.tables import app_tables
 from .Import_Card import Import_Card
 from .Component_List import Component_List
 from .New_Component import New_Component
+from .... import component_cache
 
 class Suppliers_Components(Suppliers_ComponentsTemplate):
   def __init__(self, supplier_id = None, **properties):
@@ -29,7 +30,7 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
 
   def import_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    cmpt = Import_Card()
+    cmpt = Import_Card(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
     pass
@@ -37,11 +38,12 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
   def exit_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module', self.supplier_id)
+    component_cache.refresh_supplier_components()
     pass
 
   def cmpt_list_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    cmpt = Component_List()
+    cmpt = Component_List(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
     pass

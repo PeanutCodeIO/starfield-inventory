@@ -6,6 +6,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import io
+import csv
 
 #____ Auto Increment New Component 
 def auto_increment_component_id():
@@ -74,4 +76,78 @@ def edit_new_component(supplier_id, component_data):
 @anvil.server.callable
 def get_supplier_components(supplier_id):
   return app_tables.components.search(supplier_id=supplier_id)
+
+
+
+#======== CREATE IMPORT TEMPLATE
+
+@anvil.server.callable
+def create_component_import_template(supplier_id):
+  headers = ["Component", "Part Number", "Description", "Cost", "Unit Measurement", "Order Minimum", "Low Stock Alert"]
+  supplier_name = app_tables.suppliers.get(supplier_id=supplier_id)
+  business_name = supplier_name['business_name']
+
+
   
+  # Use StringIO to create a file-like object in memory
+  output = io.StringIO()
+  writer = csv.writer(output)
+  writer.writerow(headers)
+
+  # Convert the StringIO object to a Media object
+  return anvil.BlobMedia('text/csv', output.getvalue().encode(), name=f'{business_name}.csv')
+
+
+
+#======== UPLOAD AND UPDATE COMPONENTS
+@anvil.server.callable
+def upload_csv_and_create_components(file, supplier_id):
+    # Read the uploaded CSV file
+    file_content = file.get_bytes().decode('utf-8')
+    file_io = io.StringIO(file_content)
+    reader = csv.reader(file_io)
+    
+    # Get the headers from the first row of the CSV
+    headers = next(reader)
+    
+    supplier_link = app_tables.suppliers.get(supplier_id=supplier_id)
+
+    # Create a dictionary to map the CSV headers to the database column names
+    header_map = {
+        "Component": "item_name", 
+        "Part Number": "sku", 
+        "Description": "description", 
+        "Cost": "item_cost",  # number
+        "Unit Measurement": "unit_measurement", 
+        "Order Minimum": "order_minimun",  # number
+        "Low Stock Alert": "low_stock_alert",  # number
+    }
+
+    for row in reader:
+        component_data = {header_map[header]: value for header, value in zip(headers, row)}
+        component_data['supplier_id'] = supplier_id  # Add the supplier link directly
+
+        # Convert the fields expected to be numbers
+        number_fields = ['item_cost', 'order_minimun', 'low_stock_alert']
+        for field in number_fields:
+            try:
+                component_data[field] = float(component_data.get(field, 0))
+            except ValueError:
+                component_data[field] = 0.0  # default value if conversion fails
+        
+        # Calculate minimum_order_cost
+        cost = component_data.get('item_cost', 0)
+        order_minimun = component_data.get('order_minimun', 1)
+        component_data['minimum_order_cost'] = cost * order_minimun if order_minimun else 0
+
+        # Check if a component with the given name already exists
+        existing_component = app_tables.components.get(sku=component_data['sku'])
+        
+        # Add or update the component data in the table
+        if existing_component:
+            existing_component.update(**component_data)
+        else:
+            component_data['component_id'] = auto_increment_component_id()  # Ensure this function exists
+            app_tables.components.add_row(**component_data)
+
+    return "Upload and component creation successful!"

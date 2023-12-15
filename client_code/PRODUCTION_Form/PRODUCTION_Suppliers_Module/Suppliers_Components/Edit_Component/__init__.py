@@ -71,7 +71,10 @@ class Edit_Component(Edit_ComponentTemplate):
   def text_box_item_cost_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     try:
+      component_data = component_cache.get_component_data(self.supplier_id, self.cmpt_id)
+      
       cost = float(self.text_box_item_cost.text)
+      #minimum_order = component_data['order_minimun']
       minimum_order = float(self.text_box_order_minimum.text)
       self.minimum_order_cost.text = str(cost * minimum_order)
     except ValueError:
@@ -103,7 +106,7 @@ class Edit_Component(Edit_ComponentTemplate):
     # Create a dictionary with all the new fields
     component_data = {
         #"supplier_id": self.supplier_id,
-        "component_id" 
+        "component_id": self.cmpt_id, 
         "item_name": self.text_box_component.text,
         "sku": self.text_box_sku.text,
         "description": self.text_area_description.text,
@@ -124,7 +127,7 @@ class Edit_Component(Edit_ComponentTemplate):
 
     # Send the component data to the server for storage
     anvil.server.call('edit_new_component',self.supplier_id,  component_data)
-    anvil.alert("Component data stored successfully.")
+    anvil.alert("Component updated successfully.")
 
     # Refresh component data cache (if applicable)
     component_cache.refresh_supplier_components()
@@ -132,8 +135,3 @@ class Edit_Component(Edit_ComponentTemplate):
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
     pass
 
-  def text_box_item_cost_change(self, **event_args):
-    """This method is called when the text in this text box is edited"""
-
-
-    pass
