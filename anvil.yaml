@@ -113,4 +113,39 @@ db_schema:
       admin_ui: {width: 200, order: 14}
       type: string
     title: Suppliers
+  components:
+    client: none
+    server: full
+    columns:
+    - name: component_id
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: item_name
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: supplier_id
+      admin_ui: {width: 200, order: 0.5}
+      type: number
+    - name: sku
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: description
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: unit_measurement
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: order_minimun
+      admin_ui: {width: 200, order: 6}
+      type: number
+    - name: item_cost
+      admin_ui: {order: 5.5, width: 200}
+      type: number
+    - name: minimum_order_cost
+      admin_ui: {width: 200, order: 7}
+      type: number
+    - name: low_stock_alert
+      admin_ui: {width: 200, order: 8}
+      type: number
+    title: Components
 renamed: true

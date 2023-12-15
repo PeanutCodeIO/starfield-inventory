@@ -30,7 +30,7 @@ class Supplier_List(Supplier_ListTemplate):
                           search_term in supplier['contact'].lower() or
                           search_term in supplier['phone'].lower() or 
                           search_term in supplier['email'].lower() or
-                          search_term in supplier['notes']
+                          search_term in supplier['notes'].lower()
                           ]
   
     self.repeating_panel_suppliers.items = filtered_suppliers

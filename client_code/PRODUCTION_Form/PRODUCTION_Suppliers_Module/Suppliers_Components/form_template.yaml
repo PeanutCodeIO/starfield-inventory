@@ -1,0 +1,47 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: import_button
+    properties: {text: IMPORT, role: outlined-button, icon: 'fa:file'}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: import_button_click}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: add_cmpt_button
+    properties: {text: COMPONENT, role: filled-button, icon: 'fa:plus', align: left}
+    type: Button
+    layout_properties: {grid_position: 'YSQHXZ,IMEFRS'}
+    event_bindings: {click: add_cmpt_button_click}
+  - name: cmpt_list_link
+    properties: {text: COMPONENT LIST}
+    type: Link
+    layout_properties: {grid_position: 'LUQLQB,UEWDDJ'}
+    event_bindings: {click: cmpt_list_link_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'TWQPFE,GGYPLT'}
+  - name: exit_link
+    properties: {text: EXIT}
+    type: Link
+    layout_properties: {grid_position: 'JUYRKW,GQSYZI'}
+    event_bindings: {click: exit_link_click}
+- name: label_1
+  properties: {text: COMPONENTS, foreground: 'theme:Primary'}
+  type: Label
+  layout_properties: {slot: title}

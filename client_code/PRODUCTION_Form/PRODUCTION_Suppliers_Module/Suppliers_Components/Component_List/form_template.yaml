@@ -1,0 +1,74 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"GBNBRG":50,"WGCFAL":10,"WGYQKU":15,"ZCXYRV":10,"OVNSNV":10,"KVEVKQ":10,"UGEHNY":10,"TIUAUF":8,"XZUDXL":5}'}
+components:
+- name: outlined_card_1
+  properties: {role: null}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'HXUGYH,FLOQEO'}
+  components:
+  - name: label_1
+    properties: {text: COMPONENT LIST, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'JQGDPW,SZULUO'}
+- name: search_text_box
+  properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: 'Search
+      component, keywords or tags', border: '', enabled: true, foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+    italic: false, background: 'theme:On Primary', bold: false, underline: false}
+  type: TextBox
+  layout_properties: {grid_position: 'MRGQXT,GBNBRG'}
+  event_bindings: {change: search_text_box_change}
+- name: reset_button
+  properties: {text: RESET, role: outlined-button}
+  type: Button
+  layout_properties: {grid_position: 'MRGQXT,WGCFAL'}
+  event_bindings: {click: reset_button_click}
+- name: label_3
+  properties: {text: Component}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,UGEHNY'}
+- name: label_2
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Component ID, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,WGYQKU'}
+- type: Spacer
+  properties: {height: 32}
+  name: spacer_2
+  layout_properties: {grid_position: 'FHMLLR,XZUDXL'}
+- name: label_4
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Cost, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,ZCXYRV'}
+- name: label_5
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Minimum Order, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,OVNSNV'}
+- type: Label
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Order Cost, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_7
+  layout_properties: {grid_position: 'FHMLLR,TIUAUF'}
+- name: label_6
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Stock Alert, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,KVEVKQ'}
+- name: component_repeating_panel
+  properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Component_List.ItemTemplate1}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'ZSBLDH,OWNGMN'}
+is_package: true

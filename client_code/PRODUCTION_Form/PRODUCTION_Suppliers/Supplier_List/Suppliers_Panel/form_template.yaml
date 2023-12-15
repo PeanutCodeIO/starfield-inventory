@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: supplier_link
-  properties: {}
+  properties: {col_widths: '{"IRGPOK":20,"XHGUUI":10,"VGVEVT":10,"UMDKYV":20}'}
   type: Link
   layout_properties: {grid_position: 'PVCXEY,TZDKLN'}
   event_bindings: {click: supplier_link_click}

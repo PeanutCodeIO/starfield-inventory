@@ -1,7 +1,9 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"KPKRXI":20,"XJQKPT":20,"PSPXAK":20}'}
 components:
 - name: spacer_1
-  properties: {height: 130.08071899414062}
+  properties: {height: 179.98089599609375}
   type: Spacer
   layout_properties: {grid_position: 'YDZKGJ,FOBUEF'}
 - name: label_1
@@ -17,15 +19,19 @@ components:
   properties: {align: center, text: 'Earth Version 1.0 ', italic: true, spacing_above: none}
   type: Label
   layout_properties: {grid_position: 'OYHFPY,WVHVOP'}
-- name: spacer_2
-  properties: {height: 34.268218994140625}
+- name: spacer_3
+  properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'VIUHWT,CKBBSK'}
+  layout_properties: {grid_position: 'IZNCMN,KPKRXI'}
 - name: login_button
-  properties: {text: SIGN IN, role: filled-button}
+  properties: {text: SIGN IN, role: outlined-button, align: full}
   type: Button
   layout_properties: {grid_position: 'IZNCMN,XJQKPT'}
   event_bindings: {click: login_button_click}
+- name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'IZNCMN,PSPXAK'}
 - name: sign_up_link
   properties: {align: center}
   type: Link

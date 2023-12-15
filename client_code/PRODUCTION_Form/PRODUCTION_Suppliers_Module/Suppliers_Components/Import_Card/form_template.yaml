@@ -1,0 +1,50 @@
+container: {type: ColumnPanel}
+components:
+- name: spacer_1
+  properties: {height: 52.36283874511719}
+  type: Spacer
+  layout_properties: {grid_position: 'PUJYIR,FEIHTK'}
+- name: outlined_card_1
+  properties: {role: outlined-card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'IYPNEE,QZCHRJ'}
+  components:
+  - name: label_1
+    properties: {text: DOWNLOAD .CSV TEMPLATE, align: center, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'RMEDXF,QZWSXB'}
+  - name: label_2
+    properties: {text: "An empty csv component template prepared for your data \n\
+        (Open in... Excel or Sheets)\n(Save as... .csv)", align: center, foreground: 'theme:Primary',
+      spacing_above: none, spacing_below: none}
+    type: Label
+    layout_properties: {grid_position: 'EKJWOJ,GNCUEW'}
+  - name: export_button
+    properties: {text: DOWNLOAD, role: outlined-button}
+    type: Button
+    layout_properties: {grid_position: 'ETPXTQ,MCHBYT'}
+    event_bindings: {click: export_button_click}
+- name: spacer_1_copy
+  properties: {height: 52.36283874511719}
+  type: Spacer
+  layout_properties: {grid_position: 'IDFHDP,ULZTQM'}
+- name: outlined_card_2
+  properties: {role: outlined-card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'RJRBCF,NVPNXX'}
+  components:
+  - name: label_1_copy
+    properties: {text: IMPORT .CSV COMPONENTS, align: center, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'WDOADX,QSNMKH'}
+  - name: label_2_copy
+    properties: {text: Import the csv data from the component template csv, align: center,
+      foreground: 'theme:Primary', spacing_above: none, spacing_below: none}
+    type: Label
+    layout_properties: {grid_position: 'TNAVSN,JLROWK'}
+  - name: file_loader_upload_template
+    properties: {role: outlined-button, text: UPLOAD}
+    type: FileLoader
+    layout_properties: {grid_position: 'QEOXIJ,GARCGC'}
+    event_bindings: {change: file_loader_upload_template_change}
+is_package: true
