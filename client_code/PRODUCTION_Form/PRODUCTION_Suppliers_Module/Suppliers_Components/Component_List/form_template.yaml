@@ -11,12 +11,11 @@ components:
     properties: {text: COMPONENT LIST, role: title, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'JQGDPW,SZULUO'}
-- name: spacer_1
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'VAQKRI,JWALME'}
 - name: search_text_box
-  properties: {role: outlined, placeholder: 'Search component, keywords or tags'}
+  properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: 'Search
+      component, keywords or tags', border: '', enabled: true, foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+    italic: false, background: 'theme:On Primary', bold: false, underline: false}
   type: TextBox
   layout_properties: {grid_position: 'MRGQXT,GBNBRG'}
   event_bindings: {change: search_text_box_change}

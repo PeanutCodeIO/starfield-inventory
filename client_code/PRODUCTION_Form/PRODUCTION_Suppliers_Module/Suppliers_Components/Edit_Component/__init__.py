@@ -71,33 +71,33 @@ class Edit_Component(Edit_ComponentTemplate):
   def text_box_item_cost_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     try:
-      component_data = component_cache.get_component_data(self.supplier_id, self.cmpt_id)
-      
-      cost = float(self.text_box_item_cost.text)
-      #minimum_order = component_data['order_minimun']
-      minimum_order = float(self.text_box_order_minimum.text)
-      self.minimum_order_cost.text = str(cost * minimum_order)
+        component_data = component_cache.get_component_data(self.supplier_id, self.cmpt_id)
+        
+        cost = float(self.text_box_item_cost.text)
+        minimum_order = float(self.text_box_order_minimum.text)
+        calculated_cost = cost * minimum_order
+        self.minimum_order_cost.text = "{:.2f}".format(calculated_cost)
     except ValueError:
-      # Handle cases where the input cannot be converted to a float
-      self.minimum_order_cost.text = ""
-      pass
+        # Handle cases where the input cannot be converted to a float
+        self.minimum_order_cost.text = ""
     except ZeroDivisionError:
-      # Handle division by zero error
-      pass
+        # Handle division by zero error
+        pass
 
   def text_box_order_minimum_change(self, **event_args):
-    """This method is called when the text in this text box is edited"""
-    try:
-      cost = float(self.text_box_item_cost.text)
-      minimum_order = float(self.text_box_order_minimum.text)
-      self.minimum_order_cost.text = str(cost * minimum_order)
-    except ValueError:
-      # Handle cases where the input cannot be converted to a float
-      self.minimum_order_cost.text = ""
-      pass
-    except ZeroDivisionError:
-      # Handle division by zero error
-      pass
+      """This method is called when the text in this text box is edited"""
+      try:
+          cost = float(self.text_box_item_cost.text)
+          minimum_order = float(self.text_box_order_minimum.text)
+          calculated_cost = cost * minimum_order
+          self.minimum_order_cost.text = "{:.2f}".format(calculated_cost)
+      except ValueError:
+          # Handle cases where the input cannot be converted to a float
+          self.minimum_order_cost.text = ""
+      except ZeroDivisionError:
+          # Handle division by zero error
+          pass
+
 
 
   def button_save_click(self, **event_args):
