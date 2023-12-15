@@ -24,4 +24,10 @@ def refresh_supplier_components():
 
 def get_component(supplier_id, cmpt_id):
   global __supplier_components
+
+  if not __supplier_components:
+    __supplier_components = anvil.server.call('get_supplier_components', supplier_id)
+
+  for component in __supplier_components:
+    if 
   return 
