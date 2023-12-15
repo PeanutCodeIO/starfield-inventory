@@ -62,6 +62,9 @@ db_schema:
     - name: remembered_logins
       admin_ui: {order: 11, width: 200}
       type: simpleObject
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
     title: Users
   suppliers:
     client: none
