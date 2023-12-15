@@ -18,6 +18,11 @@ class Edit_Component(Edit_ComponentTemplate):
     
 
     # Any code you write here will run before the form opens.
+    component_data = component_cache.get_component_data(supplier_id, cmpt_id)
+
+    
+
+    
 
     #self.text_box_stock_alert.text = "0"
     #self.text_box_item_cost.text = "0"

@@ -22,12 +22,15 @@ def refresh_supplier_components():
   __supplier_components = []
   return __supplier_components
 
-def get_component(supplier_id, cmpt_id):
+def get_component_data(supplier_id, cmpt_id):
   global __supplier_components
 
   if not __supplier_components:
     __supplier_components = anvil.server.call('get_supplier_components', supplier_id)
 
   for component in __supplier_components:
-    if 
-  return 
+    if component['sku'] == cmpt_id:
+      return component
+      
+  return None
+
