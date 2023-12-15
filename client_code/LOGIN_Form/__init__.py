@@ -25,6 +25,7 @@ class LOGIN_Form(LOGIN_FormTemplate):
     if user:
         # Check if the name is filled
         name_filled = anvil.server.call('is_name_filled')
+        print(name_filled)
         
         # Redirect based on whether the name is filled
         if not name_filled:
@@ -42,6 +43,8 @@ class LOGIN_Form(LOGIN_FormTemplate):
 
     register = anvil.users.signup_with_form(allow_cancel=True, remember_by_default=True)
     name_filled = anvil.server.call('is_name_filled')
+    print(name_filled)
+    
     if register:
       if name_filled != True:
         open_form('LOGIN_Form.User_Form')

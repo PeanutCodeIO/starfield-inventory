@@ -10,9 +10,18 @@ import anvil.server
 #____ Check if the user has entered name fields
 @anvil.server.callable
 def is_name_filled():
-  user = anvil.users.get_user()
-  name_filled = user['name_filled']
-  return name_filled 
+    user = anvil.users.get_user()
+    if user is not None:
+        try:
+            name_filled = user['name_filled']
+            return name_filled if name_filled is not None else False
+        except KeyError:
+            # 'name_filled' key does not exist in the user dictionary
+            return False
+    else:
+        # No user is logged in
+        return False
+
 
 #____ Save users details
 @anvil.server.callable
