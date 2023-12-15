@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"GBNBRG":50,"WGCFAL":10}'}
+  properties: {col_widths: '{"GBNBRG":50,"WGCFAL":10,"WGYQKU":10,"YMUZLW":14,"ZCXYRV":12,"OVNSNV":12,"KVEVKQ":12}'}
 components:
 - name: outlined_card_1
   properties: {role: null}
@@ -23,6 +23,26 @@ components:
   properties: {text: RESET, role: outlined-button}
   type: Button
   layout_properties: {grid_position: 'MRGQXT,WGCFAL'}
+- name: label_2
+  properties: {text: 'Component #'}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,WGYQKU'}
+- name: label_3
+  properties: {text: Component}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,YMUZLW'}
+- name: label_4
+  properties: {text: Cost}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,ZCXYRV'}
+- name: label_5
+  properties: {text: Minimum Order}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,OVNSNV'}
+- name: label_6
+  properties: {text: Stock}
+  type: Label
+  layout_properties: {grid_position: 'FHMLLR,KVEVKQ'}
 - name: component_repeating_panel
   properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Component_List.ItemTemplate1}
   type: RepeatingPanel

@@ -18,7 +18,7 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
     self.supplier_id = supplier_id
 
     # Any code you write here will run before the form opens.
-    cmpt = Component_List()
+    cmpt = Component_List(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
 
