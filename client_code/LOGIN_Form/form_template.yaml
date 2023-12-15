@@ -38,7 +38,7 @@ components:
   layout_properties: {grid_position: 'JSDOZG,BKEWER'}
   components:
   - name: label_2
-    properties: {align: center, text: 'Not registered? Click here to sign up'}
+    properties: {align: center, text: Click here to sign up for a new company file}
     type: Label
     layout_properties: {grid_position: 'WTNIGV,HAYQSX'}
   event_bindings: {click: sign_up_link_click}
