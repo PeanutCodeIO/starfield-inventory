@@ -21,4 +21,7 @@ def refresh_supplier_components():
   global __supplier_components 
   __supplier_components = []
   return __supplier_components
-  
+
+def get_component(supplier_id, cmpt_id):
+  global __supplier_components
+  return 

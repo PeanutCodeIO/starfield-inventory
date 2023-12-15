@@ -47,7 +47,28 @@ def save_new_component(component_data):
   )
   
   return None
-  
+#____ EDIT COMPONENT UNDER A SUPPLIER
+
+@anvil.server.callable
+def edit_new_component(supplier_id, component_data):
+
+  components = app_tables.components.get(supplier_id=supplier_id, component_id=component_data['component_id']).update(
+    
+      item_name=component_data['item_name'],
+      sku=component_data['sku'],
+      description=component_data['description'],
+      item_cost=component_data['item_cost'],
+      unit_measurement=component_data['unit_measurement'],
+      order_minimun=component_data['order_minimum'],
+      minimum_order_cost=component_data['minimum_order_cost'],
+      low_stock_alert=component_data['low_stock_alert'],
+  )
+                                                                                                                     
+  return None
+
+
+
+
 #======== GET COMPONENTS BY SUPPLIER
 
 @anvil.server.callable
