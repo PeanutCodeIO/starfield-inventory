@@ -5,14 +5,26 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'MXOFQZ,BGYUJR'}
 - name: outlined_card_1
-  properties: {role: elevated-card}
+  properties: {role: elevated-card, col_widths: '{"SZZMLO":45,"WGJSUN":20,"SMXZTO":15}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'ZIQPYA,TKXGJT'}
   components:
   - name: label_2
-    properties: {}
+    properties: {text: 'COMPANY NAME:', role: title, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'ASGYXY,SZZMLO'}
+  - name: label_3
+    properties: {text: 'COMPANY ID:', role: input-prompt, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'ASGYXY,SMXZTO'}
+  - name: company_id_text_box
+    properties: {role: outlined, enabled: false}
+    type: TextBox
+    layout_properties: {grid_position: 'ASGYXY,WGJSUN'}
+  - name: company_name_text_box
+    properties: {placeholder: Enter Company Name}
+    type: TextBox
+    layout_properties: {grid_position: 'ZHTQBD,LRPOPF'}
   - name: label_1
     properties: {text: 'USER DETAILS:', role: title, foreground: 'theme:Primary'}
     type: Label

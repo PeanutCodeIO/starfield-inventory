@@ -17,6 +17,7 @@ class User_Form(User_FormTemplate):
 
   def save_button_click(self, **event_args):
     """This method is called when the button is clicked"""
+    
     first_name = self.first_name_textbox.text
     last_name = self.last_name_textbox.text
 
@@ -26,7 +27,4 @@ class User_Form(User_FormTemplate):
       anvil.server.call('new_user', first_name, last_name)
       open_form('LANDING_Form')
 
-    
-
-    
     pass

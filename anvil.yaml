@@ -5,7 +5,7 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
-    confirm_email: true, use_google: true, allow_remember_me: true, remember_me_days: 30}
+    confirm_email: false, use_google: true, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
@@ -62,6 +62,9 @@ db_schema:
     - name: remembered_logins
       admin_ui: {order: 11, width: 200}
       type: simpleObject
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
     title: Users
   suppliers:
     client: none
