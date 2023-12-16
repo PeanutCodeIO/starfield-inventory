@@ -6,6 +6,12 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
+#===== CLEAR ALL CACHES FOR LOGOUT
+def clear_all_caches():
+  global __all_suppliers
+  __all_suppliers = []
+
+
 
 # ____ Get all suppliers
 __all_suppliers = [] 

@@ -12,6 +12,12 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - name: log_out_button
+    properties: {text: LOG OUT, role: outlined-button}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: log_out_button_click}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
@@ -22,7 +28,7 @@ components:
     type: Link
     layout_properties: {grid_position: 'DZEHDF,HIXZGU'}
     event_bindings: {click: production_link_click}
-- name: label_1
+- name: company_label
   properties: {text: HERMES FAR EASTERN SHINING, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {slot: title}

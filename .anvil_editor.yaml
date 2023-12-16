@@ -19,6 +19,7 @@ unique_ids:
     PRODUCTION_Form.PRODUCTION_Suppliers_Module.Edit_Supplier_Card: '1701927390384105180250226.29663'
   modules:
     component_cache: '1702040570583199574183013.44876'
+    main_functions_cache: '1702717257594276148533754.8706'
     supplier_cache: '1701857044306977260586414.8499'
   server_modules:
     COMPONENTS: '1702037345630884835397252.103'

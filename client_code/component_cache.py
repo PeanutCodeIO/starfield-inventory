@@ -6,8 +6,13 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-#======== GET COMPONENTS BY SUPPLIER
+#===== CLEAR ALL CACHES FOR LOGOUT
+def clear_all_caches():
+  global __supplier_components
+  __supplier_components = []
+  
 
+#======== GET COMPONENTS BY SUPPLIER
 __supplier_components = []
 def get_supplier_components(supplier_id):
   global __supplier_components 

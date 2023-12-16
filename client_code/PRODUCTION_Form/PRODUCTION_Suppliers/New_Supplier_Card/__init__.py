@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .... import supplier_cache
+from .... import main_functions_cache
 
 class New_Supplier_Card(New_Supplier_CardTemplate):
   def __init__(self, **properties):
@@ -52,6 +53,7 @@ class New_Supplier_Card(New_Supplier_CardTemplate):
     if empty_fields:
         anvil.alert(f"Please enter all required fields: {', '.join(empty_fields)}")
     else:
+        company_id = main_functions_cache.get_company_name()['company_id']
         all_data = {k: v.text for k, v in {**text_boxes, **optional_text_boxes}.items()}
         anvil.server.call('save_new_supplier', all_data)
         anvil.alert("Supplier saved")
