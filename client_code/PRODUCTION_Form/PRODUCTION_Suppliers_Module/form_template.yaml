@@ -16,6 +16,7 @@ components:
     properties: {text: PURCHASE ORDERS, role: outlined-button}
     type: Button
     layout_properties: {}
+    event_bindings: {click: po_button_click}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel

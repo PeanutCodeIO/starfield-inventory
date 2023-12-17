@@ -1,0 +1,16 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: null}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'PQGRJK,RGTRTC'}
+  components:
+  - name: label_1
+    properties: {text: PURCHASE ORDERS, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'NTVCQD,IVZZHV'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WTUFEL,MNSIHQ'}
+is_package: true
