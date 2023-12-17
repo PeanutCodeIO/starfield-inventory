@@ -114,6 +114,7 @@ def create_component_import_template(supplier_id):
 #======== UPLOAD AND UPDATE COMPONENTS
 @anvil.server.callable
 def upload_csv_and_create_components(file, supplier_id):
+    company_id = get_company_id()
     # Read the uploaded CSV file
     file_content = file.get_bytes().decode('utf-8')
     file_io = io.StringIO(file_content)
@@ -122,7 +123,7 @@ def upload_csv_and_create_components(file, supplier_id):
     # Get the headers from the first row of the CSV
     headers = next(reader)
     
-    supplier_link = app_tables.suppliers.get(supplier_id=supplier_id)
+    supplier_link = app_tables.suppliers.get(company_id=company_id,supplier_id=supplier_id)
 
     # Create a dictionary to map the CSV headers to the database column names
     header_map = {
@@ -153,13 +154,13 @@ def upload_csv_and_create_components(file, supplier_id):
         component_data['minimum_order_cost'] = cost * order_minimun if order_minimun else 0
 
         # Check if a component with the given name already exists
-        existing_component = app_tables.components.get(sku=component_data['sku'])
+        existing_component = app_tables.components.get(company_id=company_id,sku=component_data['sku'])
         
         # Add or update the component data in the table
         if existing_component:
             existing_component.update(**component_data)
         else:
             component_data['component_id'] = auto_increment_component_id()  # Ensure this function exists
-            app_tables.components.add_row(**component_data)
+            app_tables.components.add_row(company_id=company_id, **component_data)
 
     return "Upload and component creation successful!"
