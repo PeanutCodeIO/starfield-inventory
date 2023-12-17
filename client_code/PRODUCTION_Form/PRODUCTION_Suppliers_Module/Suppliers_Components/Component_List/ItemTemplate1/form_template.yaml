@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: component_link
-  properties: {wrap_on: never, col_widths: '{}'}
+  properties: {wrap_on: never, col_widths: '{"EDWZIQ":14,"LLAHHE":8,"JSQMQL":3,"XRTIPZ":11,"PMPYHF":8,"YTEKYL":8,"UJZOTO":8}'}
   type: Link
   layout_properties: {grid_position: 'AXBDTH,GRDKVQ'}
   components:

@@ -1,4 +1,4 @@
-from ._anvil_designer import New_Purchase_OrdersTemplate
+from ._anvil_designer import ItemTemplate2Template
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -7,16 +7,15 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .Add_Components import Add_Components
 
-class New_Purchase_Orders(New_Purchase_OrdersTemplate):
-  def __init__(self,supplier_id = None, **properties):
+class ItemTemplate2(ItemTemplate2Template):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.supplier_id = supplier_id
-    
 
     # Any code you write here will run before the form opens.
-    cmpt = Add_Components(self.supplier_id)
-    self.content_panel.clear()
-    self.content_panel.add_component(cmpt)
+    self.cmpt_label.text = self.item['item_name']
+    self.sku_label.text = self.item['sku']
+    self.cost_label.text = "{:.2f}".format(self.item['item_cost'])
+    self.quantity_text_box.text = self.item['order_minimun']
+    

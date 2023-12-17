@@ -16,7 +16,8 @@ class ItemTemplate1(ItemTemplate1Template):
     # Any code you write here will run before the form opens.
     self.cmpt_id_label.text = self.item["sku"]
     self.cmpt_label.text = self.item["item_name"]
-    self.cost_label.text = self.item["item_cost"]
+    self.cost_label.text = "{:.2f}".format(self.item['item_cost'])
+
     self.min_order_label.text = self.item["order_minimun"]
     self.stock_alert_label.text = self.item["low_stock_alert"]
     self.order_cost_label.text = self.item["minimum_order_cost"]
