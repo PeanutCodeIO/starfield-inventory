@@ -9,24 +9,44 @@ import anvil.server
 import io
 import csv
 
-# ____ Get all suppliers
+
+#===== GET COMPANY ID
+def get_company_id():
+  return anvil.users.get_user()['company_id']
+
+#===== AUTO INCREMENT SUPPLIER IDS
+def auto_increment_supplier_id():
+    # Create a new supplier_id
+    company_id = get_company_id()
+    supplier_data = app_tables.suppliers.search(company_id=company_id)
+    if supplier_data:
+        last_supplier_id = max((d['supplier_id'] for d in supplier_data if d['supplier_id'] is not None), default=0)
+        next_supplier_id = last_supplier_id + 1
+    else:
+        next_supplier_id = 1
+
+    return next_supplier_id
+
+
+#===== GET COMAPANYS SUPPLIERS
 @anvil.server.callable
 def get_all_suppliers():
-  return app_tables.suppliers.search()
-
-
+  company_id = get_company_id()
+  return app_tables.suppliers.search(company_id=company_id)
 
 
 #____ Create a new supplier
 @anvil.server.callable
 def save_new_supplier(all_data):
+    company_id = get_company_id()
     id = auto_increment_supplier_id()
-    app_tables.suppliers.add_row(supplier_id=id, **all_data)
+    app_tables.suppliers.add_row(company_id=company_id, supplier_id=id, **all_data)
 
 #____ Edit a supplier
 @anvil.server.callable
 def update_supplier_details(supplier_id, **data):
-  supplier = app_tables.suppliers.get(supplier_id=supplier_id).update(**data)
+  company_id = get_company_id()
+  supplier = app_tables.suppliers.get(company_id=company_id, supplier_id=supplier_id).update(**data)
   return None
 
 #____ Export CSV File
@@ -45,21 +65,12 @@ def create_suppliers_import_template():
 
 
 
-#____ Import CSV File
-def auto_increment_supplier_id():
-    # Create a new supplier_id
-    supplier_data = app_tables.suppliers.search()
-    if supplier_data:
-        last_supplier_id = max((d['supplier_id'] for d in supplier_data if d['supplier_id'] is not None), default=0)
-        next_supplier_id = last_supplier_id + 1
-    else:
-        next_supplier_id = 1
 
-    return next_supplier_id
 
 
 @anvil.server.callable
 def upload_csv_and_create_suppliers(file):
+    company_id = get_company_id()
     # Read the uploaded CSV file
     file_content = file.get_bytes().decode('utf-8')
     file_io = io.StringIO(file_content)
@@ -91,7 +102,7 @@ def upload_csv_and_create_suppliers(file):
         supplier_data = {header_map[header]: value for header, value in zip(headers, row)}
         
         # Search for an existing supplier with the given business name
-        existing_suppliers = app_tables.suppliers.search(business_name=supplier_data["business_name"])
+        existing_suppliers = app_tables.suppliers.search(company_id=company_id, business_name=supplier_data["business_name"])
         
         # Check if any suppliers were found
         existing_supplier = None
@@ -106,6 +117,7 @@ def upload_csv_and_create_suppliers(file):
         else:
             # If no existing supplier, add a new row
             supplier_data["supplier_id"] = auto_increment_supplier_id()
+            supplier_data['company_id'] = company_id
             app_tables.suppliers.add_row(**supplier_data)
 
     return "Upload and supplier creation successful!"
