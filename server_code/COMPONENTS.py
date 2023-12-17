@@ -9,10 +9,18 @@ import anvil.server
 import io
 import csv
 
+#===== GET COMPANY ID
+def get_company_id():
+  user = anvil.users.get_user()
+  return user['company_id']
+
+
 #____ Auto Increment New Component 
 def auto_increment_component_id():
+    company_id = get_company_id()
+  
     # Create a new component_id
-    component_data = app_tables.components.search()
+    component_data = app_tables.components.search(company_id=company_id)
     if component_data:
         last_component_id = max((d['component_id'] for d in component_data if d['component_id'] is not None), default=0)
         next_component_id = last_component_id + 1
@@ -26,7 +34,8 @@ def auto_increment_component_id():
 
 @anvil.server.callable
 def save_new_component(component_data):
-  
+
+  company_id = get_company_id()
   component_id = auto_increment_component_id()
     
   # Replace empty fields with "No Data"
@@ -36,6 +45,7 @@ def save_new_component(component_data):
   
   # Add a new row to the components table
   app_tables.components.add_row(
+     company_id=company_id,
       component_id=component_id,
       supplier_id=component_data['supplier_id'],
       item_name=component_data['item_name'],
@@ -53,8 +63,8 @@ def save_new_component(component_data):
 
 @anvil.server.callable
 def edit_new_component(supplier_id, component_data):
-
-  components = app_tables.components.get(supplier_id=supplier_id, component_id=component_data['component_id']).update(
+  company_id = get_company_id()
+  components = app_tables.components.get(company_id=company_id ,supplier_id=supplier_id, component_id=component_data['component_id']).update(
     
       item_name=component_data['item_name'],
       sku=component_data['sku'],
@@ -75,7 +85,8 @@ def edit_new_component(supplier_id, component_data):
 
 @anvil.server.callable
 def get_supplier_components(supplier_id):
-  return app_tables.components.search(supplier_id=supplier_id)
+  company_id = get_company_id()
+  return app_tables.components.search(company_id=company_id,supplier_id=supplier_id)
 
 
 
@@ -83,8 +94,9 @@ def get_supplier_components(supplier_id):
 
 @anvil.server.callable
 def create_component_import_template(supplier_id):
+  company_id = get_company_id()
   headers = ["Component", "Part Number", "Description", "Cost", "Unit Measurement", "Order Minimum", "Low Stock Alert"]
-  supplier_name = app_tables.suppliers.get(supplier_id=supplier_id)
+  supplier_name = app_tables.suppliers.get(company_id=company_id,supplier_id=supplier_id)
   business_name = supplier_name['business_name']
 
 
