@@ -2,7 +2,7 @@ container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
   properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"SOUEMJ":50,"XMWFLE":20,"ZOAEIC":40,"HYPVYK":20,"ZRBXWU":40,"EFQZHQ":12,"FJDOBO":25,"UEWUUF":20,"OUVEJY":40,"SKYZCQ":12,"GZBHGB":23,"PLJJCV":30,"HMLHWT":22,"OYITJI":13,"KKJAWG":25,"ZLGPTV":28,"EQJBPP":22}',
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"SOUEMJ":50,"XMWFLE":20,"ZOAEIC":40,"HYPVYK":20,"ZRBXWU":40,"EFQZHQ":12,"FJDOBO":25,"UEWUUF":20,"OUVEJY":40,"SKYZCQ":12,"GZBHGB":23,"PLJJCV":30,"HMLHWT":22,"OYITJI":13,"KKJAWG":25,"ZLGPTV":28,"EQJBPP":22,"USEAXR":20,"BDFVFP":40}',
     spacing_below: small, background: ''}
   type: ColumnPanel
   layout_properties: {grid_position: 'BUKTNK,GZOGPR'}
@@ -101,6 +101,15 @@ components:
       include_placeholder: true
     type: DropDown
     layout_properties: {grid_position: 'OLHHHS,GZBHGB'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'EZTVQX,USEAXR'}
+  - name: cost_change_link
+    properties: {text: Record New Cost, icon: 'fa:plus'}
+    type: Link
+    layout_properties: {grid_position: 'EZTVQX,BDFVFP'}
+    event_bindings: {click: cost_change_link_click}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer

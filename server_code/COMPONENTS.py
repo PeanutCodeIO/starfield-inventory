@@ -8,6 +8,7 @@ from anvil.tables import app_tables
 import anvil.server
 import io
 import csv
+from datetime import datetime
 
 #===== GET COMPANY ID
 def get_company_id():
@@ -57,6 +58,9 @@ def save_new_component(component_data):
       minimum_order_cost=component_data['minimum_order_cost'],
       low_stock_alert=component_data['low_stock_alert'],
   )
+
+  current_date = datetime.now().date()
+  component_cost = app_tables.components_cost_history.add_row(company_id=company_id, supplier_id=component_data['supplier_id'], component_id=component_id, item_cost=component_data['item_cost'], date=current_date)
   
   return None
 #____ EDIT COMPONENT UNDER A SUPPLIER
@@ -78,8 +82,29 @@ def edit_new_component(supplier_id, component_data):
                                                                                                                      
   return None
 
+#===== RECORD A COMPONENT PRICE CHANGE
+@anvil.server.callable
+def record_cmpt_cost_change(supplier_id, cmpt_id, new_cost):
+  company_id = get_company_id()
+  current_date = datetime.now().date()
+  cmpt = app_tables.components_cost_history.add_row(company_id=company_id,
+                                                   supplier_id=supplier_id,
+                                                   component_id=cmpt_id,
+                                                   date=current_date,
+                                                   item_cost=new_cost)
 
+  get_cmpt = app_tables.components.get(company_id=company_id,
+                                               supplier_id=supplier_id,
+                                               component_id=cmpt_id,
+                                           )
+  min_order = get_cmpt['order_minimun']
+  new_min_cost = new_cost*min_order 
 
+  update_main_cost = app_tables.components.get(company_id=company_id,
+                                               supplier_id=supplier_id,
+                                               component_id=cmpt_id).update(item_cost=new_cost, minimum_order_cost=new_min_cost)
+  
+  return None
 
 #======== GET COMPONENTS BY SUPPLIER
 
@@ -111,10 +136,11 @@ def create_component_import_template(supplier_id):
 
 
 
-#======== UPLOAD AND UPDATE COMPONENTS
 @anvil.server.callable
 def upload_csv_and_create_components(file, supplier_id):
-    company_id = get_company_id()
+    company_id = get_company_id()  # Function to retrieve the company ID
+    current_date = datetime.now().date()  # Current date for cost history record
+
     # Read the uploaded CSV file
     file_content = file.get_bytes().decode('utf-8')
     file_io = io.StringIO(file_content)
@@ -123,8 +149,6 @@ def upload_csv_and_create_components(file, supplier_id):
     # Get the headers from the first row of the CSV
     headers = next(reader)
     
-    supplier_link = app_tables.suppliers.get(company_id=company_id,supplier_id=supplier_id)
-
     # Create a dictionary to map the CSV headers to the database column names
     header_map = {
         "Component": "item_name", 
@@ -153,14 +177,25 @@ def upload_csv_and_create_components(file, supplier_id):
         order_minimun = component_data.get('order_minimun', 1)
         component_data['minimum_order_cost'] = cost * order_minimun if order_minimun else 0
 
-        # Check if a component with the given name already exists
-        existing_component = app_tables.components.get(company_id=company_id,sku=component_data['sku'])
+        # Check if a component with the given SKU already exists
+        existing_component = app_tables.components.get(company_id=company_id, sku=component_data['sku'])
         
-        # Add or update the component data in the table
         if existing_component:
             existing_component.update(**component_data)
+            component_id = existing_component['component_id']  # Assuming component_id is stored in existing component
         else:
-            component_data['component_id'] = auto_increment_component_id()  # Ensure this function exists
-            app_tables.components.add_row(company_id=company_id, **component_data)
+            component_id = auto_increment_component_id()  # Generate new component ID
+            app_tables.components.add_row(company_id=company_id, component_id=component_id, **component_data)
+
+        # Add a new row to the components_cost_history table
+        app_tables.components_cost_history.add_row(
+            company_id=company_id,
+            supplier_id=supplier_id,
+            component_id=component_id,
+            item_cost=component_data['item_cost'],
+            date=current_date
+        )
+
+        
 
     return "Upload and component creation successful!"
