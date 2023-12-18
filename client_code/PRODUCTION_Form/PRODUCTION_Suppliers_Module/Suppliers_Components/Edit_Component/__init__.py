@@ -29,7 +29,7 @@ class Edit_Component(Edit_ComponentTemplate):
     
     # For numeric fields, set to 0.0 if None or empty
     self.text_box_order_minimum.text = str(component_data['order_minimun']) if component_data['order_minimun'] is not None else "0.0"
-    self.text_box_item_cost.text = str(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
+    self.text_box_item_cost.text = "{:.2f}".format(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
     self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
     self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
 
