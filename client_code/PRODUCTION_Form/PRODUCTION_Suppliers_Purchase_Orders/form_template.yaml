@@ -11,3 +11,25 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+- name: label_1
+  properties: {text: PURCHASE ORDERS, foreground: 'theme:Primary'}
+  type: Label
+  layout_properties: {slot: title}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: new_po_button
+    properties: {text: PURCHASE ORDER, role: filled-button, align: left, icon: 'fa:plus'}
+    type: Button
+    layout_properties: {grid_position: 'CWBOLM,WFURSO'}
+    event_bindings: {click: new_po_button_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'OLDUPY,WGBDPH'}
+  - name: exit_link
+    properties: {text: EXIT}
+    type: Link
+    layout_properties: {grid_position: 'OJNFCX,LWOWIL'}

@@ -1,0 +1,47 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: null, col_widths: '{"NWQKRE":50,"KKOAFR":10,"TQUSWW":15,"WRHIQS":15,"DABKRZ":10,"CPVOFO":8,"TXYJPK":12}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'YYJCGC,SKDGED'}
+  components:
+  - name: label_1
+    properties: {text: COMPONENTS, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'EWFIMH,CIQZHH'}
+  - name: search_text_box
+    properties: {role: outlined, placeholder: Search component or component number,
+      background: 'theme:On Primary'}
+    type: TextBox
+    layout_properties: {grid_position: 'BYXNIM,NWQKRE'}
+    event_bindings: {change: search_text_box}
+  - name: reset_button
+    properties: {text: RESET, role: outlined-button}
+    type: Button
+    layout_properties: {grid_position: 'BYXNIM,KKOAFR'}
+    event_bindings: {click: reset_button_click}
+  - name: label_2
+    properties: {text: Component}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,TQUSWW'}
+  - name: label_3
+    properties: {text: SKU}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,WRHIQS'}
+  - name: label_4
+    properties: {text: Cost}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,DABKRZ'}
+  - name: label_5
+    properties: {text: Quantity, align: center}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,CPVOFO'}
+  - name: label_6
+    properties: {text: Add, align: center}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,TXYJPK'}
+  - name: cmpt_repeating_panel
+    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.New_Purchase_Orders.Add_Components.ItemTemplate2}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'ADHJHU,DRIPFJ'}
+is_package: true

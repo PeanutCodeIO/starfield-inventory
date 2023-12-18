@@ -1,0 +1,25 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"WTIXHV":15,"EUEBGP":15,"OCYFZB":10,"VSMOVZ":8,"DVXXIZ":12}'}
+components:
+- name: cmpt_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'BUHMET,WTIXHV'}
+- name: sku_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'BUHMET,EUEBGP'}
+- name: cost_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'BUHMET,OCYFZB'}
+- name: quantity_text_box
+  properties: {role: outlined, align: center}
+  type: TextBox
+  layout_properties: {grid_position: 'BUHMET,VSMOVZ'}
+- name: add_button
+  properties: {text: ADD, role: filled-button, icon: 'fa:plus'}
+  type: Button
+  layout_properties: {grid_position: 'BUHMET,DVXXIZ'}

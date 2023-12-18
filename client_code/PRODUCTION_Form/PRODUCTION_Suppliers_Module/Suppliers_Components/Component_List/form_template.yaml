@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"GBNBRG":50,"WGCFAL":10,"WGYQKU":15,"ZCXYRV":10,"OVNSNV":10,"KVEVKQ":10,"UGEHNY":10,"TIUAUF":8,"XZUDXL":5}'}
+  properties: {col_widths: '{"GBNBRG":50,"WGCFAL":10,"WGYQKU":10,"ZCXYRV":11,"OVNSNV":10,"KVEVKQ":10,"UGEHNY":15,"TIUAUF":8,"XZUDXL":4}'}
 components:
 - name: outlined_card_1
   properties: {role: null}
