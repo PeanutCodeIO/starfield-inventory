@@ -14,7 +14,7 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: supplier_label
-    properties: {}
+    properties: {visible: true, foreground: 'theme:Primary'}
     type: Label
 - type: ColumnPanel
   properties: {}

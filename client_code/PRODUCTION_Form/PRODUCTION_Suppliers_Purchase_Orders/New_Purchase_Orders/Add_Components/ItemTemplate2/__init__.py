@@ -18,4 +18,11 @@ class ItemTemplate2(ItemTemplate2Template):
     self.sku_label.text = self.item['sku']
     self.cost_label.text = "{:.2f}".format(self.item['item_cost'])
     self.quantity_text_box.text = self.item['order_minimun']
+    self.total_label.text = self.item['minimum_order_cost']
+
+  def quantity_text_box_change(self, **event_args):
+    """This method is called when the text in this text box is edited"""
+
+    
+    pass
     

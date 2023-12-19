@@ -13,7 +13,7 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: po_button
-    properties: {text: PURCHASE ORDERS, role: outlined-button, visible: true, enabled: false}
+    properties: {text: PURCHASE ORDERS, role: outlined-button, visible: true, enabled: true}
     type: Button
     layout_properties: {}
     event_bindings: {click: po_button_click}

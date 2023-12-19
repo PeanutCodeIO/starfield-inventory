@@ -36,6 +36,10 @@ components:
     properties: {text: Quantity, align: center}
     type: Label
     layout_properties: {grid_position: 'IYDOMV,CPVOFO'}
+  - name: label_7
+    properties: {text: Total, align: center}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,DLAXEL'}
   - name: label_6
     properties: {text: Add, align: center}
     type: Label

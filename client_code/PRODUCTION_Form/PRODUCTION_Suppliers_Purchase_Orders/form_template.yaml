@@ -11,6 +11,11 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - name: supplier_label
+    properties: {foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {}
 - name: label_1
   properties: {text: PURCHASE ORDERS, foreground: 'theme:Primary'}
   type: Label
