@@ -22,14 +22,6 @@ components:
     type: Button
     layout_properties: {grid_position: 'UCHBPP,JALWNI'}
     event_bindings: {click: button_close_click}
-  - name: button_save
-    properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: UPDATE, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'UCHBPP,OVXRXV'}
-    event_bindings: {click: button_save_click}
   - name: label_2
     properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Business Name:', font_size: null, font: '', spacing_above: small,
@@ -220,4 +212,12 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'FTIVEU,THUIIA'}
+  - name: button_save
+    properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: UPDATE, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'FTIVEU,MCWXXV'}
+    event_bindings: {click: button_save_click}
 is_package: true
