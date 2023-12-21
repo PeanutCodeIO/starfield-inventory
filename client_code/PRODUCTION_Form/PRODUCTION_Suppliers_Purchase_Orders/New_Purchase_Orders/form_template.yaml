@@ -25,6 +25,18 @@ components:
     properties: {text: COMPONENTS}
     type: Link
     layout_properties: {grid_position: 'ISYVOI,BAXPCP'}
+  - name: confirm_link
+    properties: {text: CART}
+    type: Link
+    layout_properties: {grid_position: 'JARXOJ,QOJFGG'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'RWYBOD,RMWNBS'}
+  - name: discard_link
+    properties: {text: DISCARD & EXIT}
+    type: Link
+    layout_properties: {grid_position: 'UZSEPR,LHXMCP'}
 - type: Label
   properties: {text: NEW PURCHASE ORDER, foreground: 'theme:Primary'}
   name: label_2

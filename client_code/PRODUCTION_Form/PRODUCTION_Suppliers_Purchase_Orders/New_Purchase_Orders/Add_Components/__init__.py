@@ -47,5 +47,14 @@ class Add_Components(Add_ComponentsTemplate):
     self.cmpt_repeating_panel.items = components
     pass
 
+  def load_order_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+
+    # Iterate over each row in the Repeating Panel
+    for row in self.repeating_panel_products.get_components():
+
+    
+    pass
+
 
   

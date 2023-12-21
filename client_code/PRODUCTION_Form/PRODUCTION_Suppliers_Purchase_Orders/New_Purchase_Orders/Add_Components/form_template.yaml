@@ -36,12 +36,22 @@ components:
     properties: {text: Quantity, align: center}
     type: Label
     layout_properties: {grid_position: 'IYDOMV,CPVOFO'}
-  - name: label_6
-    properties: {text: Add, align: center}
-    type: Label
-    layout_properties: {grid_position: 'IYDOMV,TXYJPK'}
   - name: cmpt_repeating_panel
     properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.New_Purchase_Orders.Add_Components.ItemTemplate2}
     type: RepeatingPanel
     layout_properties: {grid_position: 'ADHJHU,DRIPFJ'}
+- name: outlined_card_2
+  properties: {role: null, col_widths: '{"TACSTE":45,"CMIGZZ":15}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'VFFSOM,NMDVGN'}
+  components:
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'KNVEGP,TACSTE'}
+  - name: load_order_button
+    properties: {text: LOAD TO ORDER, role: filled-button, align: right}
+    type: Button
+    layout_properties: {grid_position: 'KNVEGP,CMIGZZ'}
+    event_bindings: {click: load_order_button_click}
 is_package: true
