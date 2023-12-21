@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..... import component_cache
+from ..... import supplier_cache
 
 class Add_Components(Add_ComponentsTemplate):
   def __init__(self,supplier_id = None,  **properties):
@@ -47,12 +48,58 @@ class Add_Components(Add_ComponentsTemplate):
     self.cmpt_repeating_panel.items = components
     pass
 
+
+  def calculate_total(self):
+    total = 0 
+    for row in self.cmpt_repeating_panel.get_components():
+      total += float(row.total_label.text)
+    self.est_total_label.text = "{:.2f}".format(total)
+    self.total_lb.visible = True
+    self.est_total_label.visible = True
+    
+    return
+
+
+  
   def load_order_button_click(self, **event_args):
     """This method is called when the button is clicked"""
 
-    # Iterate over each row in the Repeating Panel
-    for row in self.repeating_panel_products.get_components():
+    # Count how many products were added
+    added_count = 0
 
+    # Iterate over each row in the Repeating Panel
+    for row in self.cmpt_repeating_panel.get_components():
+      component_id = row.item['component_id']
+      quantity = row.item['order_minimun']
+      
+
+      # Check if quantity is provided and is greater than zero
+      if not row.quantity_text_box.text or int(row.quantity_text_box.text) <= 0:
+        continue  # Skip this product and move to the next one
+
+      data = {
+        "supplier_id": self.supplier_id, 
+        "component_id": component_id,
+        "order_minimun":quantity,
+      }
+  
+      print(data)
+      added_count += 1 
+
+    # Only proceed if there are products to add
+    if added_count > 0:
+        # Inform the user that products have been added
+        anvil.alert(title="Components Loaded")
+
+        # Clear the quantity fields and perform other post-addition tasks
+        for row in self.cmpt_repeating_panel.get_components():
+            row.quantity_text_box.text = "0"
+
+    
+        #new_order_navigation.home_form.products_added_to_cart()
+        #order_cache.refresh_finished_order()
+    else:
+        anvil.alert(title="No products selected", message="Please enter quantities for products you want to add.")
     
     pass
 

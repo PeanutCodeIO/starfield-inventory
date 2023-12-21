@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"WTIXHV":15,"EUEBGP":15,"OCYFZB":10,"VSMOVZ":8,"DVXXIZ":12}'}
+  properties: {col_widths: '{"WTIXHV":15,"EUEBGP":15,"OCYFZB":10,"VSMOVZ":8,"XEASGJ":12}'}
 components:
 - name: cmpt_label
   properties: {}
@@ -15,7 +15,16 @@ components:
   properties: {}
   type: Label
   layout_properties: {grid_position: 'BUHMET,OCYFZB'}
+- name: min_order_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'BUHMET,NKOXTG'}
 - name: quantity_text_box
   properties: {role: outlined, align: center}
   type: TextBox
   layout_properties: {grid_position: 'BUHMET,VSMOVZ'}
+  event_bindings: {change: quantity_text_box}
+- name: total_label
+  properties: {align: center}
+  type: Label
+  layout_properties: {grid_position: 'BUHMET,XEASGJ'}

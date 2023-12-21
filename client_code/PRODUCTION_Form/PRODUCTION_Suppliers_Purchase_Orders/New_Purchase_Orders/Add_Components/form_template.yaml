@@ -1,7 +1,9 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {role: null}
 components:
 - name: outlined_card_1
-  properties: {role: null, col_widths: '{"NWQKRE":50,"KKOAFR":10,"TQUSWW":15,"WRHIQS":15,"DABKRZ":10,"CPVOFO":8,"TXYJPK":12}'}
+  properties: {role: null, col_widths: '{"NWQKRE":50,"KKOAFR":10,"TQUSWW":15,"WRHIQS":14,"DABKRZ":5,"CPVOFO":8,"TUAOOF":14,"KYJGXM":12}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'YYJCGC,SKDGED'}
   components:
@@ -20,6 +22,10 @@ components:
     type: Button
     layout_properties: {grid_position: 'BYXNIM,KKOAFR'}
     event_bindings: {click: reset_button_click}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'SPFQJA,QBGORE'}
   - name: label_2
     properties: {text: Component}
     type: Label
@@ -32,14 +38,35 @@ components:
     properties: {text: Cost}
     type: Label
     layout_properties: {grid_position: 'IYDOMV,DABKRZ'}
+  - name: label_6
+    properties: {text: Minimum Order, align: center}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,TUAOOF'}
   - name: label_5
     properties: {text: Quantity, align: center}
     type: Label
     layout_properties: {grid_position: 'IYDOMV,CPVOFO'}
+  - name: total_label
+    properties: {text: Total, align: center}
+    type: Label
+    layout_properties: {grid_position: 'IYDOMV,KYJGXM'}
   - name: cmpt_repeating_panel
     properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.New_Purchase_Orders.Add_Components.ItemTemplate2}
     type: RepeatingPanel
     layout_properties: {grid_position: 'ADHJHU,DRIPFJ'}
+  - name: outlined_card_3
+    properties: {role: null, col_widths: '{"UGTGFE":53,"PYMQQK":7}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'MKKJIM,MIDGRM'}
+    components:
+    - name: total_lb
+      properties: {text: TOTAL, role: input-prompt, visible: false}
+      type: Label
+      layout_properties: {grid_position: 'SFHCMK,UGTGFE'}
+    - name: est_total_label
+      properties: {role: input-prompt, visible: false}
+      type: Label
+      layout_properties: {grid_position: 'SFHCMK,PYMQQK'}
 - name: outlined_card_2
   properties: {role: null, col_widths: '{"TACSTE":45,"CMIGZZ":15}'}
   type: ColumnPanel
@@ -50,7 +77,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'KNVEGP,TACSTE'}
   - name: load_order_button
-    properties: {text: LOAD TO ORDER, role: filled-button, align: right}
+    properties: {text: FINISH ORDER, role: filled-button, align: right}
     type: Button
     layout_properties: {grid_position: 'KNVEGP,CMIGZZ'}
     event_bindings: {click: load_order_button_click}
