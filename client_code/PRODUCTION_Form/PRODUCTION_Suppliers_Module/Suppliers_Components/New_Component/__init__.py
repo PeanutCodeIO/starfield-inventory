@@ -52,8 +52,15 @@ class New_Component(New_ComponentTemplate):
   def text_box_item_cost_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     try:
-        cost = float(self.text_box_item_cost.text)
-        minimum_order = float(self.text_box_order_minimum.text)
+        # Ensure text box values are treated as strings
+        cost_text = str(self.text_box_item_cost.text)
+        minimum_order_text = str(self.text_box_order_minimum.text)
+
+        # Use a default value of 0.0 if the text box is empty or contains non-numeric text
+        cost = float(cost_text) if cost_text.strip() else 0.0
+        minimum_order = float(minimum_order_text) if minimum_order_text.strip() else 0.0
+
+        # Calculate and format the result to two decimal places
         calculated_cost = cost * minimum_order
         self.minimum_order_cost.text = "{:.2f}".format(calculated_cost)
     except ValueError:
@@ -61,21 +68,30 @@ class New_Component(New_ComponentTemplate):
         self.minimum_order_cost.text = ""
     except ZeroDivisionError:
         # Handle division by zero error
-        pass
+        self.minimum_order_cost.text = "Infinity"  # Or any other appropriate message
+
 
   def text_box_order_minimum_change(self, **event_args):
-      """This method is called when the text in this text box is edited"""
-      try:
-          cost = float(self.text_box_item_cost.text)
-          minimum_order = float(self.text_box_order_minimum.text)
-          calculated_cost = cost * minimum_order
-          self.minimum_order_cost.text = "{:.2f}".format(calculated_cost)
-      except ValueError:
-          # Handle cases where the input cannot be converted to a float
-          self.minimum_order_cost.text = ""
-      except ZeroDivisionError:
-          # Handle division by zero error
-          pass
+    """This method is called when the text in this text box is edited"""
+    try:
+        # Ensure text box values are treated as strings
+        cost_text = str(self.text_box_item_cost.text)
+        minimum_order_text = str(self.text_box_order_minimum.text)
+
+        # Use a default value of 0.0 if the text box is empty or contains non-numeric text
+        cost = float(cost_text) if cost_text.strip() else 0.0
+        minimum_order = float(minimum_order_text) if minimum_order_text.strip() else 0.0
+
+        # Calculate and format the result to two decimal places
+        calculated_cost = cost * minimum_order
+        self.minimum_order_cost.text = "{:.2f}".format(calculated_cost)
+    except ValueError:
+        # Handle cases where the input cannot be converted to a float
+        self.minimum_order_cost.text = ""
+    except ZeroDivisionError:
+        # Handle division by zero error
+        self.minimum_order_cost.text = "Infinity"  # Or any other appropriate message
+
 
 
 

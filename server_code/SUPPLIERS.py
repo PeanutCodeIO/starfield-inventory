@@ -121,3 +121,10 @@ def upload_csv_and_create_suppliers(file):
             app_tables.suppliers.add_row(**supplier_data)
 
     return "Upload and supplier creation successful!"
+
+
+#===== COMPONENT PURCHASE ORDERS
+
+def new_purchase_order(data):
+  
+  return

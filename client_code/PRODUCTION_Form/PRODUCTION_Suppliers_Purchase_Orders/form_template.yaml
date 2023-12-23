@@ -25,8 +25,17 @@ components:
     type: Button
     layout_properties: {grid_position: 'CWBOLM,WFURSO'}
     event_bindings: {click: new_po_button_click}
+  - name: spacer_2
+    properties: {height: 6.7899169921875}
+    type: Spacer
+    layout_properties: {grid_position: 'ZXTMOJ,FTOLKL'}
+  - name: po_link
+    properties: {text: PURCHASE ORDERS}
+    type: Link
+    layout_properties: {grid_position: 'PGFGHJ,DWIYAS'}
+    event_bindings: {click: po_link_click}
   - name: spacer_1
-    properties: {height: 32}
+    properties: {height: 9.639739990234375}
     type: Spacer
     layout_properties: {grid_position: 'OLDUPY,WGBDPH'}
   - name: exit_link

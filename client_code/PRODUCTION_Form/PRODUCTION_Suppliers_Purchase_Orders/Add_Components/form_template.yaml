@@ -8,7 +8,7 @@ components:
   layout_properties: {grid_position: 'YYJCGC,SKDGED'}
   components:
   - name: label_1
-    properties: {text: COMPONENTS, role: title, foreground: 'theme:Primary'}
+    properties: {text: ORDER COMPONENTS, role: title, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'EWFIMH,CIQZHH'}
   - name: search_text_box
@@ -51,7 +51,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'IYDOMV,KYJGXM'}
   - name: cmpt_repeating_panel
-    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.New_Purchase_Orders.Add_Components.ItemTemplate2}
+    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.Add_Components.ItemTemplate2}
     type: RepeatingPanel
     layout_properties: {grid_position: 'ADHJHU,DRIPFJ'}
   - name: outlined_card_3

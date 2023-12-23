@@ -7,8 +7,8 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..... import component_cache
-from ..... import supplier_cache
+from .... import component_cache
+from .... import supplier_cache
 
 class Add_Components(Add_ComponentsTemplate):
   def __init__(self,supplier_id = None,  **properties):
@@ -86,9 +86,13 @@ class Add_Components(Add_ComponentsTemplate):
       print(data)
       added_count += 1 
 
+
+
+    
     # Only proceed if there are products to add
     if added_count > 0:
         # Inform the user that products have been added
+        
         anvil.alert(title="Components Loaded")
 
         # Clear the quantity fields and perform other post-addition tasks
