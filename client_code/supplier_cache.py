@@ -45,3 +45,13 @@ def get_supplier_data(supplier_id):
 
     # Return None if no matching supplier is found
     return None
+
+
+#___________ PURCHASE ORDERS
+
+__po_components = {}
+def recieve_po_components(data):
+  global __po_components
+  __po_components = data
+  print(f"This is in the cache: {__po_components}")
+  
