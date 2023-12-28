@@ -69,41 +69,35 @@ class Add_Components(Add_ComponentsTemplate):
 
     # Iterate over each row in the Repeating Panel
     for row in self.cmpt_repeating_panel.get_components():
-      component_id = row.item['component_id']
-      order_minimum = row.item['order_minimun'] -1 
-      quantity = float(row.quantity_text_box.text)
-      
+        component_id = row.item['component_id']
+        order_minimum = row.item['order_minimun'] - 1 
+        quantity_text = row.quantity_text_box.text
 
-      # Check if quantity is provided and is greater than minimum order
-      if not row.quantity_text_box.text or int(row.quantity_text_box.text) <= order_minimum:
-        continue  # Skip this product and move to the next one
+        # Skip rows with invalid or insufficient quantities
+        if not quantity_text or int(quantity_text) <= order_minimum:
+            continue
 
-      data = {
-        "supplier_id": self.supplier_id, 
-        "component_id": component_id,
-        "quantity":quantity,
-      }
+        # Process valid rows
+        data = {
+            "supplier_id": self.supplier_id, 
+            "component_id": component_id,
+            "quantity": float(quantity_text),
+        }
   
-      print(data)
-      added_count += 1 
-      
-      # Only proceed if there are products to add
-      if added_count > 0:
-          supplier_cache.recieve_po_components(data)
-        
-          anvil.alert(title="Components Loaded")
-  
-          # Clear the quantity fields and perform other post-addition tasks
-          for row in self.cmpt_repeating_panel.get_components():
-              row.quantity_text_box.text = order_minimum
-  
-      
-          #new_order_navigation.home_form.products_added_to_cart()
-          #order_cache.refresh_finished_order()
+        print(data)
+        supplier_cache.recieve_po_components(data)
+        added_count += 1 
+
+    # Check if any products were added
+    if added_count > 0:
+        anvil.alert(title="Components Loaded")
+        # Clear the quantity fields and perform other post-addition tasks
+        for row in self.cmpt_repeating_panel.get_components():
+            row.quantity_text_box.text = "0"
     else:
-        anvil.alert(title="No products selected or components are below minimum order", message="Please enter quantities for products you want to add.")
-    
-    pass
+        anvil.alert(title="No products selected or components are below minimum order",
+                    message="Please enter quantities for products you want to add.")
+
 
 
   

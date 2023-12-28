@@ -48,10 +48,11 @@ def get_supplier_data(supplier_id):
 
 
 #___________ PURCHASE ORDERS
+__po_components = []
 
-__po_components = {}
 def recieve_po_components(data):
-  global __po_components
-  __po_components = data
-  print(f"This is in the cache: {__po_components}")
+    global __po_components
+    __po_components.append(data)  # Append the new entry to the list
+    print(f"This is in the cache: {__po_components}")
+
   
