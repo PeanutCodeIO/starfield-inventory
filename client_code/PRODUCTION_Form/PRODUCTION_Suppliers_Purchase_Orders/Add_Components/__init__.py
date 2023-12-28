@@ -83,13 +83,32 @@ class Add_Components(Add_ComponentsTemplate):
             "component_id": component_id,
             "quantity": float(quantity_text),
         }
-  
-        print(data)
+
         supplier_cache.recieve_po_components(data)
         added_count += 1 
 
     # Check if any products were added
     if added_count > 0:
+        po_data = supplier_cache.get_po_components()
+      
+        confirm = anvil.alert(title="Complete this purchase order?", buttons=[("Yes", True), ("No", False)])
+        if confirm:
+          email = anvil.alert(title="Email supplier ", buttons=[("Yes", True), ("No", False)])
+          if email:
+            #write code to finalise order and email
+            return 
+          else:
+            return
+
+
+
+
+      
+        else:
+          return #if confirm is False
+        
+        print(po_data)
+      
         anvil.alert(title="Components Loaded")
         # Clear the quantity fields and perform other post-addition tasks
         for row in self.cmpt_repeating_panel.get_components():

@@ -53,6 +53,11 @@ __po_components = []
 def recieve_po_components(data):
     global __po_components
     __po_components.append(data)  # Append the new entry to the list
-    print(f"This is in the cache: {__po_components}")
+    #print(f"This is in the cache: {__po_components}")
+
+def get_po_components():
+  global __po_components
+  return __po_components
+
 
   
