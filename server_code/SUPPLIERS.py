@@ -138,9 +138,9 @@ def auto_increment_po_id():
 
 @anvil.server.callable
 def save_po_data(data):
-  
+  print(data)
   company_id = get_company_id()
-  supplier_id = data['supplier_id']
+  supplier_id = data[0]['supplier_id'] 
   purchase_order_id = auto_increment_po_id() 
   purchase_order_date = datetime.now().date()
   status = "Emailed"
@@ -154,7 +154,7 @@ def save_po_data(data):
   for item in data:
     component = item['component_id']
     quantity = item['quantity']
-    supplier_id = item['supplier_id']
+    #supplier_id = item['supplier_id']
     app_tables.purchase_orders_components.add_row(company_id=company_id,
                                                   supplier_id=supplier_id,
                                                   purchase_order_id=purchase_order_id,
