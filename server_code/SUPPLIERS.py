@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 import anvil.server
 import io
 import csv
-
+from datetime import datetime
 
 #===== GET COMPANY ID
 def get_company_id():
@@ -124,7 +124,44 @@ def upload_csv_and_create_suppliers(file):
 
 
 #===== COMPONENT PURCHASE ORDERS
+def auto_increment_po_id():
+    # Create a new po_id
+    company_id = get_company_id()
+    po_data = app_tables.purchase_orders.search(company_id=company_id)
+    if po_data:
+        last_supplier_id = max((d['purchase_order_id'] for d in po_data if d['purchase_order_id'] is not None), default=0)
+        next_supplier_id = last_supplier_id + 1
+    else:
+        next_supplier_id = 1
 
-def new_purchase_order(data):
+    return next_supplier_id
+
+@anvil.server.callable
+def save_po_data(data):
+  
+  company_id = get_company_id()
+  supplier_id = data['supplier_id']
+  purchase_order_id = auto_increment_po_id() 
+  purchase_order_date = datetime.now().date()
+  status = "Emailed"
+
+  app_tables.purchase_orders.add_row(company_id=company_id, 
+                                     supplier_id=supplier_id, 
+                                     purchase_order_id=purchase_order_id,
+                                     purchase_order_date=purchase_order_date,
+                                     status=status)
+  print(data)
+  for item in data:
+    component = item['component_id']
+    quantity = item['quantity']
+    supplier_id = item['supplier_id']
+    app_tables.purchase_orders_components.add_row(company_id=company_id,
+                                                  supplier_id=supplier_id,
+                                                  purchase_order_id=purchase_order_id,
+                                                  component_id=component,
+                                                  quantity=quantity)
+
+  
+  
   
   return

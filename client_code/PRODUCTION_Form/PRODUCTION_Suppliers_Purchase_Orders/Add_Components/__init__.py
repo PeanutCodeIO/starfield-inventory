@@ -89,8 +89,8 @@ class Add_Components(Add_ComponentsTemplate):
 
     # Check if any products were added
     if added_count > 0:
-        po_data = supplier_cache.get_po_components()
-
+        #po_data = supplier_cache.get_po_components()
+        supplier_cache.save_po_components()
         """"
         confirm = anvil.alert(title="Complete this purchase order?", buttons=[("Yes", True), ("No", False)])
         if confirm:
@@ -108,7 +108,7 @@ class Add_Components(Add_ComponentsTemplate):
         else:
           return #if confirm is False
         """
-        print(po_data)
+        #print(po_data)
         
         anvil.alert(title="Components Loaded")
         

@@ -59,5 +59,8 @@ def get_po_components():
   global __po_components
   return __po_components
 
-
+def save_po_components():
+  global __po_components
+  anvil.server.call('save_po_data', __po_components)
+  return
   
