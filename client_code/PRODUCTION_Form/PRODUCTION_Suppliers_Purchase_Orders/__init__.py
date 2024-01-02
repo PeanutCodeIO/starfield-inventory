@@ -28,7 +28,7 @@ class PRODUCTION_Suppliers_Purchase_Orders(PRODUCTION_Suppliers_Purchase_OrdersT
     cmpt = Add_Components(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
-    
+    self.po_link.visible = False
     #open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.New_Purchase_Orders', self.supplier_id)
     
     pass

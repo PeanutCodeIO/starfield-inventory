@@ -9,7 +9,7 @@ services:
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {}
+  server_config: {test_mode: true}
 - source: /runtime/services/google.yml
   client_config: {}
   server_config: {}

@@ -27,7 +27,7 @@ class ItemTemplate2(ItemTemplate2Template):
     self.total_label.text = cost*quantity
 
 
-  def quantity_text_box(self, **event_args):
+  def quantity_text_box_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     
     cost = float(self.item['item_cost'])

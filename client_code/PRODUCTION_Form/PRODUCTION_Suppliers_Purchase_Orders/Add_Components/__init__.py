@@ -20,7 +20,7 @@ class Add_Components(Add_ComponentsTemplate):
     components = component_cache.get_supplier_components(self.supplier_id)
     self.cmpt_repeating_panel.items = components
 
-  def search_text_box(self, **event_args):
+  def search_text_box_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     search_term = self.search_text_box.text.lower()
     all_components = component_cache.get_supplier_components(self.supplier_id)
@@ -89,32 +89,32 @@ class Add_Components(Add_ComponentsTemplate):
 
     # Check if any products were added
     if added_count > 0:
-        #po_data = supplier_cache.get_po_components()
-        supplier_cache.save_po_components()
-        """"
+      
+       # supplier_cache.save_po_components()
+
         confirm = anvil.alert(title="Complete this purchase order?", buttons=[("Yes", True), ("No", False)])
         if confirm:
-          email = anvil.alert(title="Email supplier ", buttons=[("Yes", True), ("No", False)])
+          supplier_cache.save_po_components()
+          supplier_cache.refresh_po_data()
+  
+          email = anvil.alert(title="Email supplier this purchase order?", buttons=[("Yes", True), ("No", False)])
           if email:
-            #write code to finalise order and email
+            anvil.server.call('email_po_order', self.supplier_id)
+            anvil.alert("Email sent, Purchase order complete")
+            open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
             return 
+            
           else:
+            open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)            
             return
 
-
-
-
-      
         else:
+          open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
           return #if confirm is False
-        """
+          
         #print(po_data)
         
-        anvil.alert(title="Components Loaded")
         
-        # Clear the quantity fields and perform other post-addition tasks
-        for row in self.cmpt_repeating_panel.get_components():
-            row.quantity_text_box.text = "0"
     else:
         anvil.alert(title="No products selected or components are below minimum order",
                     message="Please enter quantities for products you want to add.")

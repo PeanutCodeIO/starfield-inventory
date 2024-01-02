@@ -143,18 +143,17 @@ def save_po_data(data):
   supplier_id = data[0]['supplier_id'] 
   purchase_order_id = auto_increment_po_id() 
   purchase_order_date = datetime.now().date()
-  status = "Emailed"
+  status = "Pending"
 
   app_tables.purchase_orders.add_row(company_id=company_id, 
                                      supplier_id=supplier_id, 
                                      purchase_order_id=purchase_order_id,
                                      purchase_order_date=purchase_order_date,
                                      status=status)
-  print(data)
+
   for item in data:
     component = item['component_id']
     quantity = item['quantity']
-    #supplier_id = item['supplier_id']
     app_tables.purchase_orders_components.add_row(company_id=company_id,
                                                   supplier_id=supplier_id,
                                                   purchase_order_id=purchase_order_id,
@@ -165,3 +164,91 @@ def save_po_data(data):
   
   
   return
+
+@anvil.server.callable
+def email_po_order(supplier_id):
+    company_id = get_company_id()
+    # Search for the last purchase order
+    last_po_iter = app_tables.purchase_orders.search(
+        tables.order_by("purchase_order_id", ascending=False),
+        company_id=company_id,
+        supplier_id=supplier_id,
+    )
+
+    # Get the first entry from the iterator, which is the last purchase order
+    last_po_entry = next(iter(last_po_iter), None)
+    
+    if last_po_entry is None:
+        # Handle case where there is no purchase order
+        print("No purchase order found.")
+        return
+
+    purchase_order = app_tables.purchase_orders.get(company_id=company_id,
+                                                  supplier_id=supplier_id,
+                                                  purchase_order_id=last_po_entry['purchase_order_id'])
+
+    # Get the components associated with the last purchase order
+    components = app_tables.purchase_orders_components.search(
+        company_id=company_id, 
+        supplier_id=supplier_id,
+        purchase_order_id=last_po_entry['purchase_order_id']
+    )
+
+    # Prepare the data to be emailed
+    purchase_order_data = {
+        "purchase_order": purchase_order,
+        "components": components
+    }
+
+    # Call the function to email the supplier
+    email =  email_supplier(purchase_order_data)
+    app_tables.purchase_orders.get(company_id=company_id, supplier_id=supplier_id, purchase_order_id=last_po_entry['purchase_order_id']).update(status=email)
+    return 
+
+def email_supplier(purchase_order_data):
+    purchase_order = purchase_order_data['purchase_order']
+    components = purchase_order_data['components']
+
+    company_id = get_company_id()
+    company = app_tables.company.get(company_id=company_id)
+    company_name = company['company_name']
+  
+    supplier_id = purchase_order['supplier_id']
+    supplier = app_tables.suppliers.get(company_id=company_id, supplier_id=supplier_id)
+    supplier_email = supplier['email'] if supplier else 'default@example.com'
+    customer_id = supplier['customer_ref']
+
+    # Construct the components details string
+    components_details = ""
+    for component_entry in components:
+        component_id = component_entry['component_id']
+        quantity = component_entry['quantity']
+
+        # Fetch component details from the components table
+        component = app_tables.components.get(company_id=company_id,component_id=component_id)
+        if component:
+            component_name = component['item_name']
+            sku = component['sku']
+            components_details += f"\nName: {component_name}\nSKU: {sku}\nQuantity: {quantity}\n"
+
+    # Construct the email body
+    email_body = (
+        f"Hi, We would like to place a new purchase order for {company_name}, {customer_id}."
+        "Please find the order details below:\n" + 
+        components_details +
+        "\nThank you."
+    )
+
+    
+    # Send the email
+    anvil.email.send(
+        from_name=company_name,
+        to=supplier_email,
+        subject=f"New Purchase Order {customer_id}",
+        text=email_body,
+        # Attachments can be included if needed
+        # attachments=[anvil.BlobMedia("application/pdf", pdf_bytes, name="PurchaseOrder.pdf")]
+    )
+    status = "Emailed"
+    return status
+
