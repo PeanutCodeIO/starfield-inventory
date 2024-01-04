@@ -138,7 +138,7 @@ def auto_increment_po_id():
 
 @anvil.server.callable
 def save_po_data(data):
-  print(data)
+  print(f"This is the saved data in {data}")
   company_id = get_company_id()
   supplier_id = data[0]['supplier_id'] 
   purchase_order_id = auto_increment_po_id() 

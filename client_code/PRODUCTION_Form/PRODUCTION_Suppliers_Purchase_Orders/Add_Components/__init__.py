@@ -17,6 +17,7 @@ class Add_Components(Add_ComponentsTemplate):
     self.supplier_id = supplier_id
     
     # Any code you write here will run before the form opens.
+    supplier_cache.refresh_po_data()
     components = component_cache.get_supplier_components(self.supplier_id)
     self.cmpt_repeating_panel.items = components
 
@@ -100,12 +101,15 @@ class Add_Components(Add_ComponentsTemplate):
           email = anvil.alert(title="Email supplier this purchase order?", buttons=[("Yes", True), ("No", False)])
           if email:
             anvil.server.call('email_po_order', self.supplier_id)
-            anvil.alert("Email sent, Purchase order complete")
+            anvil.alert("Your purchase order has been emailed")
             open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
             return 
             
           else:
-            open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)            
+            # Action add a create PDF and save it to the table
+            
+            anvil.alert("Your purchase order has been saved")
+            open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
             return
 
         else:

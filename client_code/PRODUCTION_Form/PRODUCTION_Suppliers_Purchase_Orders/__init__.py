@@ -36,3 +36,8 @@ class PRODUCTION_Suppliers_Purchase_Orders(PRODUCTION_Suppliers_Purchase_OrdersT
   def po_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     pass
+
+  def exit_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("PRODUCTION_Form.PRODUCTION_Suppliers_Module", self.supplier_id)
+    pass
