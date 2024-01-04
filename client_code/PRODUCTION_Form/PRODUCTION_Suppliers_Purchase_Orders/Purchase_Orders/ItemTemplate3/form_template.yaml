@@ -28,6 +28,13 @@ components:
     name: invoice_label
     layout_properties: {grid_position: 'CFGTWU,RJXKOY'}
   - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: invoice_amount, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: invoice_amount_label
+    layout_properties: {grid_position: 'CFGTWU,ACPZYH'}
+  - type: Label
     properties: {text: owing}
     name: owing_label
     layout_properties: {grid_position: 'CFGTWU,RKDEUJ'}

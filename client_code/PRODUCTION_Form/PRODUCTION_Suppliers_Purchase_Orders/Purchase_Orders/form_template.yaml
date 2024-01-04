@@ -34,7 +34,10 @@ components:
     type: Label
     layout_properties: {grid_position: 'JRXUQI,WQUIYG'}
   - name: label_9
-    properties: {text: Invoice}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Invoice $, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'JRXUQI,TCBRSL'}
   - name: label_8
