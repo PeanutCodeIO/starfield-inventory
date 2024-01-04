@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: null}
+  properties: {role: null, col_widths: '{}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'PQGRJK,RGTRTC'}
   components:
@@ -9,8 +9,44 @@ components:
     properties: {text: PURCHASE ORDERS, role: title, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'NTVCQD,IVZZHV'}
-  - name: spacer_1
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'WTUFEL,MNSIHQ'}
+  - name: search_text_box
+    properties: {role: outlined}
+    type: TextBox
+    layout_properties: {grid_position: 'CFFBCY,RYXNGG'}
+  - name: label_2
+    properties: {text: Date}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,PBRTJZ'}
+  - name: label_3
+    properties: {text: Supplier}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,MEZCAC'}
+  - name: label_5
+    properties: {text: 'PO #'}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,NVEBPZ'}
+  - name: label_4
+    properties: {text: Status}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,WGUKWW'}
+  - name: label_7
+    properties: {text: 'Invoice #'}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,WQUIYG'}
+  - name: label_9
+    properties: {text: Invoice}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,TCBRSL'}
+  - name: label_8
+    properties: {text: Owing}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,LEASEG'}
+  - name: label_6
+    properties: {text: File}
+    type: Label
+    layout_properties: {grid_position: 'JRXUQI,OOFDFD'}
+  - name: po_repeating_panel
+    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.Purchase_Orders.ItemTemplate3}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'GJTZZN,ZKUMQL'}
 is_package: true
