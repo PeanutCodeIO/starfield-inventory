@@ -15,11 +15,6 @@ components:
     spacing_below: none}
   type: Label
   layout_properties: {grid_position: 'FMRQDP,VDQQGI'}
-- name: label_4
-  properties: {align: center, text: 'Earth Version 1.0 ', italic: true, spacing_above: none,
-    visible: false}
-  type: Label
-  layout_properties: {grid_position: 'OYHFPY,WVHVOP'}
 - name: spacer_3
   properties: {height: 32}
   type: Spacer
@@ -43,4 +38,9 @@ components:
     type: Label
     layout_properties: {grid_position: 'WTNIGV,HAYQSX'}
   event_bindings: {click: sign_up_link_click}
+- name: label_4
+  properties: {align: center, text: Earth Version 1.2024, italic: true, spacing_above: none,
+    visible: true}
+  type: Label
+  layout_properties: {grid_position: 'KYOLKS,FIEQJV'}
 is_package: true
