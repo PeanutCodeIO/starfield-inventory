@@ -252,3 +252,10 @@ def email_supplier(purchase_order_data):
     status = "Emailed"
     return status
 
+#-------------------- GET PURCHASE ORDERS ----------------------
+
+@anvil.server.callable
+def get_purchase_orders(supplier):
+  company_id = get_company_id()
+  
+  return
