@@ -6,12 +6,13 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-#===== CLEAR ALL CACHES FOR LOGOUT
+#-------------------- CLEAR ALL CACHES FOR LOGOUT ----------------------
 def clear_all_caches():
   global __all_suppliers
   __all_suppliers = []
 
 
+#-------------------- SUPPLIER DATA ----------------------
 
 # ____ Get all suppliers
 __all_suppliers = [] 
@@ -47,7 +48,7 @@ def get_supplier_data(supplier_id):
     return None
 
 
-#___________ PURCHASE ORDERS
+#-------------------- PURCHASE ORDERS ----------------------
 __po_components = []
 
 def recieve_po_components(data):
@@ -67,3 +68,20 @@ def save_po_components():
 def refresh_po_data():
   global __po_components
   __po_components = [] 
+
+
+#-------------------- GET PURCHASE ORDERS ----------------------
+
+__purchase_orders = []
+def get_purchase_orders(supplier_id):
+  global __purchase_orders
+  if __purchase_orders:
+    return __purchase_orders
+  else:
+    __purchase_orders = anvil.server.call('get_purchase_orders', supplier_id)
+  return __purchase_orders
+
+def refresh_purchase_orders():
+  global __purchase_orders
+  __purchase_orders = []
+  return __purchase_orders

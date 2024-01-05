@@ -200,6 +200,9 @@ def email_po_order(supplier_id):
         "components": components
     }
 
+    #Call the function to create a PDF
+
+      
     # Call the function to email the supplier
     email =  email_supplier(purchase_order_data)
     app_tables.purchase_orders.get(company_id=company_id, supplier_id=supplier_id, purchase_order_id=last_po_entry['purchase_order_id']).update(status=email)
@@ -252,10 +255,18 @@ def email_supplier(purchase_order_data):
     status = "Emailed"
     return status
 
+def create_po_pdf():
+  return
+
+@anvil.server.background_task
+def create_po_pdf_background():
+  return
+
 #-------------------- GET PURCHASE ORDERS ----------------------
 
 @anvil.server.callable
 def get_purchase_orders(supplier):
   company_id = get_company_id()
-  
-  return
+  supplier_id = supplier
+    
+  return app_tables.purchase_orders.search(company_id=company_id, supplier_id=supplier_id)

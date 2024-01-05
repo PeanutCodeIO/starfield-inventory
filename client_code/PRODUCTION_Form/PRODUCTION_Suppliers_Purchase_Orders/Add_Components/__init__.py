@@ -97,6 +97,8 @@ class Add_Components(Add_ComponentsTemplate):
         if confirm:
           supplier_cache.save_po_components()
           supplier_cache.refresh_po_data()
+          supplier_cache.refresh_purchase_orders()
+          
   
           email = anvil.alert(title="Email supplier this purchase order?", buttons=[("Yes", True), ("No", False)])
           if email:
@@ -122,6 +124,11 @@ class Add_Components(Add_ComponentsTemplate):
     else:
         anvil.alert(title="No products selected or components are below minimum order",
                     message="Please enter quantities for products you want to add.")
+
+  def cancel_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
+    pass
 
 
 
