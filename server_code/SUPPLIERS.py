@@ -270,3 +270,14 @@ def get_purchase_orders(supplier):
   supplier_id = supplier
     
   return app_tables.purchase_orders.search(company_id=company_id, supplier_id=supplier_id)
+
+@anvil.server.callable
+def get_specific_po(supplier_id, po_id):
+  company_id = get_company_id()
+  po_order = app_tables.purchase_orders.get(company_id=company_id, supplier_id=supplier_id, purchase_order_id=po_id)
+  po_components = app_tables.purchase_orders_components.search(company_id=company_id,
+                                                                supplier_id=supplier_id,
+                                                                purchase_order_id=po_id)
+  
+  
+  return

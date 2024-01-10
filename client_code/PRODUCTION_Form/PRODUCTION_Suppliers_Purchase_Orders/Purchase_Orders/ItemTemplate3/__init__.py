@@ -21,3 +21,12 @@ class ItemTemplate3(ItemTemplate3Template):
     self.invoice_amount_label.text = self.item['invoice_total'] if self.item['invoice_total'] is not None else "Pending"
     self.owing_label.text = self.item['invoice_owing'] if self.item['invoice_owing'] is not None else "Pending"
 
+  def po_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    company_id = self.item['company_id']
+    supplier_id = self.item['supplier_id']
+    po_id = self.item['purchase_order_id']
+
+    
+    pass
+

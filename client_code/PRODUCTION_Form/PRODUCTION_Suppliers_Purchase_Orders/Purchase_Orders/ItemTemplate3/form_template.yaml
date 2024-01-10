@@ -1,7 +1,7 @@
 is_package: true
 container: {type: ColumnPanel}
 components:
-- name: link_1
+- name: po_link
   properties: {col_widths: '{}'}
   type: Link
   layout_properties: {grid_position: 'ZXCFTZ,WPWALA'}
@@ -42,3 +42,4 @@ components:
     name: file_link
     layout_properties: {grid_position: 'CFGTWU,RHQXQZ'}
     event_bindings: {click: file_link_click}
+  event_bindings: {click: po_link_click}
