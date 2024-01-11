@@ -18,5 +18,5 @@ class Purchase_Orders(Purchase_OrdersTemplate):
     # Any code you write here will run before the form opens.
     purchase_orders = supplier_cache.get_purchase_orders(self.supplier_id)
     self.po_repeating_panel.items = purchase_orders
-
+    
 
