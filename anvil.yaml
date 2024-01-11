@@ -173,6 +173,9 @@ db_schema:
     - name: company_name
       admin_ui: {width: 200, order: 1}
       type: string
+    - name: company_address
+      admin_ui: {width: 200, order: 2}
+      type: string
     title: Company
   components_cost_history:
     client: none

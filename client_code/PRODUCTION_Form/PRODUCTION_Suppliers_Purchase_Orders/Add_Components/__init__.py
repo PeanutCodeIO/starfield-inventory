@@ -117,8 +117,6 @@ class Add_Components(Add_ComponentsTemplate):
         else:
           open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
           return #if confirm is False
-          
-        #print(po_data)
         
         
     else:

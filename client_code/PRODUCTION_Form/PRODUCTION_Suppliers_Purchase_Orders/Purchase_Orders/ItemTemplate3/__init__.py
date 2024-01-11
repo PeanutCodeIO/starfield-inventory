@@ -27,7 +27,6 @@ class ItemTemplate3(ItemTemplate3Template):
     supplier_id = self.item['supplier_id']
     po_id = self.item['purchase_order_id']
 
-    open_form("PRODUCTION_Suppliers_Purchase_Orders.PO_Form", company_id, supplier_id, po_id)
-    
+    open_form("PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.PO_Form", company_id, supplier_id, po_id)
     pass
 
