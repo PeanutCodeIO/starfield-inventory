@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card, col_widths: '{"PIJVEE":43,"UMLKXL":45,"AZRLJZ":45,"EJRGUJ":15,"SURZVG":45,"JCBKMW":15}'}
+  properties: {role: outlined-card, col_widths: '{"PIJVEE":43,"UMLKXL":45,"AZRLJZ":10,"EJRGUJ":50,"SURZVG":10,"JCBKMW":50}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'HWPJKQ,YFXCYX'}
   components:
@@ -14,15 +14,15 @@ components:
     type: Label
     layout_properties: {grid_position: 'GDZWEC,PAOJHU'}
   - name: label_1
-    properties: {align: right, text: 'DATE:'}
+    properties: {align: left, text: 'DATE:'}
     type: Label
     layout_properties: {grid_position: 'XFVCBY,AZRLJZ'}
   - name: date_label
-    properties: {role: null, align: right}
-    type: Label
-    layout_properties: {grid_position: 'XFVCBY,EJRGUJ'}
+    properties: {role: outlined}
+    type: TextBox
+    layout_properties: {grid_position: 'XFVCBY,EJRGUJ IAXZJP,SXQTKI'}
   - name: label_3
-    properties: {align: right, text: 'PURCHASE #'}
+    properties: {align: left, text: 'PURCHASE #'}
     type: Label
     layout_properties: {grid_position: 'VKOMIP,SURZVG'}
   - name: po_number_label
