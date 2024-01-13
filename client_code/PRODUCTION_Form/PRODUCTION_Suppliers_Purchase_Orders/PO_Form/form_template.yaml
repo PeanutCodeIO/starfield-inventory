@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card, col_widths: '{"PIJVEE":43,"UMLKXL":45,"AZRLJZ":10,"EJRGUJ":50,"SURZVG":10,"JCBKMW":50}'}
+  properties: {role: outlined-card, col_widths: '{"PIJVEE":44,"AZRLJZ":6,"SURZVG":5,"ZWHFOF":6,"TQCNBK":33,"FAQVKA":13,"BQAHBK":11,"QENMGO":52,"BYSWKI":60}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'HWPJKQ,YFXCYX'}
   components:
@@ -9,10 +9,22 @@ components:
     properties: {text: PURCHASE ORDER, role: headline, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'GDZWEC,PIJVEE'}
-  - name: company_name_label
-    properties: {align: right, role: input-prompt}
+  - name: label_2
+    properties: {text: 'STATUS:', foreground: 'theme:Primary'}
     type: Label
-    layout_properties: {grid_position: 'GDZWEC,PAOJHU'}
+    layout_properties: {grid_position: 'GDZWEC,ZWHFOF'}
+  - name: status_drop_down
+    properties: {include_placeholder: true, placeholder: Status}
+    type: DropDown
+    layout_properties: {grid_position: 'GDZWEC,TQCNBK'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XBGLTI,KYLYYA'}
+  - name: company_name_label
+    properties: {align: left, role: input-prompt}
+    type: Label
+    layout_properties: {grid_position: 'VKAIKR,BMDHEQ'}
   - name: label_1
     properties: {align: left, text: 'DATE:'}
     type: Label
@@ -20,25 +32,29 @@ components:
   - name: date_label
     properties: {role: outlined}
     type: TextBox
-    layout_properties: {grid_position: 'XFVCBY,EJRGUJ IAXZJP,SXQTKI'}
-  - name: label_3
-    properties: {align: left, text: 'PURCHASE #'}
-    type: Label
-    layout_properties: {grid_position: 'VKOMIP,SURZVG'}
-  - name: po_number_label
-    properties: {align: right}
-    type: Label
-    layout_properties: {grid_position: 'VKOMIP,JCBKMW'}
+    layout_properties: {grid_position: 'XFVCBY,FAQVKA'}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'YVPXAF,UMLKXL'}
-  - name: label_2
-    properties: {text: 'Status:'}
+    layout_properties: {grid_position: 'XFVCBY,BYSWKI'}
+  - name: label_3
+    properties: {align: left, text: 'PO # '}
     type: Label
-    layout_properties: {grid_position: 'SXFIQI,ARUQRL'}
-  - name: status_drop_down
-    properties: {include_placeholder: true, placeholder: Status}
-    type: DropDown
-    layout_properties: {grid_position: 'SXFIQI,MDYEBW'}
+    layout_properties: {grid_position: 'VKOMIP,SURZVG'}
+  - name: po_number_label
+    properties: {role: outlined}
+    type: TextBox
+    layout_properties: {grid_position: 'VKOMIP,BQAHBK'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'VKOMIP,QENMGO'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'JGCNUA,WRFQIA'}
+  - name: po_repeating_panels
+    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.PO_Form.ItemTemplate4}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'EVZNCK,XMBBRB'}
 is_package: true

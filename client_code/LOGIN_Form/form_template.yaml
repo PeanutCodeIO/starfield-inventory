@@ -22,7 +22,7 @@ components:
 - name: login_button
   properties: {text: SIGN IN, role: outlined-button, align: full}
   type: Button
-  layout_properties: {grid_position: 'IZNCMN,XJQKPT AVCREP,VAFGEN'}
+  layout_properties: {grid_position: 'IZNCMN,XJQKPT'}
   event_bindings: {click: login_button_click}
 - name: spacer_2
   properties: {height: 32}
@@ -40,7 +40,7 @@ components:
   event_bindings: {click: sign_up_link_click}
 - name: label_4
   properties: {align: center, text: Earth Version 1.2024, italic: true, spacing_above: none,
-    visible: true}
+    visible: false}
   type: Label
-  layout_properties: {grid_position: 'KYOLKS,FIEQJV'}
+  layout_properties: {grid_position: 'ELRNQU,VFLMDD'}
 is_package: true

@@ -22,11 +22,11 @@ class PO_Form(PO_FormTemplate):
     data = anvil.server.call('get_specific_po', supplier_id, po_id)
 
     company_name = main_functions_cache.get_company_name()
-    self.company_name_label.text = company_name
+    self.company_name_label.text = company_name['company_name']
     
 
     po_number = data['purchase_order']['purchase_order_id']
-    self.po_number_label.text = f"Purchase Order: {po_number}"
+    self.po_number_label.text = f"{po_number}"
     
     date = data['purchase_order']['purchase_order_date']
     self.date_label.text = date 
