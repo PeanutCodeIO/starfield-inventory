@@ -29,6 +29,6 @@ components:
     layout_properties: {grid_position: 'DZEHDF,HIXZGU'}
     event_bindings: {click: production_link_click}
 - name: company_label
-  properties: {text: HERMES FAR EASTERN SHINING, foreground: 'theme:Primary'}
+  properties: {text: BUSINESS NAME, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {slot: title}

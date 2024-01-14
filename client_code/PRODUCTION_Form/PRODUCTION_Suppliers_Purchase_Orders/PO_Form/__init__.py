@@ -54,4 +54,9 @@ class PO_Form(PO_FormTemplate):
 
     
     print(data['components'])
+
+  def close_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
+    pass
     
