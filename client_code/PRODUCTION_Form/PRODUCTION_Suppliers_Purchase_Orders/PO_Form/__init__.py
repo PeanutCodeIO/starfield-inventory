@@ -51,7 +51,8 @@ class PO_Form(PO_FormTemplate):
         # For example, set to a default value or log an error
         self.status_drop_down.selected_value = None  # or your default value
 
-
+    components = data['components']
+    self.po_repeating_panels.items = components
     
     print(data['components'])
 

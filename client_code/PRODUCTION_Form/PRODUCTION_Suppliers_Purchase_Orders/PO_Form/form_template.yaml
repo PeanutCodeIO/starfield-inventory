@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card, col_widths: '{"PIJVEE":60,"AZRLJZ":6,"SURZVG":5,"FAQVKA":13,"BQAHBK":11,"QENMGO":52,"BYSWKI":60,"KYLYYA":35,"NHDVIC":5,"OZGCOG":20,"CYAWZB":14}'}
+  properties: {role: outlined-card, col_widths: '{"PIJVEE":60,"KYLYYA":35,"NHDVIC":5,"OZGCOG":20,"CYAWZB":14,"VYXAVB":22,"SWAWMB":25}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'HWPJKQ,YFXCYX'}
   components:
@@ -26,42 +26,114 @@ components:
     properties: {include_placeholder: true, placeholder: Status}
     type: DropDown
     layout_properties: {grid_position: 'XBGLTI,OZGCOG'}
-  - name: company_name_label
-    properties: {align: left, role: input-prompt}
-    type: Label
-    layout_properties: {grid_position: 'VKAIKR,BMDHEQ'}
-  - name: label_1
-    properties: {align: left, text: 'DATE:'}
-    type: Label
-    layout_properties: {grid_position: 'XFVCBY,AZRLJZ'}
-  - name: date_label
-    properties: {role: outlined, enabled: false, align: center, foreground: 'theme:On
-        Primary Container'}
-    type: TextBox
-    layout_properties: {grid_position: 'XFVCBY,FAQVKA'}
-  - name: spacer_1
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'XFVCBY,BYSWKI'}
-  - name: label_3
-    properties: {align: left, text: 'PO # '}
-    type: Label
-    layout_properties: {grid_position: 'VKOMIP,SURZVG'}
-  - name: po_number_label
-    properties: {role: outlined, enabled: false, align: center, foreground: 'theme:On
-        Primary Container'}
-    type: TextBox
-    layout_properties: {grid_position: 'VKOMIP,BQAHBK'}
-  - name: spacer_2
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'VKOMIP,QENMGO'}
-  - name: spacer_4
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'JGCNUA,WRFQIA'}
-  - name: po_repeating_panels
-    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.PO_Form.ItemTemplate4}
-    type: RepeatingPanel
-    layout_properties: {grid_position: 'EVZNCK,XMBBRB'}
+  - name: po_card
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'VKAIKR,SWAWMB'}
+    components:
+    - name: company_name_label
+      properties: {align: left, role: input-prompt, spacing_below: medium}
+      type: Label
+      layout_properties: {grid_position: 'NYRUHH,WHLBKL'}
+    - name: label_1
+      properties: {align: left, text: 'DATE:'}
+      type: Label
+      layout_properties: {grid_position: 'HLQSKU,FHFCVZ'}
+    - name: date_label
+      properties: {role: outlined, enabled: false, align: center, foreground: 'theme:On
+          Primary Container'}
+      type: TextBox
+      layout_properties: {grid_position: 'HLQSKU,XPPCWS'}
+    - name: label_3
+      properties: {align: left, text: 'PO # '}
+      type: Label
+      layout_properties: {grid_position: 'CHKBIK,CSMAGU'}
+    - name: po_number_label
+      properties: {role: outlined, enabled: false, align: center, foreground: 'theme:On
+          Primary Container'}
+      type: TextBox
+      layout_properties: {grid_position: 'CHKBIK,OFFDWE'}
+  - name: invoice_card
+    properties: {role: outlined-card, col_widths: '{"PQSTKR":16,"LCRHLY":14,"YQPQLX":30}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'VKAIKR,VYXAVB'}
+    components:
+    - name: label_4
+      properties: {text: 'INVOICE #'}
+      type: Label
+      layout_properties: {grid_position: 'WMIWWS,PDCSSE'}
+    - name: invoice_no_textbox
+      properties: {role: outlined, enabled: false}
+      type: TextBox
+      layout_properties: {grid_position: 'WMIWWS,JVESAA'}
+    - name: label_5
+      properties: {text: 'AMOUNT: '}
+      type: Label
+      layout_properties: {grid_position: 'JMEFUK,HJZJUE'}
+    - name: invoice_amount_textbox
+      properties: {role: outlined, enabled: false}
+      type: TextBox
+      layout_properties: {grid_position: 'JMEFUK,YJNYIZ'}
+    - name: label_6
+      properties: {text: 'OWING: '}
+      type: Label
+      layout_properties: {grid_position: 'YLAEHX,PQSTKR'}
+    - name: outlined_button_1
+      properties: {text: '', role: outlined-button, icon: 'fa:plus'}
+      type: Button
+      layout_properties: {grid_position: 'YLAEHX,LCRHLY'}
+    - name: owing_textbox
+      properties: {role: outlined, enabled: false}
+      type: TextBox
+      layout_properties: {grid_position: 'YLAEHX,YQPQLX'}
+  - name: outlined_card_2
+    properties: {role: outlined-card, col_widths: '{"AXISEM":12,"FSMWSB":6,"OLBUOQ":18,"DWUJIV":7,"DAPRLR":17}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'JDACCI,UHBYLT'}
+    components:
+    - name: label_7
+      properties: {text: 'SHIPPING:', role: input-prompt}
+      type: Label
+      layout_properties: {grid_position: 'EFMYHA,AXISEM'}
+    - name: label_8
+      properties: {text: 'COURIER:'}
+      type: Label
+      layout_properties: {grid_position: 'EFMYHA,FSMWSB'}
+    - name: outlined_1
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'EFMYHA,OLBUOQ'}
+    - name: label_9
+      properties: {text: 'TRACKING #:'}
+      type: Label
+      layout_properties: {grid_position: 'EFMYHA,DWUJIV'}
+    - name: outlined_2
+      properties: {role: outlined}
+      type: TextBox
+      layout_properties: {grid_position: 'EFMYHA,DAPRLR'}
+  - name: outlined_card_3
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'KDKZKW,HBYKWK'}
+    components:
+    - name: label_10
+      properties: {text: COMPONENTS, role: title}
+      type: Label
+      layout_properties: {grid_position: 'GLJHEG,FJRVUM'}
+    - name: label_11
+      properties: {text: Component}
+      type: Label
+      layout_properties: {grid_position: 'HEBSHW,AVEMPS'}
+    - name: label_12
+      properties: {text: Component Sku}
+      type: Label
+      layout_properties: {grid_position: 'HEBSHW,RTWNPU'}
+    - name: label_13
+      properties: {text: Quantity}
+      type: Label
+      layout_properties: {grid_position: 'HEBSHW,ORSIXM'}
+    - name: po_repeating_panels
+      properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.PO_Form.ItemTemplate4}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'KXUAXJ,TZJCRQ'}
 is_package: true

@@ -279,6 +279,7 @@ def get_specific_po(supplier_id, po_id):
   po_components = app_tables.purchase_orders_components.search(company_id=company_id,
                                                                 supplier_id=supplier_id,
                                                                 purchase_order_id=po_id)
+  components = app_tables.components.search(company_id=company_id, )
 
   # Prepare the data to be emailed
   purchase_order_data = {
