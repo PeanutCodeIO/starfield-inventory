@@ -14,4 +14,8 @@ class ItemTemplate4(ItemTemplate4Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    self.cmpt_label.text = self.item['item_name']
+    self.cmpt_sku.text = self.item['sku']
     component = self.quantity_label.text = self.item['quantity']
+    measurement = self.measurement_label.text = self.item['unit_measurement']
+    

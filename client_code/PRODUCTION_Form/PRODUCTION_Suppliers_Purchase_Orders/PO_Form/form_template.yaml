@@ -132,6 +132,10 @@ components:
       properties: {text: Quantity}
       type: Label
       layout_properties: {grid_position: 'HEBSHW,ORSIXM'}
+    - name: label_14
+      properties: {text: Measurement}
+      type: Label
+      layout_properties: {grid_position: 'HEBSHW,ZPPLUB'}
     - name: po_repeating_panels
       properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.PO_Form.ItemTemplate4}
       type: RepeatingPanel

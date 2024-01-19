@@ -273,19 +273,42 @@ def get_purchase_orders(supplier):
 
 @anvil.server.callable
 def get_specific_po(supplier_id, po_id):
-  
-  company_id = get_company_id()
-  po_order = app_tables.purchase_orders.get(company_id=company_id, supplier_id=supplier_id, purchase_order_id=po_id)
-  po_components = app_tables.purchase_orders_components.search(company_id=company_id,
-                                                                supplier_id=supplier_id,
-                                                                purchase_order_id=po_id)
-  components = app_tables.components.search(company_id=company_id, )
+    company_id = get_company_id()
+    po_order = app_tables.purchase_orders.get(company_id=company_id, supplier_id=supplier_id, purchase_order_id=po_id)
+    po_components = app_tables.purchase_orders_components.search(company_id=company_id,
+                                                                 supplier_id=supplier_id,
+                                                                 purchase_order_id=po_id)
 
-  # Prepare the data to be emailed
-  purchase_order_data = {
-      "purchase_order": po_order,
-      "components": po_components
-  }
-  
-  
-  return purchase_order_data
+    # List to hold the detailed components information
+    detailed_components = []
+
+    # Iterate over po_components to fetch detailed information for each component
+    for po_component in po_components:
+        component_id = po_component['component_id']
+        quantity = po_component['quantity']
+
+        # Fetch component details from the components table using search
+        component_details_search = app_tables.components.search(company_id=company_id, 
+                                                                component_id=component_id, 
+                                                                supplier_id=supplier_id)
+        component_details = next(iter(component_details_search), None)
+
+        if component_details:
+            # Extracting details from the component
+            component_info = {
+                "component_id": component_id,
+                "item_name": component_details['item_name'],
+                "sku": component_details['sku'],
+                "quantity": quantity,
+                "unit_measurement":component_details['unit_measurement']
+            }
+            detailed_components.append(component_info)
+
+    # Prepare the data to be returned
+    purchase_order_data = {
+        "purchase_order": po_order,
+        "components": detailed_components
+    }
+
+    return purchase_order_data
+

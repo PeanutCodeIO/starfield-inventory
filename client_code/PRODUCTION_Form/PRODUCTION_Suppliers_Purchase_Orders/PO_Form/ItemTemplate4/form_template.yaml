@@ -13,3 +13,7 @@ components:
   properties: {}
   type: Label
   layout_properties: {grid_position: 'VMMFDJ,YZCWTV'}
+- name: measurement_label
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'VMMFDJ,TZNGEP'}
