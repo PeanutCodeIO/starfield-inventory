@@ -64,7 +64,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'WMIWWS,PDCSSE'}
     - name: invoice_no_textbox
-      properties: {role: outlined, enabled: false}
+      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
       type: TextBox
       layout_properties: {grid_position: 'WMIWWS,JVESAA'}
     - name: label_5
@@ -72,7 +72,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'JMEFUK,HJZJUE'}
     - name: invoice_amount_textbox
-      properties: {role: outlined, enabled: false}
+      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
       type: TextBox
       layout_properties: {grid_position: 'JMEFUK,YJNYIZ'}
     - name: label_6
@@ -83,8 +83,9 @@ components:
       properties: {text: '', role: outlined-button, icon: 'fa:plus'}
       type: Button
       layout_properties: {grid_position: 'YLAEHX,LCRHLY'}
+      event_bindings: {click: add_payment_button_click}
     - name: owing_textbox
-      properties: {role: outlined, enabled: false}
+      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
       type: TextBox
       layout_properties: {grid_position: 'YLAEHX,YQPQLX'}
   - name: outlined_card_2

@@ -312,3 +312,31 @@ def get_specific_po(supplier_id, po_id):
 
     return purchase_order_data
 
+@anvil.server.callable
+def update_status(supplier_id, po_id, status):
+  company_id = get_company_id()
+  return app_tables.purchase_orders.get(company_id=company_id, supplier_id=supplier_id, purchase_order_id=po_id).update(status=status)
+
+
+@anvil.server.callable
+def update_invoice_details(supplier_id, po_id, status, invoice_number, invoice_amount, owing):
+    company_id = get_company_id()
+    return app_tables.purchase_orders.get(company_id=company_id, 
+                                          supplier_id=supplier_id, 
+                                          purchase_order_id=po_id).update(status=status, 
+                                                                          invoice_number=invoice_number,
+                                                                          invoice_total=invoice_amount,
+                                                                          invoice_owing=owing)
+
+
+@anvil.server.callable
+def update_po_owing(supplier_id, po_id, owing):
+  company_id = get_company_id()
+  return app_tables.purchase_orders.get(company_id=company_id,
+                                        supplier_id=supplier_id,
+                                        purchase_order_id=po_id).update(invoice_owing=owing)
+  
+
+
+  
+
