@@ -10,10 +10,10 @@ components:
   type: Label
   layout_properties: {grid_position: 'VMMFDJ,MWHQBP'}
 - name: quantity_label
-  properties: {}
+  properties: {align: center}
   type: Label
   layout_properties: {grid_position: 'VMMFDJ,YZCWTV'}
 - name: measurement_label
-  properties: {}
+  properties: {align: center}
   type: Label
   layout_properties: {grid_position: 'VMMFDJ,TZNGEP'}

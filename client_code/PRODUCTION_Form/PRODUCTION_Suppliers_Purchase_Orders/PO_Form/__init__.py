@@ -60,4 +60,29 @@ class PO_Form(PO_FormTemplate):
     """This method is called when the button is clicked"""
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders', self.supplier_id)
     pass
+
+  def status_drop_down_change(self, **event_args):
+    """This method is called when an item is selected"""
+
+    status_list = [
+    "Pending",
+    "Emailed",
+    "Invoiced",
+    "Partial Payment",
+    "Paid",
+    "Shipped",
+    "Received",  # Corrected spelling
+    ]
+
+    status = self.status_drop_down.selected_value
+
+    if status == "Invoiced":
+      
+      return
+      
+
+
+
+    
+    pass
     
