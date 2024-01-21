@@ -36,9 +36,18 @@ class PO_Form(PO_FormTemplate):
     invoice_amount = data['purchase_order']['invoice_total']
     invoice_owing = data['purchase_order']['invoice_owing']
 
+    courier = data['purchase_order']['courier']
+    tracking = data['purchase_order']['courier_tracking_number']
+    tracking_date = data['purchase_order']['courier_date']
+
     self.invoice_no_textbox.text = invoice_number
     self.invoice_amount_textbox.text = invoice_amount
     self.owing_textbox.text = invoice_owing
+
+    self.shipping_tb.text = courier if courier else None
+    self.tracking_tb.text = tracking if tracking else None
+    self.date_shipped.text = tracking_date if tracking_date else None
+    
 
     status_list = [
     "Pending",
@@ -93,6 +102,9 @@ class PO_Form(PO_FormTemplate):
       t = TextBox(placeholder="Invoice Number")
       a = TextBox(placeholder="Invoice Amount")
       o = TextBox(placeholder="Payments Made?", text="0")
+
+      
+      
       # Display the TextBox in an alert with a title
       invoice_number = anvil.alert(content=t, title="Enter Invoice Number", buttons=[("Save", True), ("Cancel", False)])
 
@@ -133,7 +145,39 @@ class PO_Form(PO_FormTemplate):
             supplier_cache.refresh_purchase_orders()
       else:
         return None
+        
+    if self.status_drop_down.selected_value == "Shipped":
+      d = DatePicker(placeholder="Date Shipped")
+      date_shipped = anvil.alert(content = d, title="Date Shipped")
+      self.date_shipped.text = d.date
+      
+      c = TextBox(placeholder="Enter Courier")
+      tn = TextBox(placeholder="Tracking Number")
+      
+      shipping = anvil.alert(content = c,title="Enter Courier", buttons=[("Enter", True), ("Cancel", False)])
+      
+      if shipping:
+        self.shipping_tb.text = c.text
+        tracking = anvil.alert(content= tn, title="Enter Tracking", buttons=[("Save", True), ("None", False)])
+        if tracking:
+          self.tracking_tb.text = tn.text
 
+          self.status_drop_down.items = status_list
+          new_status = self.status_drop_down.selected_value = "Shipped"
+
+          anvil.server.call('update_courier_tracking', self.supplier_id, self.po_id, self.shipping_tb.text, self.tracking_tb.text, d.date)
+          supplier_cache.refresh_purchase_orders()
+          
+        else:
+          self.tracking_tb.text = "None"
+          anvil.server.call('update_courier_tracking', self.supplier_id, self.po_id, self.shipping_tb.text, self.tracking_tb.text)
+          supplier_cache.refresh_purchase_orders()
+          
+        
+
+    else:
+      return None
+        
     pass
 
   def add_payment_button_click(self, **event_args):
@@ -151,31 +195,28 @@ class PO_Form(PO_FormTemplate):
 
     
     t = TextBox(placeholder="Enter Amount")
-    payment = anvil.alert(content=t, title="Add Payment", buttons=[("Full Amount", "Paid"),("Add", True), ("Cancel", False)])
+    payment = anvil.alert(content=t, title="Add Payment", buttons=[("Full Amount", "Paid"),("Add Payment", True), ("Cancel", False)])
 
     if payment == "Paid":
       amount = self.owing_textbox.text = "0"
-      anvil.server.call('update_po_owing', self.supplier_id, self.po_id, amount)
+      new_status = self.status_drop_down.selected_value = "Paid"
+      anvil.server.call('update_po_owing', self.supplier_id, self.po_id, amount, new_status)
+      
       self.status_drop_down.items = status_list
       new_status = self.status_drop_down.selected_value = "Paid"
-      anvil.server.call('update_status', self.supplier_id, self.po_id, new_status)
-      
       supplier_cache.refresh_purchase_orders()
       
     elif payment == True:
       payment = int(t.text)
       total = int(self.owing_textbox.text) - payment
       self.owing_textbox.text = total
-      
-      anvil.server.call('update_po_owing', self.supplier_id, self.po_id, str(total))
-      
+
       self.status_drop_down.items = status_list
       new_status = self.status_drop_down.selected_value = "Partial Payment"
-      anvil.server.call('update_status', self.supplier_id, self.po_id, new_status)
       
+      anvil.server.call('update_po_owing', self.supplier_id, self.po_id, str(total), new_status)
       supplier_cache.refresh_purchase_orders()
       
-
     elif payment == False:
       return None
       

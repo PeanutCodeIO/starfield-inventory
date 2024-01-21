@@ -34,7 +34,7 @@ components:
     layout_properties: {grid_position: 'JRXUQI,LEASEG'}
   - name: label_6
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: File, font_size: null, font: '', spacing_above: small,
+      visible: false, text: File, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     type: Label

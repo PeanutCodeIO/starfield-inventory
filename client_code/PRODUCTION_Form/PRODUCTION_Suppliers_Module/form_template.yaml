@@ -7,16 +7,7 @@ components:
   properties: {}
   name: content_panel
   layout_properties: {slot: default}
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
-  components:
-  - name: po_button
-    properties: {text: PURCHASE ORDERS, role: outlined-button, visible: true, enabled: true,
-      align: left}
-    type: Button
-    event_bindings: {click: po_button_click}
+  components: []
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
@@ -48,3 +39,17 @@ components:
   properties: {text: Enter Supplier, foreground: 'theme:Primary'}
   type: Label
   layout_properties: {slot: title}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: po_button
+    properties: {text: PURCHASE ORDERS, role: outlined-button, visible: true, enabled: true,
+      align: left}
+    type: Button
+    event_bindings: {click: po_button_click}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: -28.377685546875}

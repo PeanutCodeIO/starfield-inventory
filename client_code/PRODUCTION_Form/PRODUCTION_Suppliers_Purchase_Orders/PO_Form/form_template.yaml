@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card, col_widths: '{"PIJVEE":60,"KYLYYA":35,"NHDVIC":5,"OZGCOG":20,"CYAWZB":14,"VYXAVB":22,"SWAWMB":25}'}
+  properties: {role: outlined-card, col_widths: '{"PIJVEE":60,"KYLYYA":35,"NHDVIC":11,"OZGCOG":14,"CYAWZB":14,"VYXAVB":22,"SWAWMB":25}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'HWPJKQ,YFXCYX'}
   components:
@@ -33,7 +33,8 @@ components:
     layout_properties: {grid_position: 'VKAIKR,SWAWMB'}
     components:
     - name: company_name_label
-      properties: {align: left, role: input-prompt, spacing_below: medium}
+      properties: {align: left, role: input-prompt, spacing_below: medium, foreground: 'theme:Primary',
+        bold: true}
       type: Label
       layout_properties: {grid_position: 'NYRUHH,WHLBKL'}
     - name: label_1
@@ -89,28 +90,36 @@ components:
       type: TextBox
       layout_properties: {grid_position: 'YLAEHX,YQPQLX'}
   - name: outlined_card_2
-    properties: {role: outlined-card, col_widths: '{"AXISEM":12,"FSMWSB":6,"OLBUOQ":18,"DWUJIV":7,"DAPRLR":17}'}
+    properties: {role: outlined-card, col_widths: '{"FSMWSB":9,"OLBUOQ":16,"DWUJIV":11,"DAPRLR":15,"IHXBDT":5,"MZAJIZ":12}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'JDACCI,UHBYLT'}
     components:
     - name: label_7
-      properties: {text: 'SHIPPING:', role: input-prompt}
+      properties: {text: 'SHIPPING:', role: title, foreground: 'theme:Primary'}
       type: Label
-      layout_properties: {grid_position: 'EFMYHA,AXISEM'}
+      layout_properties: {grid_position: 'EKMXIU,PUJZVT'}
+    - name: label_15
+      properties: {text: 'DATE:'}
+      type: Label
+      layout_properties: {grid_position: 'EFMYHA,IHXBDT'}
+    - name: date_shipped
+      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
+      type: TextBox
+      layout_properties: {grid_position: 'EFMYHA,MZAJIZ'}
     - name: label_8
       properties: {text: 'COURIER:'}
       type: Label
       layout_properties: {grid_position: 'EFMYHA,FSMWSB'}
-    - name: outlined_1
-      properties: {role: outlined}
+    - name: shipping_tb
+      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
       type: TextBox
       layout_properties: {grid_position: 'EFMYHA,OLBUOQ'}
     - name: label_9
       properties: {text: 'TRACKING #:'}
       type: Label
       layout_properties: {grid_position: 'EFMYHA,DWUJIV'}
-    - name: outlined_2
-      properties: {role: outlined}
+    - name: tracking_tb
+      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
       type: TextBox
       layout_properties: {grid_position: 'EFMYHA,DAPRLR'}
   - name: outlined_card_3

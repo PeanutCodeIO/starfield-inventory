@@ -330,13 +330,22 @@ def update_invoice_details(supplier_id, po_id, status, invoice_number, invoice_a
 
 
 @anvil.server.callable
-def update_po_owing(supplier_id, po_id, owing):
+def update_po_owing(supplier_id, po_id, owing, status):
   company_id = get_company_id()
   return app_tables.purchase_orders.get(company_id=company_id,
                                         supplier_id=supplier_id,
-                                        purchase_order_id=po_id).update(invoice_owing=owing)
+                                        purchase_order_id=po_id).update(invoice_owing=owing, status=status)
   
 
-
+@anvil.server.callable
+def update_courier_tracking(supplier_id, po_id, courier, tracking, date_shipped):
+  company_id = get_company_id()
+  app_tables.purchase_orders.get(company_id=company_id, 
+                                 supplier_id=supplier_id, 
+                                 purchase_order_id=po_id).update(courier=courier,
+                                                                  courier_tracking_number= tracking,
+                                                                  courier_date=date_shipped)
+  
+  return
   
 
