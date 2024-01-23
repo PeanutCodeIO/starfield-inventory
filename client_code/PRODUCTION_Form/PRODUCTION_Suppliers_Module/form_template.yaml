@@ -26,6 +26,7 @@ components:
     properties: {text: COMMODITIES}
     type: Link
     layout_properties: {grid_position: 'DRTHWF,AZNCRI'}
+    event_bindings: {click: commodity_link_click}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer

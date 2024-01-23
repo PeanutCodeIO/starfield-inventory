@@ -27,6 +27,7 @@ components:
         ', role: filled-button, icon: 'fa:plus'}
     type: Button
     layout_properties: {grid_position: 'EKBWCX,BKAAUA'}
+    event_bindings: {click: new_commodity_click}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer

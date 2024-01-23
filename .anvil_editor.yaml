@@ -24,6 +24,7 @@ unique_ids:
     PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Import_Card: '1701952336286489022726574.2575'
     PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.Purchase_Orders: '1702806174655311980513791.9802'
     PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.Purchase_Orders.ItemTemplate3: '1704358058788520611093903.48004'
+    PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities.Commodity_List.ItemTemplate5: '1706008755327108823797053.83371'
     PRODUCTION_Form.PRODUCTION_Suppliers: '1701852608984628516389496.01'
     PRODUCTION_Form.PRODUCTION_Suppliers_Module.Edit_Supplier_Card: '1701927390384105180250226.29663'
   modules:
