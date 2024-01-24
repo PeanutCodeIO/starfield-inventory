@@ -1,3 +1,33 @@
 is_package: true
 container: {type: ColumnPanel}
-components: []
+components:
+- name: edit_link
+  properties: {}
+  type: Link
+  layout_properties: {grid_position: 'TZUEET,QUOQLZ'}
+  components:
+  - name: com_lbl
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'CUPMXK,CAOWGX'}
+  - name: price_link
+    properties: {}
+    type: Link
+    layout_properties: {grid_position: 'CUPMXK,RUEFZG'}
+    components:
+    - name: price_lbl
+      properties: {}
+      type: Label
+      layout_properties: {grid_position: 'HIANSA,XNXBUE'}
+  - name: amount_lbl
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'CUPMXK,XQQRCR'}
+  - name: measurement_lbl
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'CUPMXK,YJPXXQ'}
+  - name: updated_lbl
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'CUPMXK,TPXVFD'}

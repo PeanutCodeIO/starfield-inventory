@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..... import component_cache
 
 class New_Commodity(New_CommodityTemplate):
   def __init__(self, supplier_id = None, **properties):
@@ -75,6 +76,8 @@ class New_Commodity(New_CommodityTemplate):
     message = anvil.alert(title="Do you wish to add another?", buttons=[("Add Another", True), ("Save & Exit", False)])
     if message:
         anvil.server.call('save_commodity', data)
+        component_cache.refresh_commodities()
+        
         # Reset the fields for new input
         self.commodity_tb.text = ""
         self.quantity_tb.text = ""
@@ -82,6 +85,7 @@ class New_Commodity(New_CommodityTemplate):
         self.price_tb.text = ""
     else:
         anvil.server.call('save_commodity', data)
+        component_cache.refresh_commodities()
         # Navigate to another form
         open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities', self.supplier_id)
 

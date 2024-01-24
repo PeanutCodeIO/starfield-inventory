@@ -129,5 +129,26 @@ class New_Component(New_ComponentTemplate):
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
     pass
 
+  def yes_radio_clicked(self, **event_args):
+    """This method is called when this radio button is selected"""
+    self.component_card.visible = False
+    self.commodity_card.visible = True
+    commodities = component_cache.get_commodities(self.supplier_id)
+    commodity_items = []
+    
+    for commodity in commodities:
+        commodity_name = commodity['commodity_name']
+        commodity_items.append((commodity_name, commodity_name))
+    
+    self.commodity_dd.items = commodity_items
+
+    pass
+
+  def no_radio_clicked(self, **event_args):
+    """This method is called when this radio button is selected"""
+    self.commodity_card.visible = False
+    self.component_card.visible = True
+    pass
+
   
 

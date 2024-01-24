@@ -1,0 +1,6 @@
+is_package: true
+container:
+  type: DataRowPanel
+  data_bindings:
+  - {property: auto_display_data, code: 'self.item['''']', writeback: false}
+components: []

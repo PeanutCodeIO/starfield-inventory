@@ -36,3 +36,4 @@ components:
     properties: {text: BACK, icon: 'fa:arrow-left'}
     type: Link
     layout_properties: {grid_position: 'JWGYYI,CCFVMN'}
+    event_bindings: {click: exit_link_click}
