@@ -1,0 +1,40 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: outlined-card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'HYLWIC,WACMFQ'}
+  components:
+  - name: label_1
+    properties: {text: NEW COMMODITY, role: title, foreground: 'theme:Primary'}
+    type: Label
+    layout_properties: {grid_position: 'DDRDVL,WPLUQN'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'KCEFYL,WJSEEI'}
+  - name: label_2
+    properties: {text: 'Commodity:'}
+    type: Label
+    layout_properties: {grid_position: 'SUMKQJ,JLNDBJ'}
+  - name: outlined_1
+    properties: {role: outlined}
+    type: TextBox
+    layout_properties: {grid_position: 'SUMKQJ,SIBXLP'}
+  - name: label_3
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'SLWLFQ,MKBRNX'}
+  - name: outlined_2
+    properties: {role: outlined, text: ''}
+    type: TextBox
+    layout_properties: {grid_position: 'SLWLFQ,BBHHWJ'}
+  - name: label_4
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'CZSWMG,ETBEQT'}
+  - name: outlined_3
+    properties: {role: outlined}
+    type: TextBox
+    layout_properties: {grid_position: 'CZSWMG,WKYGIN'}
+is_package: true
