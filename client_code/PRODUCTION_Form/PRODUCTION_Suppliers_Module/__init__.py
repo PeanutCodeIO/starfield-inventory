@@ -40,6 +40,6 @@ class PRODUCTION_Suppliers_Module(PRODUCTION_Suppliers_ModuleTemplate):
 
   def commodity_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities')
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities', self.supplier_id)
     pass
     

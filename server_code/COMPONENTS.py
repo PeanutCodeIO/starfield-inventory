@@ -10,13 +10,15 @@ import io
 import csv
 from datetime import datetime
 
-#===== GET COMPANY ID
+#-------------------- GET COMPANY ID ----------------------
+
 def get_company_id():
   user = anvil.users.get_user()
   return user['company_id']
 
 
-#____ Auto Increment New Component 
+#-------------------- Auto Increment New Component  ----------------------
+
 def auto_increment_component_id():
     company_id = get_company_id()
   
@@ -196,6 +198,46 @@ def upload_csv_and_create_components(file, supplier_id):
             date=current_date
         )
 
-        
-
     return "Upload and component creation successful!"
+
+
+
+
+#-------------------- COMMODITIES ----------------------------------------------------------------------------------------
+
+
+
+
+#-------------------- Auto Increment New Commodity  ----------------------
+def auto_increment_commodity_id():
+    company_id = get_company_id()
+  
+    # Create a new commodity_id
+    commodity_data = app_tables.commodity.search(company_id=company_id)
+    if commodity_data:
+        last_commodity_id = max((d['commodity_id'] for d in commodity_data if d['commodity_id'] is not None), default=0)
+        next_commodity_id = last_commodity_id + 1
+    else:
+        next_commodity_id = 1
+
+    return next_commodity_id
+
+
+@anvil.server.callable
+def save_commodity(data):
+  company_id = get_company_id()
+  commodity_id = auto_increment_commodity_id()
+  date = datetime.now().date()
+
+  data['company_id'] = company_id
+  data['commodity_id'] = commodity_id
+  data['date_updated'] = date
+
+  app_tables.commodity.add_row(**data)
+  return
+
+@anvil.server.callable
+def get_commodities(supplier_id):
+  company_id = get_company_id()
+  commodities = app_tables.commodity.search(company_id=company_id, supplier_id=supplier_id)
+  return commodities

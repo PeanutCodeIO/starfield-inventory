@@ -39,3 +39,22 @@ def get_component_data(supplier_id, cmpt_id):
       
   return None
 
+
+
+#-------------------- COMMODITIES ----------------------------------------------------------------------------------------
+
+__supplier_commodities = []
+
+def get_commodities(supplier_id):
+  global __supplier_commodities
+  if __supplier_commodities:
+    return __supplier_commodities
+  else:
+    __supplier_commodities = anvil.server.call('get_commodities', supplier_id)
+    
+    return __supplier_commodities
+
+def refresh_commodities():
+  global __supplier_commodities
+  __supplier_commodities = []
+  return __supplier_commodities

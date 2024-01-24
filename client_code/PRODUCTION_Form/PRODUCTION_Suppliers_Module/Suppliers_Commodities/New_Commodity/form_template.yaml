@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card}
+  properties: {role: outlined-card, col_widths: '{"MKBRNX":30,"CZDTQL":15,"KMENXX":15}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'HYLWIC,WACMFQ'}
   components:
@@ -9,6 +9,11 @@ components:
     properties: {text: NEW COMMODITY, role: title, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'DDRDVL,WPLUQN'}
+  - name: close_button
+    properties: {text: CLOSE, align: right, icon: 'fa:times'}
+    type: Button
+    layout_properties: {grid_position: 'DDRDVL,DCUJBC'}
+    event_bindings: {click: close_button_click}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
@@ -17,24 +22,33 @@ components:
     properties: {text: 'Commodity:'}
     type: Label
     layout_properties: {grid_position: 'SUMKQJ,JLNDBJ'}
-  - name: outlined_1
+  - name: commodity_tb
     properties: {role: outlined}
     type: TextBox
     layout_properties: {grid_position: 'SUMKQJ,SIBXLP'}
   - name: label_3
-    properties: {}
+    properties: {text: Measurement}
     type: Label
     layout_properties: {grid_position: 'SLWLFQ,MKBRNX'}
-  - name: outlined_2
-    properties: {role: outlined, text: ''}
+  - name: quantity_tb
+    properties: {placeholder: Amount}
     type: TextBox
-    layout_properties: {grid_position: 'SLWLFQ,BBHHWJ'}
+    layout_properties: {grid_position: 'SLWLFQ,CZDTQL'}
+  - name: measurement_dd
+    properties: {include_placeholder: true, placeholder: Measurement}
+    type: DropDown
+    layout_properties: {grid_position: 'SLWLFQ,KMENXX'}
   - name: label_4
-    properties: {}
+    properties: {text: Price}
     type: Label
     layout_properties: {grid_position: 'CZSWMG,ETBEQT'}
-  - name: outlined_3
+  - name: price_tb
     properties: {role: outlined}
     type: TextBox
-    layout_properties: {grid_position: 'CZSWMG,WKYGIN'}
+    layout_properties: {grid_position: 'CZSWMG,WKYGIN PLHIMG,UAYODY'}
+  - name: save_button
+    properties: {text: SAVE, role: outlined-button, align: right}
+    type: Button
+    layout_properties: {grid_position: 'CZSWMG,WKYGIN WPWVKM,BOIZXG'}
+    event_bindings: {click: save_button_click}
 is_package: true
