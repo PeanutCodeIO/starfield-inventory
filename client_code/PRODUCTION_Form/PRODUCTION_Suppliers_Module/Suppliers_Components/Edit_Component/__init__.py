@@ -10,7 +10,7 @@ from anvil.tables import app_tables
 from ..... import component_cache
 
 class Edit_Component(Edit_ComponentTemplate):
-  def __init__(self,supplier_id = None, cmpt_id = None, **properties):
+  def __init__(self,supplier_id = None, cmpt_id = None, switch = None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.supplier_id = supplier_id
