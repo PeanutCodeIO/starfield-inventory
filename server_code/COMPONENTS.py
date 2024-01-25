@@ -69,6 +69,7 @@ def save_new_comm_cmpt(component_data, switch):
       minimum_order_cost=component_data['minimum_order_cost'],
       low_stock_alert=component_data['low_stock_alert'],
       commodity_id=component_data['commodity_id'],
+      commodity_name=component_data['commodity_name'],
       commodity_amount=component_data['commodity_amount'],
       commodity_price=component_data['commodity_price'],
       is_commodity=switch,

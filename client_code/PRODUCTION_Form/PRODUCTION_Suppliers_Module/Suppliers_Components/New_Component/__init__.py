@@ -129,6 +129,8 @@ class New_Component(New_ComponentTemplate):
       component_cache.refresh_supplier_components()
   
       open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
+
+    
     elif self.yes_radio.selected:
       selected_commodity_name = self.commodity_dd.selected_value
       all_commodities = component_cache.get_commodities(self.supplier_id)
@@ -141,6 +143,7 @@ class New_Component(New_ComponentTemplate):
           return
   
       com_id = selected_commodity['commodity_id']
+      com_name = selected_commodity['commodity_name']
       
       # Create a dictionary with all the new fields
       component_data = {
@@ -149,6 +152,7 @@ class New_Component(New_ComponentTemplate):
           "sku": self.text_box_sku.text,
           "description": self.text_area_description.text,
           "commodity_id": com_id,
+          "commodity_name":com_name,
           "commodity_amount": float(self.amount_tb.text),
           "commodity_price":float(self.price_tb.text),
           "unit_measurement": self.drop_down_primary_unit.selected_value,
@@ -230,7 +234,7 @@ class New_Component(New_ComponentTemplate):
             self.text_box_item_cost.enabled = False
             self.text_box_item_cost.text = "{:.2f}".format(float(self.price_tb.text))
 
-            self.drop_down_primary_unit.selected_value = "Units"
+            self.drop_down_primary_unit.selected_value = measurement
             self.drop_down_primary_unit.enabled = False
 
     

@@ -18,51 +18,107 @@ class Edit_Component(Edit_ComponentTemplate):
     
 
     # Any code you write here will run before the form opens.
-    component_data = component_cache.get_component_data(supplier_id, cmpt_id)
-    print(component_data)
+    if switch != True:
+      self.commodity_card.visible = False
+      component_data = component_cache.get_component_data(supplier_id, cmpt_id)
+      print(component_data)
+  
+      # Set the text for each textbox, with a check for None values or empty strings
+      self.text_box_component.text = component_data['item_name'] if component_data['item_name'] else "No Data"
+      self.text_box_sku.text = component_data['sku'] if component_data['sku'] else "No Data"
+      self.text_area_description.text = component_data['description'] if component_data['description'] else "No Data"
+      self.drop_down_primary_unit.selected_value = component_data['unit_measurement'] if component_data['unit_measurement'] else "No Data"
+      
+      # For numeric fields, set to 0.0 if None or empty
+      self.text_box_order_minimum.text = str(component_data['order_minimun']) if component_data['order_minimun'] is not None else "0.0"
+      self.text_box_item_cost.text = "{:.2f}".format(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
+      self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
+      self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
+  
+  
+      measurements = [
+      "Millimeters",
+      "Centimeters",
+      "Meters",
+      "Milligrams",
+      "Grams",
+      "Kilograms",
+      "Tonnes",
+      "Milliliters",
+      "Liters",
+      "Cubic meters",
+      "Square meters",
+      "Pieces",
+      "Units",
+      "Packs",
+      "Boxes",
+      "Sheets",
+      "Rolls",
+      "Length"
+      ]
+      self.drop_down_primary_unit.items = measurements
+    else:
+      self.commodity_card.visible = True
+      component_data = component_cache.get_component_data(supplier_id, cmpt_id)
+      print(component_data)
+  
+      # Set the text for each textbox, with a check for None values or empty strings
+      self.text_box_component.text = component_data['item_name'] if component_data['item_name'] else "No Data"
+      self.text_box_sku.text = component_data['sku'] if component_data['sku'] else "No Data"
+      self.text_area_description.text = component_data['description'] if component_data['description'] else "No Data"
+      self.drop_down_primary_unit.selected_value = component_data['unit_measurement'] if component_data['unit_measurement'] else "No Data"
 
-    # Set the text for each textbox, with a check for None values or empty strings
-    self.text_box_component.text = component_data['item_name'] if component_data['item_name'] else "No Data"
-    self.text_box_sku.text = component_data['sku'] if component_data['sku'] else "No Data"
-    self.text_area_description.text = component_data['description'] if component_data['description'] else "No Data"
-    self.drop_down_primary_unit.selected_value = component_data['unit_measurement'] if component_data['unit_measurement'] else "No Data"
-    
-    # For numeric fields, set to 0.0 if None or empty
-    self.text_box_order_minimum.text = str(component_data['order_minimun']) if component_data['order_minimun'] is not None else "0.0"
-    self.text_box_item_cost.text = "{:.2f}".format(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
-    self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
-    self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
+      #Set each textbox for the commodity card
+      self.com_tb.text = component_data['commodity_name']
+      self.amount_tb.text = component_data['commodity_amount']
+      self.measurement_tb.text = component_data['unit_measurement']
+      self.price_tb.text = component_data['commodity_price']
+
+      self.text_box_item_cost.enabled = False
+      self.drop_down_primary_unit.enabled = False
+      
+      # For numeric fields, set to 0.0 if None or empty
+      self.text_box_order_minimum.text = str(component_data['order_minimun']) if component_data['order_minimun'] is not None else "0.0"
+      self.text_box_item_cost.text = "{:.2f}".format(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
+      self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
+      self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
+  
+  
+      measurements = [
+      "Millimeters",
+      "Centimeters",
+      "Meters",
+      "Milligrams",
+      "Grams",
+      "Kilograms",
+      "Tonnes",
+      "Milliliters",
+      "Liters",
+      "Cubic meters",
+      "Square meters",
+      "Pieces",
+      "Units",
+      "Packs",
+      "Boxes",
+      "Sheets",
+      "Rolls",
+      "Length"
+      ]
+      self.drop_down_primary_unit.items = measurements
 
 
-    
 
-    #self.text_box_stock_alert.text = "0"
-    #self.text_box_item_cost.text = "0"
-    #self.text_box_order_minimum.text = "0"
-    #self.minimum_order_cost.text = "0"
 
-    measurements = [
-    "Millimeters",
-    "Centimeters",
-    "Meters",
-    "Milligrams",
-    "Grams",
-    "Kilograms",
-    "Tonnes",
-    "Milliliters",
-    "Liters",
-    "Cubic meters",
-    "Square meters",
-    "Pieces",
-    "Units",
-    "Packs",
-    "Boxes",
-    "Sheets",
-    "Rolls",
-    "Length"
-    ]
-    self.drop_down_primary_unit.items = measurements
 
+
+
+
+
+
+
+
+
+      return 
   def close_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)

@@ -26,8 +26,9 @@ class ItemTemplate1(ItemTemplate1Template):
     """This method is called when the link is clicked"""
     supplier_id = self.item['supplier_id']
     cmpt_id = self.item['component_id']
+    switch = self.item['is_commodity']
 
-    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Edit_Component', supplier_id, cmpt_id)
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Edit_Component', supplier_id, cmpt_id, switch)
     pass
 
 

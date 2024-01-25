@@ -24,7 +24,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'ZFPEIS,PYAQGC'}
   - name: outlined_card_2
-    properties: {role: outlined-card, col_widths: '{"CPPKRI":20,"SCMBNA":40,"BWGUZH":20,"YPHFKN":40,"MWYENN":20,"LZEBOG":40}'}
+    properties: {role: null, col_widths: '{"CPPKRI":20,"SCMBNA":40,"BWGUZH":20,"YPHFKN":40,"MWYENN":20,"LZEBOG":40}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'HXIBVR,DZDNNG'}
     components:
@@ -64,15 +64,60 @@ components:
         background: '', bold: false, underline: false}
       type: TextArea
       layout_properties: {grid_position: 'YJYJVX,LZEBOG'}
-  - name: outlined_card_4
-    properties: {role: outlined-card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'AQFVKA,LFKNMH'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'UCPKXC,DZNHYJ'}
   - name: outlined_card_3
-    properties: {role: outlined-card, col_widths: '{"NJXWLK":20,"IWZUYU":30,"ZKJZRH":10,"BFKWAL":20,"VASMVH":20,"RSGZNY":40,"XIEQQJ":20,"BRHWZV":40,"QJFYQI":20,"TQSHFT":40,"LEKUJI":20,"YHLTCE":40}'}
+    properties: {role: null, col_widths: '{"NJXWLK":20,"IWZUYU":30,"ZKJZRH":10,"BFKWAL":20,"VASMVH":20,"RSGZNY":40,"XIEQQJ":20,"BRHWZV":40,"QJFYQI":20,"TQSHFT":40,"LEKUJI":20,"YHLTCE":40}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'HSNJZZ,TZBXZG'}
     components:
+    - name: commodity_card
+      properties: {role: null, col_widths: '{"ZZZEDL":10,"WZJCAU":50,"LOAYXT":10,"WNOIMK":10,"KTRTVQ":10,"OVZXJC":10,"SCQKQO":10,"KIUBIK":10}'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'ZLXDTX,RNLSAX'}
+      components:
+      - name: label_8
+        properties: {text: COMMODITY, role: title, foreground: 'theme:Primary'}
+        type: Label
+        layout_properties: {grid_position: 'QSJJRN,ALBGGE'}
+      - name: label_9
+        properties: {text: 'Commodity:'}
+        type: Label
+        layout_properties: {grid_position: 'SJOTPD,ZZZEDL'}
+      - name: com_tb
+        properties: {role: outlined, enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU'}
+      - name: label_10
+        properties: {text: 'Amount:'}
+        type: Label
+        layout_properties: {grid_position: 'CUYQBQ,LOAYXT'}
+      - name: amount_tb
+        properties: {role: outlined}
+        type: TextBox
+        layout_properties: {grid_position: 'CUYQBQ,WNOIMK'}
+      - name: label_11
+        properties: {text: Measurement}
+        type: Label
+        layout_properties: {grid_position: 'CUYQBQ,KTRTVQ'}
+      - name: measurement_tb
+        properties: {role: outlined, enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'CUYQBQ,OVZXJC'}
+      - name: label_13
+        properties: {text: 'Price:'}
+        type: Label
+        layout_properties: {grid_position: 'CUYQBQ,SCQKQO'}
+      - name: price_tb
+        properties: {role: outlined, enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'CUYQBQ,KIUBIK'}
+    - name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'PLSQNY,GYYWCV'}
     - name: label_2
       properties: {text: 'Item Cost:'}
       type: Label
