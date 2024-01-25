@@ -59,6 +59,7 @@ class New_Commodity(New_CommodityTemplate):
     try:
         amount = int(amount_text)
         price = float(price_text)
+        measurement_price = price / amount
     except ValueError:
         anvil.alert("Invalid input in amount or price field.")
         return
@@ -69,7 +70,8 @@ class New_Commodity(New_CommodityTemplate):
         "commodity_name": commodity,
         "commodity_amount": amount,
         "commodity_measurement": measurement,
-        "commodity_price": price
+        "commodity_price": price,
+        "measurement_price": measurement_price
     }
 
     # Confirm save operation

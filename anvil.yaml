@@ -165,6 +165,15 @@ db_schema:
     - name: commodity_id
       admin_ui: {width: 200, order: 9}
       type: number
+    - name: commodity_amount
+      admin_ui: {width: 200, order: 10}
+      type: number
+    - name: commodity_price
+      admin_ui: {width: 200, order: 11}
+      type: number
+    - name: is_commodity
+      admin_ui: {width: 200, order: 12}
+      type: bool
     title: Components
   company:
     client: none
@@ -284,10 +293,13 @@ db_schema:
       admin_ui: {width: 200, order: 5}
       type: string
     - name: commodity_price
-      admin_ui: {width: 200, order: 6}
+      admin_ui: {order: 4.5, width: 200}
       type: number
     - name: date_updated
       admin_ui: {width: 200, order: 7}
       type: date
+    - name: measurement_price
+      admin_ui: {order: 6, width: 200}
+      type: number
     title: Commodity
 renamed: true

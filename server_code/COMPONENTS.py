@@ -37,14 +37,15 @@ def auto_increment_component_id():
 
 @anvil.server.callable
 def save_component_commodity(switch, data):
-  if switch:
-    return
+  if switch == True:
+    save_new_comm_cmpt(data, switch)
+    print(f"This is with comm {data}")
   else:
-    save_new_component(data)
+    save_new_component(data, switch)
+    print(f"This is with comm {data}")
   return
 
-@anvil.server.callable
-def save_new_component(component_data):
+def save_new_comm_cmpt(component_data, switch):
 
   company_id = get_company_id()
   component_id = auto_increment_component_id()
@@ -67,6 +68,42 @@ def save_new_component(component_data):
       order_minimun=component_data['order_minimum'],
       minimum_order_cost=component_data['minimum_order_cost'],
       low_stock_alert=component_data['low_stock_alert'],
+      commodity_id=component_data['commodity_id'],
+      commodity_amount=component_data['commodity_amount'],
+      commodity_price=component_data['commodity_price'],
+      is_commodity=switch,
+  )
+
+  current_date = datetime.now().date()
+  component_cost = app_tables.components_cost_history.add_row(company_id=company_id, supplier_id=component_data['supplier_id'], component_id=component_id, item_cost=component_data['item_cost'], date=current_date)
+  
+  return None
+  
+@anvil.server.callable
+def save_new_component(component_data, switch):
+
+  company_id = get_company_id()
+  component_id = auto_increment_component_id()
+    
+  # Replace empty fields with "No Data"
+  for key in ['sku', 'description']:
+      if not component_data.get(key):
+          component_data[key] = "No Data"
+  
+  # Add a new row to the components table
+  app_tables.components.add_row(
+     company_id=company_id,
+      component_id=component_id,
+      supplier_id=component_data['supplier_id'],
+      item_name=component_data['item_name'],
+      sku=component_data['sku'],
+      description=component_data['description'],
+      item_cost=component_data['item_cost'],
+      unit_measurement=component_data['unit_measurement'],
+      order_minimun=component_data['order_minimum'],
+      minimum_order_cost=component_data['minimum_order_cost'],
+      low_stock_alert=component_data['low_stock_alert'],
+      is_commodity=switch,
   )
 
   current_date = datetime.now().date()
