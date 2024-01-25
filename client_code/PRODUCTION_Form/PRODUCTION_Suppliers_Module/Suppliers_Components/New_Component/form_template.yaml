@@ -77,54 +77,60 @@ components:
     type: RadioButton
     layout_properties: {grid_position: 'IPQIBK,NNSEVN'}
     event_bindings: {clicked: no_radio_clicked}
-  - name: commodity_card
-    properties: {role: outlined-card, visible: false, col_widths: '{"QFUEXA":21,"CNOEMG":39,"KJKUCK":30,"HMJQBH":15,"OTLQTY":15,"MOSBFH":15,"NSIAWW":14}'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ULEFOJ,BUMFBN'}
-    components:
-    - name: label_9
-      properties: {role: title, text: COMMODITY, foreground: 'theme:Primary'}
-      type: Label
-      layout_properties: {grid_position: 'VIHMMV,VQMAZO'}
-    - name: label_11
-      properties: {text: 'Select a commodity:'}
-      type: Label
-      layout_properties: {grid_position: 'JOSUDT,QFUEXA'}
-    - name: commodity_dd
-      properties: {include_placeholder: true, placeholder: Commodities}
-      type: DropDown
-      layout_properties: {grid_position: 'JOSUDT,CNOEMG'}
-    - name: label_13
-      properties: {text: 'Measurement:'}
-      type: Label
-      layout_properties: {grid_position: 'YNXKPY,KJKUCK'}
-    - name: amount_tb
-      properties: {role: outlined, enabled: false, foreground: 'theme:On Primary Container'}
-      type: TextBox
-      layout_properties: {grid_position: 'YNXKPY,HMJQBH'}
-    - name: measurement_tb
-      properties: {role: outlined, visible: true, foreground: 'theme:On Primary Container',
-        enabled: false}
-      type: TextBox
-      layout_properties: {grid_position: 'YNXKPY,OTLQTY'}
-    - name: label_16
-      properties: {text: 'Price:'}
-      type: Label
-      layout_properties: {grid_position: 'YNXKPY,MOSBFH'}
-    - name: price_tb
-      properties: {role: outlined, enabled: false}
-      type: TextBox
-      layout_properties: {grid_position: 'YNXKPY,NSIAWW'}
-    - name: save_commodity
-      properties: {text: SAVE, role: outlined-button, align: right}
-      type: Button
-      layout_properties: {grid_position: 'YEVSDN,JVDYGQ'}
   - name: component_card
     properties: {role: outlined-card, col_widths: '{"PQRLCY":15,"EVGTQZ":15,"PHNJAB":30,"DZXUPY":45,"PBXEKR":15}',
       visible: false}
     type: ColumnPanel
     layout_properties: {grid_position: 'CTMRIT,ELXMLD'}
     components:
+    - name: commodity_card
+      properties: {role: null, visible: false, col_widths: '{"QFUEXA":13,"DYALAT":22,"BKOWWP":14,"OWXZJA":11,"SDLEYR":19,"UIITOK":34,"VIXKWA":20,"VEANKV":17}'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'BRQFEK,IJLPOD'}
+      components:
+      - name: label_9
+        properties: {role: title, text: COMMODITY, foreground: 'theme:Primary'}
+        type: Label
+        layout_properties: {grid_position: 'VIHMMV,VQMAZO'}
+      - name: label_11
+        properties: {text: 'Select a commodity:'}
+        type: Label
+        layout_properties: {grid_position: 'JOSUDT,QFUEXA'}
+      - name: commodity_dd
+        properties: {include_placeholder: true, placeholder: Commodities}
+        type: DropDown
+        layout_properties: {grid_position: 'JOSUDT,DYALAT'}
+        event_bindings: {change: commodity_dd_change}
+      - name: label_13
+        properties: {text: 'Measurement:'}
+        type: Label
+        layout_properties: {grid_position: 'JOSUDT,BKOWWP'}
+      - name: measurement_tb
+        properties: {role: outlined, visible: true, foreground: 'theme:On Primary
+            Container', enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'JOSUDT,OWXZJA'}
+      - name: label_14
+        properties: {text: 'Amount:'}
+        type: Label
+        layout_properties: {grid_position: 'YNXKPY,SDLEYR'}
+      - name: amount_tb
+        properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
+            Container'}
+        type: TextBox
+        layout_properties: {grid_position: 'YNXKPY,UIITOK'}
+      - name: label_16
+        properties: {text: 'Price:'}
+        type: Label
+        layout_properties: {grid_position: 'YNXKPY,VIXKWA'}
+      - name: price_tb
+        properties: {role: outlined, enabled: false}
+        type: TextBox
+        layout_properties: {grid_position: 'YNXKPY,VEANKV'}
+      - name: save_commodity
+        properties: {text: SAVE, role: outlined-button, align: right}
+        type: Button
+        layout_properties: {grid_position: 'YEVSDN,JVDYGQ'}
     - name: label_10
       properties: {text: COMPONENT, foreground: 'theme:Primary', role: title}
       type: Label

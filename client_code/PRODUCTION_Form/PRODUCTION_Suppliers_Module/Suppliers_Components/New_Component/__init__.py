@@ -98,40 +98,56 @@ class New_Component(New_ComponentTemplate):
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
 
+    if self.no_radio:
     # Create a dictionary with all the new fields
-    component_data = {
-        "supplier_id": self.supplier_id,
-        "item_name": self.text_box_component.text,
-        "sku": self.text_box_sku.text,
-        "description": self.text_area_description.text,
-        "unit_measurement": self.drop_down_primary_unit.selected_value,
-        "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
-        "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
-        "minimum_order_cost": float(self.minimum_order_cost.text) if self.minimum_order_cost.text else 0.0 ,
-        "low_stock_alert": float(self.text_box_stock_alert.text) if self.text_box_stock_alert.text else 0.0,
-    }
+      component_data = {
+          "supplier_id": self.supplier_id,
+          "item_name": self.text_box_component.text,
+          "sku": self.text_box_sku.text,
+          "description": self.text_area_description.text,
+          "unit_measurement": self.drop_down_primary_unit.selected_value,
+          "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
+          "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
+          "minimum_order_cost": float(self.minimum_order_cost.text) if self.minimum_order_cost.text else 0.0 ,
+          "low_stock_alert": float(self.text_box_stock_alert.text) if self.text_box_stock_alert.text else 0.0,
+      }
+  
+      # Check if the mandatory fields are filled
+      mandatory_fields = ["item_name", "description", "unit_measurement"]
+  
+      for field in mandatory_fields:
+          if not component_data[field]:
+              anvil.alert(f"Please fill out the {field.replace('_', ' ')} field.")
+              return
+  
+      # Send the component data to the server for storage
+      #anvil.server.call('save_new_component', component_data)
+      anvil.server.call('save_component_commodity', False, component_data)
+      anvil.alert("Component data stored successfully.")
+  
+      # Refresh component data cache (if applicable)
+      component_cache.refresh_supplier_components()
+  
+      open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
+    elif self.yes_radio:
 
-    # Check if the mandatory fields are filled
-    mandatory_fields = ["item_name", "description", "unit_measurement"]
 
-    for field in mandatory_fields:
-        if not component_data[field]:
-            anvil.alert(f"Please fill out the {field.replace('_', ' ')} field.")
-            return
 
-    # Send the component data to the server for storage
-    anvil.server.call('save_new_component', component_data)
-    anvil.alert("Component data stored successfully.")
 
-    # Refresh component data cache (if applicable)
-    component_cache.refresh_supplier_components()
 
-    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
+
+
+
+
+
+
+      
+      return
     pass
 
   def yes_radio_clicked(self, **event_args):
     """This method is called when this radio button is selected"""
-    self.component_card.visible = False
+    self.component_card.visible = True
     self.commodity_card.visible = True
     commodities = component_cache.get_commodities(self.supplier_id)
     commodity_items = []
@@ -148,6 +164,40 @@ class New_Component(New_ComponentTemplate):
     """This method is called when this radio button is selected"""
     self.commodity_card.visible = False
     self.component_card.visible = True
+    pass
+
+  def commodity_dd_change(self, **event_args):
+    """This method is called when an item is selected"""
+    commodities = component_cache.get_commodities(self.supplier_id)
+    
+    selected_com = self.commodity_dd.selected_value
+
+    # Find the selected commodity details
+    selected_commodity = next((com for com in commodities if com['commodity_name'] == selected_com), None)
+    
+    if selected_commodity:
+        commodity_name = selected_commodity["commodity_name"]
+        measurement = selected_commodity['commodity_measurement']
+        amount = selected_commodity['commodity_amount']
+        price = selected_commodity['commodity_price']
+  
+        t = TextBox(placeholder="Enter Measurement")
+        n = anvil.alert(content=t, title=f"Please enter the amount of {commodity_name} in {measurement} for this component", buttons=[("Enter", True), ("Cancel", False)])
+        if n:
+            self.measurement_tb.text = measurement
+            
+            entered_measurement = t.text
+            self.amount_tb.text = entered_measurement
+            
+            # You can now use entered_measurement as needed
+            # ...
+
+      
+    
+
+    
+
+    
     pass
 
   

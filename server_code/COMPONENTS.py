@@ -33,7 +33,15 @@ def auto_increment_component_id():
     return next_component_id
 
 
-#____ Save a new component under a supplier
+#-------------------- Save a new component under a supplier #--------------------
+
+@anvil.server.callable
+def save_component_commodity(switch, data):
+  if switch:
+    return
+  else:
+    save_new_component(data)
+  return
 
 @anvil.server.callable
 def save_new_component(component_data):
