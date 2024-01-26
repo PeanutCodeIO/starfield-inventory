@@ -65,6 +65,7 @@ def save_new_comm_cmpt(component_data, switch):
       description=component_data['description'],
       item_cost=component_data['item_cost'],
       unit_measurement=component_data['unit_measurement'],
+      commodity_measurement=component_data['commodity_measurement'],
       order_minimun=component_data['order_minimum'],
       minimum_order_cost=component_data['minimum_order_cost'],
       low_stock_alert=component_data['low_stock_alert'],
@@ -111,9 +112,19 @@ def save_new_component(component_data, switch):
   component_cost = app_tables.components_cost_history.add_row(company_id=company_id, supplier_id=component_data['supplier_id'], component_id=component_id, item_cost=component_data['item_cost'], date=current_date)
   
   return None
-#____ EDIT COMPONENT UNDER A SUPPLIER
 
+
+#-------------------- EDIT COMPONENT UNDER A SUPPLIER  ----------------------
 @anvil.server.callable
+def edit_component_commodity(supplier_id, component_id, switch):
+
+  if switch != True:
+    edit_new_component(supplier_id, component_id)
+  else:
+    return
+  return
+
+
 def edit_new_component(supplier_id, component_data):
   company_id = get_company_id()
   components = app_tables.components.get(company_id=company_id ,supplier_id=supplier_id, component_id=component_data['component_id']).update(
@@ -129,6 +140,10 @@ def edit_new_component(supplier_id, component_data):
   )
                                                                                                                      
   return None
+
+def edit_component_commodity_task():
+  
+  return
 
 #===== RECORD A COMPONENT PRICE CHANGE
 @anvil.server.callable

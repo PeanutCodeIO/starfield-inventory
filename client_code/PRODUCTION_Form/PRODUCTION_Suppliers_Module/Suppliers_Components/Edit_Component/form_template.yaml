@@ -87,7 +87,8 @@ components:
         type: Label
         layout_properties: {grid_position: 'SJOTPD,ZZZEDL'}
       - name: com_tb
-        properties: {role: outlined, enabled: false}
+        properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
+            Container'}
         type: TextBox
         layout_properties: {grid_position: 'SJOTPD,WZJCAU'}
       - name: label_10
@@ -98,12 +99,14 @@ components:
         properties: {role: outlined}
         type: TextBox
         layout_properties: {grid_position: 'CUYQBQ,WNOIMK'}
+        event_bindings: {change: amount_tb_change}
       - name: label_11
         properties: {text: Measurement}
         type: Label
         layout_properties: {grid_position: 'CUYQBQ,KTRTVQ'}
       - name: measurement_tb
-        properties: {role: outlined, enabled: false}
+        properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
+            Container'}
         type: TextBox
         layout_properties: {grid_position: 'CUYQBQ,OVZXJC'}
       - name: label_13
@@ -111,7 +114,8 @@ components:
         type: Label
         layout_properties: {grid_position: 'CUYQBQ,SCQKQO'}
       - name: price_tb
-        properties: {role: outlined, enabled: false}
+        properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
+            Container'}
         type: TextBox
         layout_properties: {grid_position: 'CUYQBQ,KIUBIK'}
     - name: spacer_2
@@ -123,7 +127,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'HYALXX,NJXWLK'}
     - name: text_box_item_cost
-      properties: {}
+      properties: {foreground: 'theme:On Primary Container'}
       type: TextBox
       layout_properties: {grid_position: 'HYALXX,IWZUYU'}
       event_bindings: {change: text_box_item_cost_change}
@@ -147,7 +151,7 @@ components:
         placeholder: Measurement
         border: ''
         enabled: true
-        foreground: ''
+        foreground: theme:On Primary Container
         items: []
         visible: true
         font_size: null

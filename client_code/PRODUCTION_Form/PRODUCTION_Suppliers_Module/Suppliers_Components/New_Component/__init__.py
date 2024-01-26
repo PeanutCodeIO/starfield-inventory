@@ -144,6 +144,7 @@ class New_Component(New_ComponentTemplate):
   
       com_id = selected_commodity['commodity_id']
       com_name = selected_commodity['commodity_name']
+      com_measurement = selected_commodity['commodity_measurement']
       
       # Create a dictionary with all the new fields
       component_data = {
@@ -155,7 +156,8 @@ class New_Component(New_ComponentTemplate):
           "commodity_name":com_name,
           "commodity_amount": float(self.amount_tb.text),
           "commodity_price":float(self.price_tb.text),
-          "unit_measurement": self.drop_down_primary_unit.selected_value,
+          "unit_measurement": "Units",
+          "commodity_measurement": com_measurement,
           "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
           "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
           "minimum_order_cost": float(self.minimum_order_cost.text) if self.minimum_order_cost.text else 0.0 ,
@@ -234,7 +236,7 @@ class New_Component(New_ComponentTemplate):
             self.text_box_item_cost.enabled = False
             self.text_box_item_cost.text = "{:.2f}".format(float(self.price_tb.text))
 
-            self.drop_down_primary_unit.selected_value = measurement
+            self.drop_down_primary_unit.selected_value = "Units"
             self.drop_down_primary_unit.enabled = False
 
     
