@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: null, col_widths: '{"INIYAR":50,"ZTRMAC":10,"HQOAXP":20,"ULIOAV":10,"LYMXOF":10,"QVOSML":20}'}
+  properties: {role: null, col_widths: '{"INIYAR":50,"ZTRMAC":10}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'FJHXOU,RFIREM'}
   components:
@@ -20,33 +20,24 @@ components:
     type: Button
     layout_properties: {grid_position: 'IEGBMT,ZTRMAC'}
     event_bindings: {click: reset_button_click}
-  - name: label_2
-    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Business Name:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'UQIGMY,HQOAXP'}
-  - name: label_5
-    properties: {text: 'Contact:', role: input-prompt}
-    type: Label
-    layout_properties: {grid_position: 'UQIGMY,ULIOAV'}
-  - name: label_3
-    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Phone:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'UQIGMY,LYMXOF'}
-  - name: label_4
-    properties: {role: input-prompt, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Email:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'UQIGMY,QVOSML'}
-  - name: repeating_panel_suppliers
-    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers.Supplier_List.Suppliers_Panel}
-    type: RepeatingPanel
-    layout_properties: {grid_position: 'KSNKPP,IPGJHW'}
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: GTYVUW, data_key: column_1, title: '', expand: false, width: 29.9478759765625}
+      - {id: SXEZCI, data_key: business_name, title: 'Business Name:', width: 249.69268798828125,
+        expand: false}
+      - {id: FCVKDK, data_key: contact, title: 'Contact:', width: 150.4322509765625,
+        expand: false}
+      - {id: DEUXYH, data_key: phone, title: 'Phone: ', width: 148.567626953125, expand: false}
+      - {id: ONMJWZ, data_key: email, title: 'Email:', width: 150.5885009765625, expand: false}
+      - {id: PBPOBW, data_key: column_1, title: Details}
+      foreground: ''
+    type: DataGrid
+    components:
+    - name: suppliers_repeating_panel
+      properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers.Supplier_List.RowTemplate4,
+        foreground: 'theme:Primary'}
+      type: RepeatingPanel
+      layout_properties: {}
+    layout_properties: {grid_position: 'PUAWVA,FIKZPA'}
 is_package: true

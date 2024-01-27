@@ -9,28 +9,21 @@ components:
     properties: {text: COMMODITIES, role: title, foreground: 'theme:Primary'}
     type: Label
     layout_properties: {grid_position: 'DWSHGP,GLPIHY'}
-  - name: label_2
-    properties: {text: Commodity, role: null}
-    type: Label
-    layout_properties: {grid_position: 'VMNQZM,OAPGXS'}
-  - name: label_6
-    properties: {text: Amount, role: null, align: center}
-    type: Label
-    layout_properties: {grid_position: 'VMNQZM,NJPKIK'}
-  - name: label_4
-    properties: {text: Measurement, role: null, align: center}
-    type: Label
-    layout_properties: {grid_position: 'VMNQZM,QSADSG'}
-  - name: label_3
-    properties: {text: Price, role: null, align: center}
-    type: Label
-    layout_properties: {grid_position: 'VMNQZM,QUQMZK'}
-  - name: label_5
-    properties: {text: Last Updated, role: null, align: center}
-    type: Label
-    layout_properties: {grid_position: 'VMNQZM,JAPJAI'}
-  - name: commodities_repeating_panel
-    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities.Commodity_List.ItemTemplate5}
-    type: RepeatingPanel
-    layout_properties: {grid_position: 'LDJXZC,ZLLLFB'}
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: EPKQRO, data_key: commodity_name, title: 'Commodity:', width: 249.73956298828125,
+        expand: false}
+      - {id: RYXPLC, data_key: commodity_amount, title: 'Amount:'}
+      - {id: AYVXHS, data_key: commodity_measurement, title: 'Measurement:'}
+      - {id: FMMLRJ, data_key: commodity_price, title: 'Price:'}
+      - {id: PHWJFB, data_key: date_updated, title: 'Date Updated:'}
+    type: DataGrid
+    components:
+    - name: commodity_repeating_panel
+      properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities.Commodity_List.RowTemplate5,
+        foreground: 'theme:Primary'}
+      type: RepeatingPanel
+      layout_properties: {}
+    layout_properties: {grid_position: 'YSNNRL,NJJZZW'}
 is_package: true

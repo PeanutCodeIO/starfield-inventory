@@ -17,9 +17,7 @@ class Component_List(Component_ListTemplate):
 
     # Any code you write here will run before the form opens.
     components = component_cache.get_supplier_components(supplier_id)
-    self.component_repeating_panel.items = components
-
-    self.repeating_panel_1.items = components
+    self.components_repeating_panel.items = components
     
 
   def search_text_box_change(self, **event_args):
@@ -38,15 +36,14 @@ class Component_List(Component_ListTemplate):
        search_term in component['description'].lower()
       ]
 
-    self.component_repeating_panel.items = filtered_component
-    self.repeating_panel_1.items = filtered_component
+    self.components_repeating_panel.items = filtered_component
     
     pass
 
   def reset_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.search_text_box.text = ""
-    self.component_repeating_panel.items = component_cache.get_supplier_components(self.supplier_id)
+    self.components_repeating_panel.items = component_cache.get_supplier_components(self.supplier_id)
     pass
 
 

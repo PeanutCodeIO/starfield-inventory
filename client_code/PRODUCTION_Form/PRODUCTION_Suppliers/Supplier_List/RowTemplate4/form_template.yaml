@@ -1,0 +1,12 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: details_link
+  properties: {text: Click here, icon: 'fa:arrow-circle-o-right'}
+  type: Link
+  layout_properties: {column: PBPOBW}
+  event_bindings: {click: details_link_click}
+- name: check_box
+  properties: {text: '', align: center}
+  type: CheckBox
+  layout_properties: {column: GTYVUW}

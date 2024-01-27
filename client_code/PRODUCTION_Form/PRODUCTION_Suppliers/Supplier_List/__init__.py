@@ -17,7 +17,8 @@ class Supplier_List(Supplier_ListTemplate):
 
     # Any code you write here will run before the form opens.
     suppliers = supplier_cache.get_all_suppliers()
-    self.repeating_panel_suppliers.items = suppliers
+    self.suppliers_repeating_panel.items = suppliers
+    
     
 
   def search_text_box_change(self, **event_args):
@@ -33,12 +34,13 @@ class Supplier_List(Supplier_ListTemplate):
                           search_term in supplier['notes'].lower()
                           ]
   
-    self.repeating_panel_suppliers.items = filtered_suppliers
+    self.suppliers_repeating_panel.items = filtered_suppliers
     pass
 
   def reset_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.search_text_box.text = ""
     suppliers = supplier_cache.get_all_suppliers()
-    self.repeating_panel_suppliers.items = suppliers
+    self.suppliers_repeating_panel.items = suppliers
+    
     pass

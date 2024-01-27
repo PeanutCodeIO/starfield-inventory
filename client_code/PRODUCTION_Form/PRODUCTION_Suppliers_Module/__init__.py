@@ -42,4 +42,23 @@ class PRODUCTION_Suppliers_Module(PRODUCTION_Suppliers_ModuleTemplate):
     """This method is called when the link is clicked"""
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities', self.supplier_id)
     pass
+
+  def info_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    # Display an informational alert about the use of commodities in components
+    anvil.alert(
+        """Used when a component is commodity-based (e.g., Gold).\n\nCommodity changes can affect all components based on the commodity.\n\nEnter a commodity first, before creating a component""",
+        title="Commodity Info"
+    )
+
+    pass
+
+  def cmpt_info_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.alert(
+        """Components are items ordered from a supplier.\n\nThey can be commodity based (e.g Gold Casting) or a specific item itself\n\nThey are used to make purchase orders""",
+        title="Component Info"
+    )
+    
+    pass
     

@@ -1,0 +1,8 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: price_link
+  properties: {}
+  type: Link
+  layout_properties: {column: FMMLRJ}
+  event_bindings: {click: price_link_click}

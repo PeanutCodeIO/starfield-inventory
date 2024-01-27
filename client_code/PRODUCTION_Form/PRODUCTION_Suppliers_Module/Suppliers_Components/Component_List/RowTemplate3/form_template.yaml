@@ -1,7 +1,14 @@
 is_package: true
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  properties: {align: left}
 components:
 - name: details_link
-  properties: {text: Click Here}
+  properties: {text: Click Here, icon: 'fa:arrow-circle-o-right'}
   type: Link
   layout_properties: {column: THHKMY}
+  event_bindings: {click: details_link_click}
+- name: check_box
+  properties: {text: ''}
+  type: CheckBox
+  layout_properties: {column: WMRCAH}

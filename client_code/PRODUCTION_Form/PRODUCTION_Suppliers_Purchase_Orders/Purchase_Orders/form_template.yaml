@@ -53,19 +53,13 @@ components:
     - {id: XGGBVR, data_key: status, title: Status, width: 131.859375, expand: false}
     - {id: ATJCJY, data_key: invoice_number, title: Invoice Number, width: 129.61456298828125,
       expand: false}
-    - {id: KLHNVB, data_key: invoice_total, title: Invoice Total}
     - {id: FVNFUD, data_key: invoice_owing, title: Owing}
+    - {id: KLHNVB, data_key: invoice_total, title: Invoice Total}
     - {id: LSZTUK, data_key: column_1, title: Details}
   type: DataGrid
   components:
-  - name: link_1
-    properties: {}
-    type: Link
-    components:
-    - name: repeating_panel_1
-      properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.Purchase_Orders.RowTemplate2}
-      type: RepeatingPanel
-      layout_properties: {grid_position: 'QZBSCW,WNXFZB'}
-    event_bindings: {click: link_1_click}
+  - name: repeating_panel_1
+    properties: {item_template: PRODUCTION_Form.PRODUCTION_Suppliers_Purchase_Orders.Purchase_Orders.RowTemplate2}
+    type: RepeatingPanel
   layout_properties: {grid_position: 'JZFHBE,FQTAUF'}
 is_package: true

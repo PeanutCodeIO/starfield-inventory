@@ -18,7 +18,7 @@ class Commodity_List(Commodity_ListTemplate):
 
     # Any code you write here will run before the form opens.
     commodities = component_cache.get_commodities(self.supplier_id)
-    self.commodities_repeating_panel.items = commodities
+    self.commodity_repeating_panel.items = commodities
 
 
     
