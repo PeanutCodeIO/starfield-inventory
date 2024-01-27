@@ -1,0 +1,8 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: form_link
+  properties: {visible: true, text: Click here}
+  type: Link
+  layout_properties: {column: LSZTUK}
+  event_bindings: {click: form_link_click}

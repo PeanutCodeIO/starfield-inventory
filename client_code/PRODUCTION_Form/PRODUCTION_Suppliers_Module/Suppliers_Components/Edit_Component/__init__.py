@@ -205,6 +205,57 @@ class Edit_Component(Edit_ComponentTemplate):
       open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
     else:
 
+      all_commodities = component_cache.get_commodities(self.supplier_id)
+  
+      # Find the selected commodity from all commodities
+      selected_commodity = next((com for com in all_commodities if com['commodity_name'] == self.com_tb.text), None)
+      
+      if not selected_commodity:
+          anvil.alert("Selected commodity not found.")
+          return
+  
+      com_id = selected_commodity['commodity_id']
+      com_name = selected_commodity['commodity_name']
+      com_measurement = selected_commodity['commodity_measurement']
+
+      # Create a dictionary with all the new fields
+      component_data = {
+          "supplier_id": self.supplier_id,
+          "component_id": self.cmpt_id, 
+          "item_name": self.text_box_component.text,
+          "sku": self.text_box_sku.text,
+          "description": self.text_area_description.text,
+          "commodity_id": com_id,
+          "commodity_name":com_name,
+          "commodity_amount": float(self.amount_tb.text),
+          "commodity_price":float(self.price_tb.text),
+          "unit_measurement": "Units",
+          "commodity_measurement": com_measurement,
+          "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
+          "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
+          "minimum_order_cost": float(self.minimum_order_cost.text) if self.minimum_order_cost.text else 0.0 ,
+          "low_stock_alert": float(self.text_box_stock_alert.text) if self.text_box_stock_alert.text else 0.0,
+      }
+  
+      # Check if the mandatory fields are filled
+      mandatory_fields = ["item_name", "description", "unit_measurement"]
+  
+      for field in mandatory_fields:
+        if not component_data[field]:
+          anvil.alert(f"Please fill out the {field.replace('_', ' ')} field.")
+          return
+  
+      # Send the component data to the server for storage
+      anvil.server.call('edit_component_commodity',self.supplier_id,  component_data, switch)
+      anvil.alert("Component updated successfully.")
+  
+      # Refresh component data cache (if applicable)
+      component_cache.refresh_supplier_components()
+  
+      open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
+
+      
+      
 
       return 
     pass
@@ -229,11 +280,16 @@ class Edit_Component(Edit_ComponentTemplate):
     """This method is called when the text in this text box is edited"""
     commodities = component_cache.get_component_data(self.supplier_id, self.cmpt_id)
     comm = component_cache.get_commodities(self.supplier_id)
+    com_selected = self.com_tb.text
+    
+    for commodity in comm:
+      if commodity['commodity_name'] == com_selected:
+         price = commodity['commodity_price']
+        
 
     # Ensure text box values are treated as strings and handle empty or non-numeric input
     amount_text = str(self.amount_tb.text)
     amount = float(amount_text) if amount_text.strip() else 0.0
-    price = commodities['commodity_price']
 
     # Calculate and display the price
     calculated_price = amount * price

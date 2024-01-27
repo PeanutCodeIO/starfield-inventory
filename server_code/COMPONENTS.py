@@ -121,6 +121,7 @@ def edit_component_commodity(supplier_id, component_id, switch):
   if switch != True:
     edit_new_component(supplier_id, component_id)
   else:
+    edit_component_commodity_task(supplier_id, component_id)
     return
   return
 
@@ -141,7 +142,25 @@ def edit_new_component(supplier_id, component_data):
                                                                                                                      
   return None
 
-def edit_component_commodity_task():
+def edit_component_commodity_task(supplier_id, component_data):
+  company_id = get_company_id()
+  components = app_tables.components.get(company_id=company_id ,supplier_id=supplier_id, component_id=component_data['component_id']).update(
+    
+      item_name=component_data['item_name'],
+      sku=component_data['sku'],
+      description=component_data['description'],
+      item_cost=component_data['item_cost'],
+      unit_measurement=component_data['unit_measurement'],
+      commodity_measurement=component_data['commodity_measurement'],
+      order_minimun=component_data['order_minimum'],
+      minimum_order_cost=component_data['minimum_order_cost'],
+      low_stock_alert=component_data['low_stock_alert'],
+      commodity_id=component_data['commodity_id'],
+      commodity_name=component_data['commodity_name'],
+      commodity_amount=component_data['commodity_amount'],
+      commodity_price=component_data['commodity_price'],
+    
+  )
   
   return
 
@@ -302,3 +321,35 @@ def get_commodities(supplier_id):
   company_id = get_company_id()
   commodities = app_tables.commodity.search(company_id=company_id, supplier_id=supplier_id)
   return commodities
+
+
+
+#-------------------- Update Commodity Price  ----------------------
+@anvil.server.callable
+def update_commodity_price(supplier_id, comm_id, price):
+  company_id = get_company_id()
+  date = datetime.now().date()
+  app_tables.commodity.get(company_id=company_id, supplier_id=supplier_id,commodity_id=comm_id).update(commodity_price=price, date_updated=date)
+  update_all_commodity_prices(company_id, supplier_id, comm_id)
+  
+  
+  return
+
+def update_all_commodity_prices(company_id, supplier_id, comm_id):
+  component = app_tables.components.search(company_id=company_id, supplier_id=supplier_id, commodity_id=comm_id)
+  
+  commodity = app_tables.commodity.get(company_id=company_id, supplier_id=supplier_id, commodity_id=comm_id)
+  comm_price = commodity['commodity_price']
+  
+  for comm in component:
+    comm_amount = comm['commodity_amount']
+    new_comm_price = comm_price * comm_amount
+    minimum_order = comm['order_minimun']
+    new_order_price = minimum_order * new_comm_price
+    
+
+    
+    comm.update(commodity_price=new_comm_price, item_cost=new_comm_price, minimum_order_cost=new_order_price)
+    
+  return
+

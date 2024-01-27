@@ -10,24 +10,27 @@ components:
     properties: {}
     type: Label
     layout_properties: {grid_position: 'CUPMXK,CAOWGX'}
-  - name: price_link
-    properties: {}
-    type: Link
-    layout_properties: {grid_position: 'CUPMXK,RUEFZG'}
-    components:
-    - name: price_lbl
-      properties: {}
-      type: Label
-      layout_properties: {grid_position: 'HIANSA,XNXBUE'}
   - name: amount_lbl
-    properties: {}
+    properties: {align: center}
     type: Label
     layout_properties: {grid_position: 'CUPMXK,XQQRCR'}
   - name: measurement_lbl
-    properties: {}
+    properties: {align: center}
     type: Label
     layout_properties: {grid_position: 'CUPMXK,YJPXXQ'}
+  - name: price_link
+    properties: {role: selected}
+    type: Link
+    layout_properties: {grid_position: 'CUPMXK,QPVIGM'}
+    components:
+    - name: price_lbl
+      properties: {bold: true, align: center}
+      type: Label
+      layout_properties: {grid_position: 'SGTHYI,RETGVR'}
+    event_bindings: {click: price_link_click}
+    data_bindings:
+    - {property: border, code: '', writeback: false}
   - name: updated_lbl
-    properties: {}
+    properties: {align: center}
     type: Label
     layout_properties: {grid_position: 'CUPMXK,TPXVFD'}

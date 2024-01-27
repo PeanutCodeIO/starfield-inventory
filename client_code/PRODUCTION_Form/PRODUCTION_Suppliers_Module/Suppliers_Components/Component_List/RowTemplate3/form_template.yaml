@@ -1,0 +1,7 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: details_link
+  properties: {text: Click Here}
+  type: Link
+  layout_properties: {column: THHKMY}

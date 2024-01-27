@@ -19,6 +19,9 @@ class Component_List(Component_ListTemplate):
     components = component_cache.get_supplier_components(supplier_id)
     self.component_repeating_panel.items = components
 
+    self.repeating_panel_1.items = components
+    
+
   def search_text_box_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     search_term = self.search_text_box.text.lower()
@@ -36,6 +39,7 @@ class Component_List(Component_ListTemplate):
       ]
 
     self.component_repeating_panel.items = filtered_component
+    self.repeating_panel_1.items = filtered_component
     
     pass
 
