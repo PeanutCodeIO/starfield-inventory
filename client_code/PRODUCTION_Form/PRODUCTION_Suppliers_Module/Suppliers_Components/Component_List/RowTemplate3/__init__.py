@@ -14,6 +14,7 @@ class RowTemplate3(RowTemplate3Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    self.item_link.text = self.item['item_name']
 
   def details_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -23,4 +24,13 @@ class RowTemplate3(RowTemplate3Template):
 
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Edit_Component', supplier_id, cmpt_id, switch)
     
+    pass
+
+  def item_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    supplier_id = self.item['supplier_id']
+    cmpt_id = self.item['component_id']
+    switch = self.item['is_commodity']
+
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components.Edit_Component', supplier_id, cmpt_id, switch)
     pass

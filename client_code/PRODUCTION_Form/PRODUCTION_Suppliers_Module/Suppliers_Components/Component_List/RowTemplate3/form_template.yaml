@@ -4,7 +4,7 @@ container:
   properties: {align: left}
 components:
 - name: details_link
-  properties: {text: Click Here, icon: 'fa:arrow-circle-o-right'}
+  properties: {text: VIEW, icon: ''}
   type: Link
   layout_properties: {column: THHKMY}
   event_bindings: {click: details_link_click}
@@ -12,3 +12,8 @@ components:
   properties: {text: ''}
   type: CheckBox
   layout_properties: {column: WMRCAH}
+- name: item_link
+  properties: {}
+  type: Link
+  layout_properties: {column: TYCYGD}
+  event_bindings: {click: item_link_click}

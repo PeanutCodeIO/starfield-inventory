@@ -37,7 +37,7 @@ components:
     - {id: HTDDGU, data_key: low_stock_alert, title: Stock Alert, width: 140.5103759765625,
       expand: false}
     - {id: THHKMY, data_key: column_1, title: Details}
-    rows_per_page: 5
+    rows_per_page: 10
   type: DataGrid
   components:
   - name: components_repeating_panel

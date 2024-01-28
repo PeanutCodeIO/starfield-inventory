@@ -2,7 +2,13 @@ is_package: true
 container: {type: DataRowPanel}
 components:
 - name: form_link
-  properties: {visible: true, text: Click here}
+  properties: {visible: true, text: VIEW, align: left}
   type: Link
   layout_properties: {column: LSZTUK}
   event_bindings: {click: form_link_click}
+  components: []
+- name: po_link
+  properties: {}
+  type: Link
+  layout_properties: {column: KHQXFO}
+  event_bindings: {click: po_link_click}
