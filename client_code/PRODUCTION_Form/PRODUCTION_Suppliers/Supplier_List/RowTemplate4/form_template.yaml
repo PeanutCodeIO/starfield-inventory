@@ -6,10 +6,6 @@ components:
   type: Link
   layout_properties: {column: PBPOBW}
   event_bindings: {click: details_link_click}
-- name: check_box
-  properties: {text: '', align: center}
-  type: CheckBox
-  layout_properties: {column: GTYVUW}
 - name: business_name_link
   properties: {}
   type: Link

@@ -17,6 +17,11 @@ components:
     properties: {text: SUPPLIER DETAILS}
     type: Link
     layout_properties: {grid_position: 'ARDXVN,AGZINX'}
+  - name: po_link
+    properties: {text: PURCHASE ORDERS}
+    type: Link
+    layout_properties: {grid_position: 'PYLCVE,ZEGCVN'}
+    event_bindings: {click: po_link_click}
   - name: components_link
     properties: {text: COMPONENTS, visible: true}
     type: Link
@@ -41,10 +46,11 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: po_button
-    properties: {text: PURCHASE ORDERS, role: outlined-button, visible: true, enabled: true,
+    properties: {text: PURCHASE ORDERS, role: outlined-button, visible: false, enabled: true,
       align: left}
     type: Button
     event_bindings: {click: po_button_click}
+    layout_properties: {}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer

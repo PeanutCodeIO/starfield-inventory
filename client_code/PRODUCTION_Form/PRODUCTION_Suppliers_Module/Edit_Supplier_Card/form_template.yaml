@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"WNIHUH":45,"JALWNI":23,"ZRUEDM":15,"KNSIZA":45,"WQOKDJ":15,"IMAYGO":45,"QJRTMI":15,"SVZLHV":45,"KJBCNH":15,"XVSVKX":45,"QUXJKM":15,"QZXQLE":45,"TUNWEX":15,"ASXLXT":45,"ISVXUI":15,"BDPMBO":45,"KFSXMU":15,"NVUSLT":45,"OVXRXV":12}',
     spacing_below: small, background: ''}
   type: ColumnPanel

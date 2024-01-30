@@ -38,4 +38,5 @@ def get_unit_list():
     return __unit_list
   else:
     __unit_list = anvil.server.call('get_unit_list')
+    return __unit_list
 

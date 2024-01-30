@@ -33,7 +33,6 @@ components:
     - {id: UCQGIV, data_key: sku, title: SKU}
     - {id: GBHWWD, data_key: item_cost, title: Cost}
     - {id: VTFSOZ, data_key: order_minimun, title: Minimum Order}
-    - {id: FITGLC, data_key: minimum_order_cost, title: Order Cost}
     - {id: HTDDGU, data_key: low_stock_alert, title: Stock Alert, width: 140.5103759765625,
       expand: false}
     - {id: THHKMY, data_key: column_1, title: Details}

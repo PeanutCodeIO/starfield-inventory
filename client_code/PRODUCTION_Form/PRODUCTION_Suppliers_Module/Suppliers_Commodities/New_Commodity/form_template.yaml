@@ -27,15 +27,15 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'SUMKQJ,SIBXLP'}
   - name: label_3
-    properties: {text: Measurement}
+    properties: {text: 'Priced By:'}
     type: Label
     layout_properties: {grid_position: 'SLWLFQ,MKBRNX'}
   - name: quantity_tb
-    properties: {placeholder: Amount}
+    properties: {placeholder: 'Enter quantity:'}
     type: TextBox
     layout_properties: {grid_position: 'SLWLFQ,CZDTQL'}
   - name: measurement_dd
-    properties: {include_placeholder: true, placeholder: Measurement}
+    properties: {include_placeholder: true, placeholder: 'Units:'}
     type: DropDown
     layout_properties: {grid_position: 'SLWLFQ,KMENXX'}
   - name: label_4

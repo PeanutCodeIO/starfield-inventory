@@ -22,6 +22,8 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
     cmpt = Component_List(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
+    self.cmpt_list_link.visible = False
+    
 
   def add_cmpt_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -33,6 +35,7 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
     cmpt = Import_Card(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
+    self.cmpt_list_link.visible = True
     pass
 
   def exit_link_click(self, **event_args):
@@ -43,6 +46,7 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
 
   def cmpt_list_link_click(self, **event_args):
     """This method is called when the link is clicked"""
+    self.cmpt_list_link.visible = False
     cmpt = Component_List(self.supplier_id)
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)

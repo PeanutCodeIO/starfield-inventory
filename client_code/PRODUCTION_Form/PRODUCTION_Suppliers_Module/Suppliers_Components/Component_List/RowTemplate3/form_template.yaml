@@ -8,10 +8,6 @@ components:
   type: Link
   layout_properties: {column: THHKMY}
   event_bindings: {click: details_link_click}
-- name: check_box
-  properties: {text: ''}
-  type: CheckBox
-  layout_properties: {column: WMRCAH}
 - name: item_link
   properties: {}
   type: Link

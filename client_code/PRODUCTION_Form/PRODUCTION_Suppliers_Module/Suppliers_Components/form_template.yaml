@@ -33,7 +33,7 @@ components:
     layout_properties: {grid_position: 'LUQLQB,UEWDDJ'}
     event_bindings: {click: cmpt_list_link_click}
   - name: comm_link
-    properties: {text: COMMODITY}
+    properties: {text: ADD COMMODITY, align: left, icon: 'fa:plus-circle'}
     type: Link
     layout_properties: {grid_position: 'SPFWFH,FBSKID'}
     event_bindings: {click: comm_link_click}

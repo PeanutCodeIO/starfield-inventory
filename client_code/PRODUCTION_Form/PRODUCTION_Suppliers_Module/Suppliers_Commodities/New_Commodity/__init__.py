@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..... import component_cache
+from ..... import main_functions_cache
 
 class New_Commodity(New_CommodityTemplate):
   def __init__(self, supplier_id = None, **properties):
@@ -16,27 +17,9 @@ class New_Commodity(New_CommodityTemplate):
     self.supplier_id = supplier_id
 
     # Any code you write here will run before the form opens.
-    measurements = [
-    "Millimeters",
-    "Centimeters",
-    "Meters",
-    "Milligrams",
-    "Grams",
-    "Kilograms",
-    "Tonnes",
-    "Milliliters",
-    "Liters",
-    "Cubic meters",
-    "Square meters",
-    "Pieces",
-    "Units",
-    "Packs",
-    "Boxes",
-    "Sheets",
-    "Rolls",
-    "Length"
-    ]
-    self.measurement_dd.items = measurements
+    units = main_functions_cache.get_unit_list()
+    unit_items = [(unit['unit'], unit['unit_id']) for unit in units]
+    self.measurement_dd.items = unit_items
 
   def close_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -47,7 +30,9 @@ class New_Commodity(New_CommodityTemplate):
     """This method is called when the button is clicked"""
     commodity = self.commodity_tb.text
     amount_text = self.quantity_tb.text
+    
     measurement = self.measurement_dd.selected_value
+      
     price_text = self.price_tb.text
 
     # Validate that all fields are filled
@@ -69,7 +54,7 @@ class New_Commodity(New_CommodityTemplate):
         "supplier_id": self.supplier_id,
         "commodity_name": commodity,
         "commodity_amount": amount,
-        "commodity_measurement": measurement,
+        "commodity_measurement_id": measurement,
         "commodity_price": price,
         "measurement_price": measurement_price
     }

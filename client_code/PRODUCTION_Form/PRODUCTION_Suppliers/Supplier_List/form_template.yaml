@@ -23,7 +23,6 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: GTYVUW, data_key: column_1, title: '', expand: false, width: 29.9478759765625}
       - {id: SXEZCI, data_key: business_name, title: 'Business Name:', width: 249.69268798828125,
         expand: false}
       - {id: FCVKDK, data_key: contact, title: 'Contact:', width: 150.4322509765625,

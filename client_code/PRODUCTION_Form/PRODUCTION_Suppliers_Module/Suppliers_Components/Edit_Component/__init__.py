@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..... import component_cache
+from ..... import main_functions_cache
 
 class Edit_Component(Edit_ComponentTemplate):
   def __init__(self,supplier_id = None, cmpt_id = None, switch = None, **properties):
@@ -18,6 +19,11 @@ class Edit_Component(Edit_ComponentTemplate):
     
 
     # Any code you write here will run before the form opens.
+    units = main_functions_cache.get_unit_list()
+    unit_items = [(unit['unit'], unit['unit_id']) for unit in units]
+    self.drop_down_primary_unit.items = unit_items
+    
+    
     if switch != True:
       self.commodity_card.visible = False
       component_data = component_cache.get_component_data(supplier_id, cmpt_id)
@@ -35,7 +41,7 @@ class Edit_Component(Edit_ComponentTemplate):
       self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
       self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
   
-  
+      '''
       measurements = [
       "Millimeters",
       "Centimeters",
@@ -57,6 +63,7 @@ class Edit_Component(Edit_ComponentTemplate):
       "Length"
       ]
       self.drop_down_primary_unit.items = measurements
+      '''
     else:
       self.commodity_card.visible = True
       component_data = component_cache.get_component_data(supplier_id, cmpt_id)
@@ -83,7 +90,7 @@ class Edit_Component(Edit_ComponentTemplate):
       self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
       self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
   
-  
+      '''
       measurements = [
       "Millimeters",
       "Centimeters",
@@ -105,6 +112,7 @@ class Edit_Component(Edit_ComponentTemplate):
       "Length"
       ]
       self.drop_down_primary_unit.items = measurements
+      '''
 
 
 
@@ -229,7 +237,7 @@ class Edit_Component(Edit_ComponentTemplate):
           "commodity_name":com_name,
           "commodity_amount": float(self.amount_tb.text),
           "commodity_price":float(self.price_tb.text),
-          "unit_measurement": "Units",
+          "unit_measurement": "Unit",
           "commodity_measurement": com_measurement,
           "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
           "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
@@ -288,12 +296,18 @@ class Edit_Component(Edit_ComponentTemplate):
         
 
     # Ensure text box values are treated as strings and handle empty or non-numeric input
-    amount_text = str(self.amount_tb.text)
-    amount = float(amount_text) if amount_text.strip() else 0.0
-
+    amount_text = str(self.amount_tb.text).strip()
+    
+    # Attempt to convert the text to a float, defaulting to 0.0 in case of an error
+    try:
+        amount = float(amount_text)
+    except ValueError:
+        amount = 0.0
+    
     # Calculate and display the price
     calculated_price = amount * price
     self.price_tb.text = "{:.2f}".format(calculated_price)
+
 
     # Update the item cost
     unit_price = calculated_price  # Directly use the calculated price

@@ -19,6 +19,7 @@ class PRODUCTION_Suppliers(PRODUCTION_SuppliersTemplate):
     cmpt = Supplier_List()
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
+    self.suppliers_list_link.visible = False
     
   
   def new_supplier_button_click(self, **event_args):
@@ -28,6 +29,7 @@ class PRODUCTION_Suppliers(PRODUCTION_SuppliersTemplate):
 
   def suppliers_list_link_click(self, **event_args):
     """This method is called when the link is clicked"""
+    self.suppliers_list_link.visible = False
     cmpt = Supplier_List()
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
@@ -35,6 +37,7 @@ class PRODUCTION_Suppliers(PRODUCTION_SuppliersTemplate):
 
   def import_button_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.suppliers_list_link.visible = True
     cmpt = Import_Card()
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)

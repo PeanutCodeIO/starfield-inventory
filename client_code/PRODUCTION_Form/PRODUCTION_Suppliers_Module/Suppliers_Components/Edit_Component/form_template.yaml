@@ -74,7 +74,7 @@ components:
     layout_properties: {grid_position: 'HSNJZZ,TZBXZG'}
     components:
     - name: commodity_card
-      properties: {role: null, col_widths: '{"ZZZEDL":10,"WZJCAU":50,"LOAYXT":10,"WNOIMK":10,"KTRTVQ":10,"OVZXJC":10,"SCQKQO":10,"KIUBIK":10}'}
+      properties: {role: null, col_widths: '{"ZZZEDL":20,"WZJCAU":40}'}
       type: ColumnPanel
       layout_properties: {grid_position: 'ZLXDTX,RNLSAX'}
       components:
@@ -90,34 +90,34 @@ components:
         properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
             Container'}
         type: TextBox
-        layout_properties: {grid_position: 'SJOTPD,WZJCAU'}
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU XLIQYV,IPFGWU'}
       - name: label_10
         properties: {text: 'Amount:'}
         type: Label
-        layout_properties: {grid_position: 'CUYQBQ,LOAYXT'}
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU FXADHZ,YVQHWR'}
       - name: amount_tb
         properties: {role: outlined}
         type: TextBox
-        layout_properties: {grid_position: 'CUYQBQ,WNOIMK'}
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU FXADHZ,WIUKGQ'}
         event_bindings: {change: amount_tb_change}
       - name: label_11
-        properties: {text: Measurement}
+        properties: {text: Measurement, spacing_above: medium}
         type: Label
-        layout_properties: {grid_position: 'CUYQBQ,KTRTVQ'}
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU AOTINM,IBOVPB WDGEXX,ABTKLU'}
+      - name: label_13
+        properties: {text: 'Price:', spacing_above: medium}
+        type: Label
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU AOTINM,IBOVPB ABOTMR,KVCSKN'}
       - name: measurement_tb
         properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
             Container'}
         type: TextBox
-        layout_properties: {grid_position: 'CUYQBQ,OVZXJC'}
-      - name: label_13
-        properties: {text: 'Price:'}
-        type: Label
-        layout_properties: {grid_position: 'CUYQBQ,SCQKQO'}
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU AOTINM,HYPHEP FUYPJK,CTPAEV'}
       - name: price_tb
         properties: {role: outlined, enabled: false, foreground: 'theme:On Primary
             Container'}
         type: TextBox
-        layout_properties: {grid_position: 'CUYQBQ,KIUBIK'}
+        layout_properties: {grid_position: 'SJOTPD,WZJCAU AOTINM,HYPHEP SCWHAR,TGYYUD'}
     - name: spacer_2
       properties: {height: 32}
       type: Spacer
@@ -182,13 +182,13 @@ components:
       event_bindings: {change: text_box_order_minimum_change}
     - name: label_5
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Minimum Order Cost:', font_size: null, font: '', spacing_above: none,
+        visible: false, text: 'Minimum Order Cost:', font_size: null, font: '', spacing_above: none,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'KCAIXO,QJFYQI'}
     - name: minimum_order_cost
-      properties: {role: outlined, enabled: false, foreground: 'theme:Primary'}
+      properties: {role: outlined, enabled: false, foreground: 'theme:Primary', visible: false}
       type: TextBox
       layout_properties: {grid_position: 'KCAIXO,TQSHFT'}
     - name: label_12

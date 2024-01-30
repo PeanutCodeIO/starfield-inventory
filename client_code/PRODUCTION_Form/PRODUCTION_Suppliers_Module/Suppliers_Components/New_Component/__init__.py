@@ -24,29 +24,9 @@ class New_Component(New_ComponentTemplate):
     self.minimum_order_cost.text = "0"
 
     units = main_functions_cache.get_unit_list()
-    
+    unit_items = [(unit['unit'], unit['unit_id']) for unit in units]
+    self.drop_down_primary_unit.items = unit_items
 
-    measurements = [
-    "Millimeters",
-    "Centimeters",
-    "Meters",
-    "Milligrams",
-    "Grams",
-    "Kilograms",
-    "Tonnes",
-    "Milliliters",
-    "Liters",
-    "Cubic meters",
-    "Square meters",
-    "Pieces",
-    "Units",
-    "Packs",
-    "Boxes",
-    "Sheets",
-    "Rolls",
-    "Length"
-    ]
-    self.drop_down_primary_unit.items = measurements
 
   def close_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -104,12 +84,13 @@ class New_Component(New_ComponentTemplate):
 
     if self.no_radio.selected:
     # Create a dictionary with all the new fields
+    
       component_data = {
           "supplier_id": self.supplier_id,
           "item_name": self.text_box_component.text,
           "sku": self.text_box_sku.text,
           "description": self.text_area_description.text,
-          "unit_measurement": self.drop_down_primary_unit.selected_value,
+          "unit_measurement_id": self.drop_down_primary_unit.selected_value,
           "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
           "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
           "minimum_order_cost": float(self.minimum_order_cost.text) if self.minimum_order_cost.text else 0.0 ,
@@ -117,7 +98,7 @@ class New_Component(New_ComponentTemplate):
       }
   
       # Check if the mandatory fields are filled
-      mandatory_fields = ["item_name", "description", "unit_measurement"]
+      mandatory_fields = ["item_name", "description", "unit_measurement_id"]
   
       for field in mandatory_fields:
           if not component_data[field]:
@@ -160,7 +141,7 @@ class New_Component(New_ComponentTemplate):
           "commodity_name":com_name,
           "commodity_amount": float(self.amount_tb.text),
           "commodity_price":float(self.price_tb.text),
-          "unit_measurement": "Units",
+          "unit_measurement": "Unit",
           "commodity_measurement": com_measurement,
           "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
           "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
@@ -228,7 +209,7 @@ class New_Component(New_ComponentTemplate):
         self.measurement_tb.text = measurement
 
         t = TextBox(placeholder="Enter Measurement")
-        n = anvil.alert(content=t, title=f"Please enter the amount of {commodity_name} in {measurement} for this component", buttons=[("Enter", True), ("Cancel", False)])
+        n = anvil.alert(content=t, title=f"How many {measurement} of {commodity_name} are in this component", buttons=[("Enter", True), ("Cancel", False)])
         if n:
             measurement_price = float(selected_commodity['measurement_price'])
             entered_measurement = float(t.text)
@@ -240,7 +221,12 @@ class New_Component(New_ComponentTemplate):
             self.text_box_item_cost.enabled = False
             self.text_box_item_cost.text = "{:.2f}".format(float(self.price_tb.text))
 
-            self.drop_down_primary_unit.selected_value = "Units"
+            units = main_functions_cache.get_unit_list()
+            unit_items = [("Unit", "Unit")]  # Adding "Unit" as a default item
+            unit_items += [(unit['unit'], unit['unit_id']) for unit in units]
+            self.drop_down_primary_unit.items = unit_items
+
+            self.drop_down_primary_unit.selected_value = "Unit"
             self.drop_down_primary_unit.enabled = False
 
     
@@ -254,6 +240,7 @@ class New_Component(New_ComponentTemplate):
 
     
     pass
+
 
   
 
