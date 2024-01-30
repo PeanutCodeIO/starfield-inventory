@@ -310,9 +310,6 @@ db_schema:
     - name: commodity_measurement
       admin_ui: {order: 9.75, width: 200}
       type: string
-    - name: unit_measurement_id
-      admin_ui: {order: 4, width: 200}
-      type: number
     title: Components
   system_units:
     client: none

@@ -24,8 +24,7 @@ class New_Component(New_ComponentTemplate):
     self.minimum_order_cost.text = "0"
 
     units = main_functions_cache.get_unit_list()
-    unit_items = [(unit['unit'], unit['unit_id']) for unit in units]
-    self.drop_down_primary_unit.items = unit_items
+    self.drop_down_primary_unit.items = units
 
 
   def close_button_click(self, **event_args):
@@ -90,7 +89,7 @@ class New_Component(New_ComponentTemplate):
           "item_name": self.text_box_component.text,
           "sku": self.text_box_sku.text,
           "description": self.text_area_description.text,
-          "unit_measurement_id": self.drop_down_primary_unit.selected_value,
+          "unit_measurement": self.drop_down_primary_unit.selected_value,
           "order_minimum": float(self.text_box_order_minimum.text) if self.text_box_order_minimum.text else 0.0,
           "item_cost": float(self.text_box_item_cost.text) if self.text_box_item_cost.text else 0.0,
           "minimum_order_cost": float(self.minimum_order_cost.text) if self.minimum_order_cost.text else 0.0 ,
@@ -98,7 +97,7 @@ class New_Component(New_ComponentTemplate):
       }
   
       # Check if the mandatory fields are filled
-      mandatory_fields = ["item_name", "description", "unit_measurement_id"]
+      mandatory_fields = ["item_name", "description", "unit_measurement"]
   
       for field in mandatory_fields:
           if not component_data[field]:
@@ -222,9 +221,7 @@ class New_Component(New_ComponentTemplate):
             self.text_box_item_cost.text = "{:.2f}".format(float(self.price_tb.text))
 
             units = main_functions_cache.get_unit_list()
-            unit_items = [("Unit", "Unit")]  # Adding "Unit" as a default item
-            unit_items += [(unit['unit'], unit['unit_id']) for unit in units]
-            self.drop_down_primary_unit.items = unit_items
+            self.drop_down_primary_unit.items = units
 
             self.drop_down_primary_unit.selected_value = "Unit"
             self.drop_down_primary_unit.enabled = False

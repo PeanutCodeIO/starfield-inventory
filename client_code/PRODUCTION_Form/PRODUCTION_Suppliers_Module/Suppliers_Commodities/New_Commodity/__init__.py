@@ -18,8 +18,7 @@ class New_Commodity(New_CommodityTemplate):
 
     # Any code you write here will run before the form opens.
     units = main_functions_cache.get_unit_list()
-    unit_items = [(unit['unit'], unit['unit_id']) for unit in units]
-    self.measurement_dd.items = unit_items
+    self.measurement_dd.items = units
 
   def close_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -54,7 +53,7 @@ class New_Commodity(New_CommodityTemplate):
         "supplier_id": self.supplier_id,
         "commodity_name": commodity,
         "commodity_amount": amount,
-        "commodity_measurement_id": measurement,
+        "commodity_measurement": measurement,
         "commodity_price": price,
         "measurement_price": measurement_price
     }

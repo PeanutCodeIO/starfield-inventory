@@ -20,7 +20,13 @@ def get_company_id():
 
 @anvil.server.callable
 def get_unit_list():
-  return app_tables.system_units.search()
+    units = app_tables.system_units.search()
+    unit_list = []
+    for unit in units:
+        unit_list.append(unit['unit'])  # Correct usage of append
+    
+    return unit_list
+
 
 
 #-------------------- Auto Increment New Component  ----------------------
@@ -97,9 +103,6 @@ def save_new_component(component_data, switch):
   for key in ['sku', 'description']:
       if not component_data.get(key):
           component_data[key] = "No Data"
-
-  meaurement = app_tables.system_units.get(unit_id=component_data['unit_measurement_id'])
-  unit_name = meaurement['unit']
   
   
   # Add a new row to the components table
@@ -111,8 +114,7 @@ def save_new_component(component_data, switch):
       sku=component_data['sku'],
       description=component_data['description'],
       item_cost=component_data['item_cost'],
-      unit_measurement=unit_name,
-      unit_measurement_id=meaurement,
+      unit_measurement=component_data['unit_measurement'],
       order_minimun=component_data['order_minimum'],
       minimum_order_cost=component_data['minimum_order_cost'],
       low_stock_alert=component_data['low_stock_alert'],
@@ -323,11 +325,6 @@ def save_commodity(data):
   data['company_id'] = company_id
   data['commodity_id'] = commodity_id
   data['date_updated'] = date
-
-  measurement = app_tables.system_units.get(unit_id=data['commodity_measurement_id'])
-  unit_name = measurement['unit']
-
-  data['commodity_measurement'] = unit_name
 
   app_tables.commodity.add_row(**data)
   return

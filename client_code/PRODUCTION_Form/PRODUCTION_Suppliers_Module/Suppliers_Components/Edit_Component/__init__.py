@@ -20,8 +20,7 @@ class Edit_Component(Edit_ComponentTemplate):
 
     # Any code you write here will run before the form opens.
     units = main_functions_cache.get_unit_list()
-    unit_items = [(unit['unit'], unit['unit_id']) for unit in units]
-    self.drop_down_primary_unit.items = unit_items
+    self.drop_down_primary_unit.items = units
     
     
     if switch != True:
@@ -40,34 +39,10 @@ class Edit_Component(Edit_ComponentTemplate):
       self.text_box_item_cost.text = "{:.2f}".format(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
       self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
       self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
-  
-      '''
-      measurements = [
-      "Millimeters",
-      "Centimeters",
-      "Meters",
-      "Milligrams",
-      "Grams",
-      "Kilograms",
-      "Tonnes",
-      "Milliliters",
-      "Liters",
-      "Cubic meters",
-      "Square meters",
-      "Pieces",
-      "Units",
-      "Packs",
-      "Boxes",
-      "Sheets",
-      "Rolls",
-      "Length"
-      ]
-      self.drop_down_primary_unit.items = measurements
-      '''
+
     else:
       self.commodity_card.visible = True
       component_data = component_cache.get_component_data(supplier_id, cmpt_id)
-      print(component_data)
   
       # Set the text for each textbox, with a check for None values or empty strings
       self.text_box_component.text = component_data['item_name'] if component_data['item_name'] else "No Data"
@@ -89,41 +64,14 @@ class Edit_Component(Edit_ComponentTemplate):
       self.text_box_item_cost.text = "{:.2f}".format(component_data['item_cost']) if component_data['item_cost'] is not None else "0.0"
       self.minimum_order_cost.text = str(component_data['minimum_order_cost']) if component_data['minimum_order_cost'] is not None else "0.0"
       self.text_box_stock_alert.text = str(component_data['low_stock_alert']) if component_data['low_stock_alert'] is not None else "0.0"
-  
-      '''
-      measurements = [
-      "Millimeters",
-      "Centimeters",
-      "Meters",
-      "Milligrams",
-      "Grams",
-      "Kilograms",
-      "Tonnes",
-      "Milliliters",
-      "Liters",
-      "Cubic meters",
-      "Square meters",
-      "Pieces",
-      "Units",
-      "Packs",
-      "Boxes",
-      "Sheets",
-      "Rolls",
-      "Length"
-      ]
-      self.drop_down_primary_unit.items = measurements
-      '''
-
-
-
       return 
+
+
+  
   def close_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
     pass
-
-
-
 
   
   def text_box_item_cost_change(self, **event_args):
@@ -261,9 +209,6 @@ class Edit_Component(Edit_ComponentTemplate):
       component_cache.refresh_supplier_components()
   
       open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
-
-      
-      
 
       return 
     pass
