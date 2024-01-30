@@ -14,6 +14,7 @@ class User_Form(User_FormTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    #hello world
 
   def save_button_click(self, **event_args):
     """This method is called when the button is clicked"""
