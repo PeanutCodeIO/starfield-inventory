@@ -16,6 +16,12 @@ def get_company_id():
   user = anvil.users.get_user()
   return user['company_id']
 
+#-------------------- GET UNITS #--------------------
+
+@anvil.server.callable
+def get_unit_list():
+  return app_tables.system_units.search()
+
 
 #-------------------- Auto Increment New Component  ----------------------
 

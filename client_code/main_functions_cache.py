@@ -9,7 +9,8 @@ from . import component_cache
 from . import supplier_cache
 
 
-#====== LOGOUT AND CLEAR ALL CACHES
+
+#--------------------LOGOUT AND CLEAR ALL CACHES --------------------
 def clear_all_caches():
   global __company_name
   __company_name = [] 
@@ -17,6 +18,7 @@ def clear_all_caches():
   supplier_cache.clear_all_caches() #Suppliers Cache
 
 
+#-------------------- GET COMPANY NAME #--------------------
 __company_name = []
 def get_company_name():
   global __company_name
@@ -27,4 +29,13 @@ def get_company_name():
     return __company_name
 
 
+#-------------------- GET UNITS #--------------------
+__unit_list = []
+
+def get_unit_list():
+  global __unit_list
+  if __unit_list:
+    return __unit_list
+  else:
+    __unit_list = anvil.server.call('get_unit_list')
 

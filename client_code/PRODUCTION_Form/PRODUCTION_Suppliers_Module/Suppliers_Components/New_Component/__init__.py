@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..... import component_cache
+from ..... import main_functions_cache
 
 class New_Component(New_ComponentTemplate):
   def __init__(self,supplier_id = None, **properties):
@@ -21,6 +22,9 @@ class New_Component(New_ComponentTemplate):
     self.text_box_item_cost.text = "0"
     self.text_box_order_minimum.text = "0"
     self.minimum_order_cost.text = "0"
+
+    units = main_functions_cache.get_unit_list()
+    
 
     measurements = [
     "Millimeters",

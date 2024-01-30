@@ -10,7 +10,11 @@ from anvil.tables import app_tables
 def clear_all_caches():
   global __supplier_components
   __supplier_components = []
+
+
+    
   
+
 
 #======== GET COMPONENTS BY SUPPLIER
 __supplier_components = []
