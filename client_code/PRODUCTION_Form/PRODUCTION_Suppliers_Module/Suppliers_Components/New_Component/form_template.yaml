@@ -24,7 +24,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'ZFPEIS,PYAQGC'}
   - name: outlined_card_2
-    properties: {role: null, col_widths: '{"HIPISL":20,"GJLOSO":40,"BCBHIL":20,"OAATQE":40,"BFGVYX":20,"MFBRIG":40}'}
+    properties: {role: null, col_widths: '{"HIPISL":20,"GJLOSO":40}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'PTQKPY,FQJNGP'}
     components:
@@ -34,36 +34,22 @@ components:
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       type: Label
-      layout_properties: {grid_position: 'VOBNVN,HIPISL'}
-    - name: text_box_component
-      properties: {}
-      type: TextBox
-      layout_properties: {grid_position: 'VOBNVN,GJLOSO'}
+      layout_properties: {grid_position: 'VOBNVN,HIPISL ZYIWAY,NQUWVS'}
     - name: label_4
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Supplier Part Number / SKU:', font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: ''}
       type: Label
-      layout_properties: {grid_position: 'VWRYKE,BCBHIL'}
+      layout_properties: {grid_position: 'VOBNVN,HIPISL QWGWHB,LWMYJT'}
+    - name: text_box_component
+      properties: {}
+      type: TextBox
+      layout_properties: {grid_position: 'VOBNVN,GJLOSO ZJTHOV,EMZNOZ'}
     - name: text_box_sku
       properties: {}
       type: TextBox
-      layout_properties: {grid_position: 'VWRYKE,OAATQE'}
-    - name: label_7
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Tags / Keywords, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      type: Label
-      layout_properties: {grid_position: 'KOWUVN,BFGVYX'}
-    - name: text_area_description
-      properties: {role: null, align: left, height: '', tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        auto_expand: true, font: '', spacing_above: small, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
-      type: TextArea
-      layout_properties: {grid_position: 'KOWUVN,MFBRIG'}
+      layout_properties: {grid_position: 'VOBNVN,GJLOSO EMXMDQ,OBVBEE'}
   - name: label_8
     properties: {text: 'Is this component based on a base commodity price?'}
     type: Label
@@ -207,6 +193,25 @@ components:
       properties: {}
       type: TextBox
       layout_properties: {grid_position: 'XAQIIY,PBXEKR'}
+    - name: outlined_card_3
+      properties: {role: null, visible: true}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'ZNYVAD,YYXCOO'}
+      components:
+      - name: label_7
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Tags / Keywords, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        type: Label
+        layout_properties: {grid_position: 'QJIQXG,USHYHP'}
+      - name: text_area_description
+        properties: {role: null, align: left, height: '', tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          auto_expand: true, font: '', spacing_above: small, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false}
+        type: TextArea
+        layout_properties: {grid_position: 'RIBNKI,MFRIFW'}
     - name: button_save
       properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: SAVE, font_size: null, font: '', spacing_above: small,
