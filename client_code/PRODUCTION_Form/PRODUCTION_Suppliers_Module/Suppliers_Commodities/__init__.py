@@ -27,6 +27,6 @@ class Suppliers_Commodities(Suppliers_CommoditiesTemplate):
 
   def exit_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("PRODUCTION_Form.PRODUCTION_Suppliers_Module", self.supplier_id)
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Components', self.supplier_id)
     pass
     

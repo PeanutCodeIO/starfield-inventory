@@ -102,10 +102,6 @@ components:
         type: DropDown
         layout_properties: {grid_position: 'JOSUDT,ODWNFI'}
         event_bindings: {change: commodity_dd_change}
-      - name: spacer_2
-        properties: {height: 32}
-        type: Spacer
-        layout_properties: {grid_position: 'NEPVOH,BTFHAS'}
       - name: label_14
         properties: {text: 'Amount:'}
         type: Label

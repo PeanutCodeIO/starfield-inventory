@@ -10,11 +10,12 @@ import io
 import csv
 from datetime import datetime
 
-#===== GET COMPANY ID
+#-------------------- GET COMPANY ID ----------------------
 def get_company_id():
   return anvil.users.get_user()['company_id']
 
-#===== AUTO INCREMENT SUPPLIER IDS
+
+#-------------------- AUTO INCREMENT SUPPLIER IDS ----------------------
 def auto_increment_supplier_id():
     # Create a new supplier_id
     company_id = get_company_id()
@@ -28,21 +29,23 @@ def auto_increment_supplier_id():
     return next_supplier_id
 
 
-#===== GET COMAPANYS SUPPLIERS
+
+#-------------------- GET COMAPANYS SUPPLIERS ----------------------
 @anvil.server.callable
 def get_all_suppliers():
   company_id = get_company_id()
   return app_tables.suppliers.search(company_id=company_id)
 
 
-#____ Create a new supplier
+
+#-------------------- Create a new supplier ----------------------
 @anvil.server.callable
 def save_new_supplier(all_data):
     company_id = get_company_id()
     id = auto_increment_supplier_id()
     app_tables.suppliers.add_row(company_id=company_id, supplier_id=id, **all_data)
 
-#____ Edit a supplier
+#-------------------- Edit a supplier----------------------
 @anvil.server.callable
 def update_supplier_details(supplier_id, **data):
   company_id = get_company_id()

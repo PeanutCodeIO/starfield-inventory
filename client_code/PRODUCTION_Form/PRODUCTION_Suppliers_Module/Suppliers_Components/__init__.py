@@ -47,3 +47,8 @@ class Suppliers_Components(Suppliers_ComponentsTemplate):
     self.content_panel.clear()
     self.content_panel.add_component(cmpt)
     pass
+
+  def comm_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('PRODUCTION_Form.PRODUCTION_Suppliers_Module.Suppliers_Commodities', self.supplier_id)
+    pass

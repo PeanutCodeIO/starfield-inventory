@@ -32,6 +32,11 @@ components:
     type: Link
     layout_properties: {grid_position: 'LUQLQB,UEWDDJ'}
     event_bindings: {click: cmpt_list_link_click}
+  - name: comm_link
+    properties: {text: COMMODITY}
+    type: Link
+    layout_properties: {grid_position: 'SPFWFH,FBSKID'}
+    event_bindings: {click: comm_link_click}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
