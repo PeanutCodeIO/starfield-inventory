@@ -20,11 +20,12 @@ class User_Form(User_FormTemplate):
     company_name = self.company_name_text_box.text 
     first_name = self.first_name_textbox.text
     last_name = self.last_name_textbox.text
+    address = self.address_ta.text 
 
     if first_name == "" or last_name == "" or company_name == "":
       anvil.alert("Please fill all text fields")
     else:
-      anvil.server.call('new_company',company_name, first_name, last_name)
+      anvil.server.call('new_company',company_name, first_name, last_name,address )
       open_form('LANDING_Form')
 
     pass

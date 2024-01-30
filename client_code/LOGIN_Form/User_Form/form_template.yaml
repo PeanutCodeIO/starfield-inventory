@@ -29,6 +29,10 @@ components:
     properties: {placeholder: Enter Last Name}
     type: TextBox
     layout_properties: {grid_position: 'CMLZOZ,KAZPQY'}
+  - name: address_ta
+    properties: {text: Enter Address}
+    type: TextArea
+    layout_properties: {grid_position: 'ZHADFA,UAOGLM'}
   - name: save_button
     properties: {text: SAVE, role: outlined-button, align: right, bold: false}
     type: Button

@@ -32,7 +32,7 @@ def auto_increment_user_id():
 
 #===== GENERATE COMPANY NAME AND USER ADMIN
 @anvil.server.callable
-def new_company(company_name, first_name, last_name):
+def new_company(company_name, first_name, last_name, address):
     
   company_id = generate_unique_pin()
 
@@ -42,7 +42,7 @@ def new_company(company_name, first_name, last_name):
   email = user['email']
 
   app_tables.users.get(email=email).update(company_id=company_id,first_name=first_name, last_name=last_name, user_id=user_id, name_filled=True, is_admin=True)
-  app_tables.company.add_row(company_id=company_id, company_name=company_name)
+  app_tables.company.add_row(company_id=company_id, company_name=company_name, company_address=address)
   
   return company_id  # Return the unique company_id
 
