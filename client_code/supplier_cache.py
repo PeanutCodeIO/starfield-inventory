@@ -8,9 +8,10 @@ from anvil.tables import app_tables
 
 #-------------------- CLEAR ALL CACHES FOR LOGOUT ----------------------
 def clear_all_caches():
-  global __all_suppliers
+  global __all_suppliers, __po_components,  __purchase_orders
   __all_suppliers = []
-
+  __po_components = []
+  __purchase_orders = []
 
 #-------------------- SUPPLIER DATA ----------------------
 

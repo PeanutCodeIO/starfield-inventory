@@ -12,10 +12,14 @@ from . import supplier_cache
 
 #--------------------LOGOUT AND CLEAR ALL CACHES --------------------
 def clear_all_caches():
-  global __company_name
+  global __company_name, __unit_list
   __company_name = [] 
+  __unit_list = []
+  
   component_cache.clear_all_caches() #Components Cache
   supplier_cache.clear_all_caches() #Suppliers Cache
+
+
 
 
 #-------------------- GET COMPANY NAME #--------------------
